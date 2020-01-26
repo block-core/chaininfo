@@ -1,25 +1,24 @@
 {
-  "CoinTag": "CITY",
-  "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
-  "NetworkPubkeyAddressPrefix": 28,
-  "NetworkScriptAddressPrefix": 88,
-  "NetworkWitnessPrefix": "city",
-  "DatabaseNameSubfix": false,
-  "StoreRawTransactions": true,
-  "LogoUrl": "https://www.city-chain.org/images/icons/city-coin-128x128.png",
-  "CoinName": "City Chain",
-  "CoinInformation": "Powering the Smart City Platform",
-  "Indexer": {
-    "CoinTag": "CITY",
+  "Chain": {
+    "Name": "City Chain",
+    "Symbol": "CITY",
+    "Description": "Blockchain for Smart Cities",
+    "Url": "https://github.com/sonofsatoshi2020/xds",
+    "Logo": "https://www.city-chain.org/images/icons/city-coin-128x128.png",
+    "Icon": "https://www.city-chain.org/images/icons/city-coin-128x128.png"
+  },
+  "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
     "NetworkPubkeyAddressPrefix": 28,
     "NetworkScriptAddressPrefix": 88,
     "NetworkWitnessPrefix": "city",
+    "P2PPort": 4333,
+    "RPCPort": 4334,
+    "APIPort": 4335
+  },
+  "Indexer": {
     "DatabaseNameSubfix": false,
-    "StoreRawTransactions": true,
-    "LogoUrl": "https://www.city-chain.org/images/icons/city-coin-128x128.png",
-    "CoinName": "City Chain",
-    "CoinInformation": "Powering the Smart City Platform"
+    "StoreRawTransactions": true
   },
   "Explorer": {
     "Indexer": {
