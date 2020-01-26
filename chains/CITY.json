@@ -1,0 +1,49 @@
+{
+  "CoinTag": "CITY",
+  "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+  "NetworkPubkeyAddressPrefix": 28,
+  "NetworkScriptAddressPrefix": 88,
+  "NetworkWitnessPrefix": "city",
+  "DatabaseNameSubfix": false,
+  "StoreRawTransactions": true,
+  "LogoUrl": "https://www.city-chain.org/images/icons/city-coin-128x128.png",
+  "CoinName": "City Chain",
+  "CoinInformation": "Powering the Smart City Platform",
+  "Indexer": {
+    "CoinTag": "CITY",
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkPubkeyAddressPrefix": 28,
+    "NetworkScriptAddressPrefix": 88,
+    "NetworkWitnessPrefix": "city",
+    "DatabaseNameSubfix": false,
+    "StoreRawTransactions": true,
+    "LogoUrl": "https://www.city-chain.org/images/icons/city-coin-128x128.png",
+    "CoinName": "City Chain",
+    "CoinInformation": "Powering the Smart City Platform"
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "http://indexer.city-chain.org/api/"
+    },
+    "Ticker": {
+      "WebUrl": "https://p2pb2b.io/trade/CITY_BTC",
+      "ApiUrl": "https://p2pb2b.io/api/v1/public/ticker?market=CITY_BTC",
+      "PricePath": "result.last",
+      "PercentagePath": "result.change",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "City Chain Explorer",
+      "Chain": "City Chain",
+      "Coin": "CITY",
+      "Footer": "https://www.city-chain.org",
+      "Icon": "https://www.city-chain.org/images/icons/city-coin-128x128.png",
+      "DocumentationUrl": "https://citychain.gitbook.io/explorer/v/feature%252Fmultichain/index"
+    },
+    "Features": {
+      "Lottery": false,
+      "Vanity": false,
+      "Generator": false
+    }
+  }
+}

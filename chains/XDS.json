@@ -1,0 +1,33 @@
+{
+  "CoinTag": "XDS",
+  "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, NBitcoin",
+  "NetworkPubkeyAddressPrefix": 0,
+  "NetworkScriptAddressPrefix": 5,
+  "NetworkWitnessPrefix": "xds",
+  "Indexer": {
+    "DatabaseNameSubfix": true,
+    "StoreRawTransactions": true,
+    "LogoUrl": "",
+    "CoinName": "XDS",
+    "CoinInformation": "XDS"
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "http://localhost:9000/api/"
+    },
+    "Setup": {
+      "Title": "XDS Explorer",
+      "Chain": "XDS",
+      "Coin": "XDS",
+      "Footer": "",
+      "Icon": "",
+      "DocumentationUrl": ""
+    },
+    "Features": {
+      "Lottery": false,
+      "Vanity": false,
+      "Generator": false,
+      "Ticker": false
+    }
+  }
+}

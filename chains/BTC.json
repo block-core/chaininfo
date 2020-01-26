@@ -1,0 +1,20 @@
+{
+  "CoinTag": "BTC",
+  "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, NBitcoin", // (ConsensusFactory, PosConsensusFactory)
+  "NetworkPubkeyAddressPrefix": 0,
+  "NetworkScriptAddressPrefix": 5,
+  "NetworkWitnessPrefix": "bc",
+  "CoinName": "Bitcoin",
+  "MaxItemsInQueue": 1000,
+  "SyncInterval": 2,
+  "Indexer": {
+    "CoinTag": "BTC",
+    "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, NBitcoin", // (ConsensusFactory, PosConsensusFactory)
+    "NetworkPubkeyAddressPrefix": 0,
+    "NetworkScriptAddressPrefix": 5,
+    "NetworkWitnessPrefix": "bc",
+    "CoinName": "Bitcoin",
+    "MaxItemsInQueue": 1000,
+    "SyncInterval": 2
+  }
+}
