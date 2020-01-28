@@ -1,0 +1,21 @@
+{
+  "Chain": {
+    "Name": "Bitcoin",
+    "Symbol": "BTC",
+    "Description": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+    "Url": "https://github.com/bitcoin/bitcoin",
+    "Logo": "",
+    "Icon": ""
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, NBitcoin",
+    "NetworkPubkeyAddressPrefix": 0,
+    "NetworkScriptAddressPrefix": 5,
+    "NetworkWitnessPrefix": "bc"
+  },
+  "Indexer": {
+    "StoreRawTransactions": false,
+    "MaxItemsInQueue": 1000,
+    "SyncInterval": 2
+  }
+}

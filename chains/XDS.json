@@ -1,0 +1,40 @@
+{
+  "Chain": {
+    "Name": "XDS",
+    "Symbol": "XDS",
+    "Description": "XDS - A Bitcoin-derived minable cryptocurrency with concurrent PoS",
+    "Url": "https://github.com/sonofsatoshi2020/xds",
+    "Logo": "",
+    "Icon": ""
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, NBitcoin",
+    "NetworkPubkeyAddressPrefix": 0,
+    "NetworkScriptAddressPrefix": 5,
+    "NetworkWitnessPrefix": "xds",
+    "P2PPort": 38333,
+    "RPCPort": 48333,
+    "APIPort": 48334
+  },
+  "Indexer": {
+    "StoreRawTransactions": true,
+    "LogoUrl": ""
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "http://localhost:9000/api/"
+    },
+    "Setup": {
+      "Title": "XDS Explorer",
+      "Footer": "",
+      "Icon": "",
+      "DocumentationUrl": ""
+    },
+    "Features": {
+      "Lottery": false,
+      "Vanity": false,
+      "Generator": false,
+      "Ticker": false
+    }
+  }
+}
