@@ -33,8 +33,7 @@
     },
     "Setup": {
       "Title": "City Chain Explorer",
-      "Footer": "https://www.city-chain.org",
-      "DocumentationUrl": "https://citychain.gitbook.io/explorer/v/feature%252Fmultichain/index"
+      "Footer": "https://www.city-chain.org"
     },
     "Features": {}
   }
