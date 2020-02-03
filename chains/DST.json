@@ -7,6 +7,14 @@
     "Logo": "",
     "Icon": ""
   },
+  "Network": {
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkPubkeyAddressPrefix": 30,
+    "NetworkScriptAddressPrefix": 90,
+    "NetworkWitnessPrefix": "bc",
+    "P2PPort": 56833,
+    "RPCPort": 56832
+  },
   "Explorer": {
     "Indexer": {
       "ApiUrl": "http://dst.explorer.blockcore.net/api/"
