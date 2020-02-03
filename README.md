@@ -30,3 +30,8 @@ Here is how you can run both indexer and explorer at the same time:
 ```sh
 docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up
 ``` 
+
+```sh
+// Cleanup the majority of resources (doesn't delete volumes)
+docker system prune -a
+```

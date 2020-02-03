@@ -13,10 +13,10 @@ services:
     networks:
       indexer:
         ipv4_address: 172.16.11.10
-    image: blockcore/indexer:0.0.1
+    image: blockcore/indexer:0.0.2
     command: ["--chain=DST"]
     ports: 
-        - "9910:9910"
+        - "9912:9910"
     depends_on:
         - mongo
         - chain
@@ -24,7 +24,7 @@ services:
   chain:
     container_name: dst-chain
     image: destream/coinvault
-    command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.11.10", "-rpcbind=dst-chain", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["-server=1", "-txindex=1", "-rpcallowip=0.0.0.0", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     stop_grace_period: 10m
     networks:
       - indexer

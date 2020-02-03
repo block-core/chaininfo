@@ -15,9 +15,12 @@
     "P2PPort": 56833,
     "RPCPort": 56832
   },
+  "Indexer": {
+    "SyncApiPort": 56832
+  },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "http://dst.explorer.blockcore.net/api/"
+      "ApiUrl": "https://dst.explorer.blockcore.net/api/"
     },
     "Ticker": {
     },
