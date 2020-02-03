@@ -12,7 +12,7 @@ services:
     container_name: dst-indexer
     networks:
       indexer:
-        ipv4_address: 172.16.10.10
+        ipv4_address: 172.16.11.10
     image: blockcore/indexer:0.0.1
     command: ["--chain=DST"]
     ports: 
@@ -24,7 +24,7 @@ services:
   chain:
     container_name: dst-chain
     image: destream/coinvault
-    command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.10.10", "-rpcbind=dst-chain", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.11.10", "-rpcbind=dst-chain", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     stop_grace_period: 10m
     networks:
       - indexer
@@ -46,4 +46,4 @@ networks:
     name: dst-network
     ipam:
       config:
-        - subnet: 172.16.10.0/28
+        - subnet: 172.16.11.0/28
