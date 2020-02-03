@@ -3,7 +3,7 @@
     "Name": "City Chain",
     "Symbol": "CITY",
     "Description": "Blockchain for Smart Cities",
-    "Url": "https://github.com/sonofsatoshi2020/xds",
+    "Url": "https://www.city-chain.org/",
     "Logo": "https://www.city-chain.org/images/icons/city-coin-128x128.png",
     "Icon": "https://www.city-chain.org/images/icons/city-coin-128x128.png"
   },
@@ -22,7 +22,7 @@
   },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "http://indexer.city-chain.org/api/"
+      "ApiUrl": "http://city.explorer.blockcore.net/api/"
     },
     "Ticker": {
       "WebUrl": "https://p2pb2b.io/trade/CITY_BTC",
@@ -33,16 +33,9 @@
     },
     "Setup": {
       "Title": "City Chain Explorer",
-      "Chain": "City Chain",
-      "Coin": "CITY",
       "Footer": "https://www.city-chain.org",
-      "Icon": "https://www.city-chain.org/images/icons/city-coin-128x128.png",
       "DocumentationUrl": "https://citychain.gitbook.io/explorer/v/feature%252Fmultichain/index"
     },
-    "Features": {
-      "Lottery": false,
-      "Vanity": false,
-      "Generator": false
-    }
+    "Features": {}
   }
 }
