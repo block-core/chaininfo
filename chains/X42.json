@@ -1,4 +1,45 @@
 {
+  "Chain": {
+    "Name": "x42",
+    "Symbol": "x42",
+    "Description": "Open. Feeless. Infinite.",
+    "Url": "https://x42.tech/",
+    "Logo": "https://x42.tech/images/logos/logo.png",
+    "Icon": "https://x42.tech/images/logos/logo.png"
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkPubkeyAddressPrefix": 75,
+    "NetworkScriptAddressPrefix": 125,
+    "NetworkWitnessPrefix": "x42",
+    "P2PPort": 52342,
+    "RPCPort": 52343,
+    "APIPort": 42220
+  },
+  "Indexer": {
+    "DatabaseNameSubfix": false,
+    "StoreRawTransactions": true
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://x42.explorer.blockcore.net/api/"
+    },
+    "Ticker": {
+      "WebUrl": "https://app.stex.com/en/trade/pair/BTC/X42",
+      "ApiUrl": "https://api.coingecko.com/api/v3/coins/x42-protocol?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false",
+      "PricePath": "market_data.usd",
+      "PercentagePath": "market_data.price_change_percentage_24h",
+      "IsBitcoinPrice": false
+    },
+    "Setup": {
+      "Title": "x42 Explorer",
+      "Footer": "https://x42.tech/"
+    },
+    "Features": {}
+  }
+}
+
+{
   "Explorer": {
     "Indexer": {
       "ApiUrl": "http://localhost:9019/api"
@@ -18,7 +59,8 @@
     "Features": {
       "Lottery": false,
       "Vanity": false,
-      "Generator": false
+      "Generator": false,
+      "POSWeight": true
     }
   }
 }
