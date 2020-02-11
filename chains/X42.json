@@ -24,6 +24,10 @@
     "Indexer": {
       "ApiUrl": "https://x42.explorer.blockcore.net/api/"
     },
+    "Currency": {
+			"ApiUrl": "https://api.coincap.io/v2/rates",
+			"AutoConvert": true
+		},
     "Ticker": {
       "WebUrl": "https://app.stex.com/en/trade/pair/BTC/X42",
       "ApiUrl": "https://api.coingecko.com/api/v3/coins/x42-protocol?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false",
