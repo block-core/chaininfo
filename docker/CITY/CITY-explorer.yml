@@ -6,5 +6,6 @@ services:
     container_name: city-explorer
     image: blockcore/explorer:0.0.3
     command: ["--chain=CITY"]
+    restart: always
     ports: 
         - "9911:9911"
