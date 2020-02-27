@@ -22,7 +22,7 @@
   },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://city.explorer.blockcore.net/api/"
+      "ApiUrl": "http://city.indexer.blockcore.net/api/"
     },
     "Ticker": {
       "WebUrl": "https://p2pb2b.io/trade/CITY_BTC",

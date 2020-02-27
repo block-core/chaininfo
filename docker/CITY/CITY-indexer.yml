@@ -14,8 +14,11 @@ services:
       indexer:
         ipv4_address: 172.16.10.10
     image: blockcore/indexer:0.0.2
+    environment:
+      - VIRTUAL_HOST=city.indexer.blockcore.net
     command: ["--chain=CITY"]
     restart: always
+    stop_grace_period: 5m
     ports: 
         - "9910:9910"
     depends_on:
@@ -27,7 +30,7 @@ services:
     image: citychain/citychain
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.10.10", "-rpcbind=city-chain", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
-    stop_grace_period: 10m
+    stop_grace_period: 15m
     networks:
       - indexer
     volumes:
