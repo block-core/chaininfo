@@ -25,6 +25,14 @@
     },
     "Setup": {
     },
-    "Features": {}
+    "Features": {
+      "Home": false,
+      "Ticker": false,
+      "Explorer": true,
+      "API": true,
+      "About": true,
+      "Footer": true,
+      "POSWeight": false
+    }
   }
 }

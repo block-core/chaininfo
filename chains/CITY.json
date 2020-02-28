@@ -35,6 +35,14 @@
       "Title": "City Chain Explorer",
       "Footer": "https://www.city-chain.org"
     },
-    "Features": {}
+    "Features": {
+      "Home": true,
+      "Ticker": true,
+      "Explorer": true,
+      "API": true,
+      "About": true,
+      "Footer": true,
+      "POSWeight": false
+    }
   }
 }
