@@ -17,5 +17,14 @@
     "StoreRawTransactions": false,
     "MaxItemsInQueue": 1000,
     "SyncInterval": 2
+  },
+  "Explorer": {
+    "Indexer": {
+    },
+    "Ticker": {
+    },
+    "Setup": {
+    },
+    "Features": {}
   }
 }
