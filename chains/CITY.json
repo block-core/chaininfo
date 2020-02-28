@@ -24,6 +24,10 @@
     "Indexer": {
       "ApiUrl": "http://city.indexer.blockcore.net/api/"
     },
+    "Currency": {
+      "ApiUrl": "https://api.coincap.io/v2/rates",
+      "AutoConvert": true
+   },
     "Ticker": {
       "WebUrl": "https://p2pb2b.io/trade/CITY_BTC",
       "ApiUrl": "https://p2pb2b.io/api/v1/public/ticker?market=CITY_BTC",
