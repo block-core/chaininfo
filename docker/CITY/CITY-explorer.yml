@@ -6,7 +6,9 @@ services:
     container_name: city-explorer
     image: blockcore/explorer:0.0.4
     environment:
-      - VIRTUAL_HOST=city.explorer.blockcore.net
+      VIRTUAL_HOST: city.explorer.blockcore.net
+      LETSENCRYPT_HOST: city.explorer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=CITY"]
     restart: always
     ports: 

@@ -15,10 +15,11 @@ services:
         ipv4_address: 172.16.10.10
     image: blockcore/indexer:0.0.2
     environment:
-      - VIRTUAL_HOST=city.indexer.blockcore.net
+      VIRTUAL_HOST: city.indexer.blockcore.net
+      LETSENCRYPT_HOST: city.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=CITY"]
     restart: always
-    stop_grace_period: 5m
     ports: 
         - "9910:9910"
     depends_on:
