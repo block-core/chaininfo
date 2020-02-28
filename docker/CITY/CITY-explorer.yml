@@ -4,7 +4,7 @@ services:
 
   explorer:
     container_name: city-explorer
-    image: blockcore/explorer:0.0.3
+    image: blockcore/explorer:0.0.4
     environment:
       - VIRTUAL_HOST=city.explorer.blockcore.net
     command: ["--chain=CITY"]
