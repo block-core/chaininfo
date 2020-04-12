@@ -54,6 +54,21 @@ You might need to find the correct names if these doesn't work, or if you have o
 
 More information: https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion
 
+When this is done, you must ensure local firewall has open traffic for TCP 80 and TCP 443. If you run server behind a gateway/router, you must forward public traffic on port 80 and 443 and route that to the IP address of your server.
+
+### Domain Names
+
+What domain names your explorer and indexer will respond to, is controlled by the VIRTUAL_HOST and LETSENCRYPT_HOST environment variables. You must edit these before you run up a chain.
+
+```yml
+    environment:
+      VIRTUAL_HOST: city.indexer.blockcore.net
+      LETSENCRYPT_HOST: city.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+```
+
+Then modify your DNS entry with your DNS provider to target your network public IP.
+
 ### Running a chain
 
 All supported chains should be located within the "docker" folder. Navigate to either of the sub-folders, and run a docker-compose with multiple file targets to ensure you run both indexer and explorer.
