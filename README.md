@@ -1,4 +1,4 @@
-# Chain info
+# Blockcore Chain Info
 Repo for chain information that are compatible with the Blockcore tooling (such as Explorer and Indexer).
 
 If you are responsible for an Blockcore compatible blockchain, please provide a pull request to this repo with your details. Please include external links to logos, etc.
@@ -9,9 +9,11 @@ If your project/chain is not listed in the list yet, please go ahead and provide
 
 The Blockcore devs reserves the rights to remove a chain from this repo at any time. Projects (chains) that are not responding and is not acting responsible, will likely be removed from this repo.
 
-## Deployment
+# Host a Blockcore Infrastructure Server
 
-To deploy and run the indexer and explorer, you need a computer with Docker.
+## Server Deployment
+
+To deploy and run the indexer and explorer, you need a computer with Docker. As long as Docker (Linux/Windows) is supported, you should be able to run your own Blockcore Infrastructure Server (BIS).
 
 ### Ubuntu 19.10
 
@@ -33,7 +35,45 @@ https://docs.docker.com/compose/install/
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-## Docker
+Then apply executable permissoins:
+```sh
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+### Reverse Proxy (route DNS to containers)
+
+Next step is to navigate to the docker/SERVER folder.
+
+```sh
+sudo docker-compose up -d
+``` 
+
+This will start both an Let's Encrypt container and Proxy container. These will redirect HTTP traffic to the correct chain containers.
+
+You might need to find the correct names if these doesn't work, or if you have other networks you must change prefix.
+
+More information: https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion
+
+### Running a chain
+
+All supported chains should be located within the "docker" folder. Navigate to either of the sub-folders, and run a docker-compose with multiple file targets to ensure you run both indexer and explorer.
+
+Here is how you can run both indexer and explorer at the same time:
+
+```sh
+docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up
+``` 
+
+Due to the way custom network is setup for the node and indexer, you need to connect the proxy with the custom networks. You do this, after you have run/started the individual proxies:
+
+```sh
+$ docker network connect city-network blockcore-proxy
+$ docker network connect city_default_ blockcore-proxy
+```
+
+### Local Image Dependency (Optional)
+
+Normally your locally running Explorer, will attempt to request your Indexer, using public traffic. It will read the JSON configuration file hosted on chains.blockcore.net and forward traffic through your router. You can manually override this with the following instructions:
 
 You can spin up both indexer and explorer locally, but it require a few minor edits. You must modify the listening ports of the indexer, 
 so it doesn't attempt to use port 80, which also the explorer does.
@@ -54,25 +94,9 @@ Here is how you can run both indexer and explorer at the same time:
 docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up
 ``` 
 
+### Clean Your Docker Instance
+
 ```sh
 // Cleanup the majority of resources (doesn't delete volumes)
 docker system prune -a
-```
-
-
-### Reverse Proxy (route DNS to containers)
-
-If you want to run multiple sites on the same docker host, you must run some sort of reverse proxy software.
-
-[https://github.com/jwilder/nginx-proxy](https://github.com/jwilder/nginx-proxy)
-
-```sh
-$ docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro --name blockcore-proxy jwilder/nginx-proxy
-```
-
-The proxy must be connected to your networks like this:
-
-```sh
-$ docker network connect city-network blockcore-proxy
-$ docker network connect city_default_ blockcore-proxy
 ```
