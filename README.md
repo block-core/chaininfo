@@ -76,14 +76,14 @@ All supported chains should be located within the "docker" folder. Navigate to e
 Here is how you can run both indexer and explorer at the same time:
 
 ```sh
-docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up
+sudo docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up -d
 ``` 
 
 Due to the way custom network is setup for the node and indexer, you need to connect the proxy with the custom networks. You do this, after you have run/started the individual proxies:
 
 ```sh
-$ docker network connect city-network blockcore-proxy
-$ docker network connect city_default_ blockcore-proxy
+$ sudo docker network connect city-network blockcore-proxy
+$ sudo docker network connect city_default_ blockcore-proxy
 ```
 
 ### Local Image Dependency (Optional)
@@ -106,12 +106,12 @@ Additionally you would need to modify the startup parameters for the explorer to
 Here is how you can run both indexer and explorer at the same time:
 
 ```sh
-docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up
+sudo docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up
 ``` 
 
 ### Clean Your Docker Instance
 
 ```sh
 // Cleanup the majority of resources (doesn't delete volumes)
-docker system prune -a
+sudo docker system prune -a
 ```
