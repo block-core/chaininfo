@@ -22,7 +22,7 @@
   },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "http://city.indexer.blockcore.net/api/"
+      "ApiUrl": "https://city.indexer.blockcore.net/api/"
     },
     "Currency": {
       "ApiUrl": "https://api.coincap.io/v2/rates",
