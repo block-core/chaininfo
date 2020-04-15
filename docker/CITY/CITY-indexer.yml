@@ -28,7 +28,7 @@ services:
 
   chain:
     container_name: city-chain
-    image: citychain/citychain
+    image: citychain/citychain:1.0.24
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.10.10", "-rpcbind=city-chain", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
