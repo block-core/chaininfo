@@ -17,6 +17,7 @@ services:
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net,indexer.city-chain.org
       VIRTUAL_PORT: 9910
+      VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: city.indexer.blockcore.net,indexer.city-chain.org
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=CITY"]

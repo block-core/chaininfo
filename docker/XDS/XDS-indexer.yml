@@ -17,6 +17,7 @@ services:
     environment:
       VIRTUAL_HOST: xds.indexer.blockcore.net
       VIRTUAL_PORT: 9910
+      VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: xds.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=XDS"]

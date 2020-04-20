@@ -8,6 +8,7 @@ services:
     environment:
       VIRTUAL_HOST: city.explorer.blockcore.net,explorer.city-chain.org
       VIRTUAL_PORT: 9911
+      VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: city.explorer.blockcore.net,explorer.city-chain.org
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=CITY"]
