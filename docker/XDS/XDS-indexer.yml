@@ -16,12 +16,11 @@ services:
     image: blockcore/indexer:0.0.3
     environment:
       VIRTUAL_HOST: xds.indexer.blockcore.net
+      VIRTUAL_PORT: 9910
       LETSENCRYPT_HOST: xds.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=XDS"]
     restart: always
-    ports: 
-        - "9920:9920"
     depends_on:
         - mongo
         - chain

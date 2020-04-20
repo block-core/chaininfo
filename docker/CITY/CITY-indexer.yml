@@ -16,12 +16,11 @@ services:
     image: blockcore/indexer:0.0.3
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net,indexer.city-chain.org
+      VIRTUAL_PORT: 9910
       LETSENCRYPT_HOST: city.indexer.blockcore.net,indexer.city-chain.org
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=CITY"]
     restart: always
-    ports: 
-        - "9910:9910"
     depends_on:
         - mongo
         - chain

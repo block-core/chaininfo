@@ -115,3 +115,34 @@ sudo docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up
 // Cleanup the majority of resources (doesn't delete volumes)
 sudo docker system prune -a
 ```
+
+## Debugging network issues
+
+There are many things that can be problematic with a setup with reverse proxy, certificates, etc.
+
+Here are some useful debugging commands:
+
+Output the configuration of the nginx reverse proxy:
+```
+sudo docker exec proxy cat /etc/nginx/conf.d/default.conf
+```
+
+## Examples
+
+Navigate into the chaininfo/docker/CHAIN folders and run these commands.
+
+### XDS
+
+```
+sudo docker-compose -f XDS-indexer.yml -f XDS-explorer.yml up -d
+sudo docker network connect xds-network proxy
+sudo docker network connect xds_default proxy
+```
+
+### CITY
+
+```
+sudo docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up -d
+sudo docker network connect city-network proxy
+sudo docker network connect city_default proxy
+```
