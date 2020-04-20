@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+
+  explorer:
+    container_name: xds-explorer
+    image: blockcore/explorer:0.0.7
+    environment:
+      VIRTUAL_HOST: xds.explorer.blockcore.net
+      LETSENCRYPT_HOST: xds.explorer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    command: ["--chain=XDS"]
+    restart: always
+    ports: 
+        - "9911:9911"

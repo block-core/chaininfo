@@ -8,7 +8,7 @@
     "Icon": ""
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, NBitcoin",
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
     "NetworkPubkeyAddressPrefix": 0,
     "NetworkScriptAddressPrefix": 5,
     "NetworkWitnessPrefix": "xds",
@@ -17,24 +17,36 @@
     "APIPort": 48334
   },
   "Indexer": {
-    "StoreRawTransactions": true,
-    "LogoUrl": ""
+    "DatabaseNameSubfix": false,
+    "StoreRawTransactions": true
   },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "http://localhost:9000/api/"
+      "ApiUrl": "https://xds.indexer.blockcore.net/api/"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+   },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
     },
     "Setup": {
       "Title": "XDS Explorer",
-      "Footer": "",
-      "Icon": "",
-      "DocumentationUrl": ""
+      "Footer": "https://github.com/sonofsatoshi2020/xds"
     },
     "Features": {
-      "Lottery": false,
-      "Vanity": false,
-      "Generator": false,
-      "Ticker": false
+      "Home": false,
+      "Ticker": false,
+      "Explorer": true,
+      "API": true,
+      "About": true,
+      "Footer": true,
+      "POSWeight": false
     }
   }
 }
