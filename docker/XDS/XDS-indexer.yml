@@ -21,7 +21,7 @@ services:
     command: ["--chain=XDS"]
     restart: always
     ports: 
-        - "9910:9910"
+        - "9920:9920"
     depends_on:
         - mongo
         - chain

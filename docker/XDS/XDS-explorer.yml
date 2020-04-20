@@ -12,4 +12,4 @@ services:
     command: ["--chain=XDS"]
     restart: always
     ports: 
-        - "9911:9911"
+        - "9921:9921"
