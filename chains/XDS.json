@@ -8,7 +8,8 @@
     "Icon": ""
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkConsensusFactoryType": "Blockcore.Networks.Xds.Consensus.XdsConsensusFactory, Blockcore.Networks.Xds",
+    "NetworkType": "Blockcore.Networks.Xds.XdsMain, Blockcore.Networks.Xds",
     "NetworkPubkeyAddressPrefix": 0,
     "NetworkScriptAddressPrefix": 5,
     "NetworkWitnessPrefix": "xds",
