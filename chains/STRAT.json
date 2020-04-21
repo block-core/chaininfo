@@ -1,5 +1,73 @@
 {
-  "CoinTag": "STRAT",
+  "Chain": {
+    "Name": "Stratis",
+    "Symbol": "STRAT",
+    "Description": "",
+    "Url": "https://stratisplatform.com/",
+    "Logo": "",
+    "Icon": ""
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkPubkeyAddressPrefix": 63,
+    "NetworkScriptAddressPrefix": 125,
+    "NetworkWitnessPrefix": "strat",
+    "P2PPort": 16178,
+    "RPCPort": 16174,
+    "APIPort": 37221
+  },
+  "Indexer": {
+    "DatabaseNameSubfix": false,
+    "StoreRawTransactions": true
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://strat.indexer.blockcore.net/api/"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": true
+   },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "Stratis Explorer",
+      "Footer": "https://stratisplatform.com/"
+    },
+    "Features": {
+      "Home": true,
+      "Ticker": true,
+      "Explorer": true,
+      "API": true,
+      "About": true,
+      "Footer": true,
+      "POSWeight": false
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+{
+  "Chain": {
+    "Name": "Stratis",
+    "Symbol": "STRAT",
+    "Description": "",
+    "Url": "https://stratisplatform.com/",
+    "Logo": "",
+    "Icon": ""
+  },
   "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
   "NetworkPubkeyAddressPrefix": 63,
   "NetworkScriptAddressPrefix": 125,
