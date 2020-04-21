@@ -36,6 +36,8 @@ services:
       - indexer
     volumes:
       - blockchain:/root/.strat
+    ports:
+      - 16178:16178
 
   mongo:
     container_name: strat-mongo

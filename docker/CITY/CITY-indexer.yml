@@ -36,6 +36,8 @@ services:
       - indexer
     volumes:
       - blockchain:/root/.city
+    ports:
+      - 4333:4333
 
   mongo:
     container_name: city-mongo

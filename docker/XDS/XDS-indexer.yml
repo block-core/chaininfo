@@ -36,6 +36,8 @@ services:
       - indexer
     volumes:
       - blockchain:/root/.xds
+    ports:
+      - 38333:38333
 
   mongo:
     container_name: xds-mongo
