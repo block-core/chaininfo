@@ -131,18 +131,26 @@ sudo docker exec proxy cat /etc/nginx/conf.d/default.conf
 
 Navigate into the chaininfo/docker/CHAIN folders and run these commands.
 
-### XDS
-
-```
-sudo docker-compose -f XDS-indexer.yml -f XDS-explorer.yml up -d
-sudo docker network connect xds-network proxy
-sudo docker network connect xds_default proxy
-```
-
 ### CITY
 
 ```
 sudo docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up -d
 sudo docker network connect city-network proxy
 sudo docker network connect city_default proxy
+```
+
+### STRAT
+
+```
+sudo docker-compose -f STRAT-indexer.yml -f STRAT-explorer.yml up -d
+sudo docker network connect strat-network proxy
+sudo docker network connect strat_default proxy
+```
+
+### XDS
+
+```
+sudo docker-compose -f XDS-indexer.yml -f XDS-explorer.yml up -d
+sudo docker network connect xds-network proxy
+sudo docker network connect xds_default proxy
 ```
