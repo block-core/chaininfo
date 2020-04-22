@@ -2,7 +2,7 @@
   "Indexer": {
     "CoinTag": "ODX",
     "RpcAccessPort": 46661,
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin", // (ConsensusFactory, PosConsensusFactory)
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin", // (ConsensusFactory, PosConsensusFactory)
     "NetworkPubkeyAddressPrefix": 75,
     "NetworkScriptAddressPrefix": 125,
     "NetworkWitnessPrefix": "odx",

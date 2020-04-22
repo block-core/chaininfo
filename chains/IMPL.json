@@ -8,7 +8,7 @@
     "Icon": "THIS-IS-NOT-FINISHED-DEFINITION!"
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
     "NetworkPubkeyAddressPrefix": 28,
     "NetworkScriptAddressPrefix": 88,
     "NetworkWitnessPrefix": "city",

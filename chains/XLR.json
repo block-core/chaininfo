@@ -8,7 +8,7 @@
     "Icon": "https://chains.blockcore.net/assets/XLR/XLR-icon.png"
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
     "NetworkType": "",
     "NetworkPubkeyAddressPrefix": 111,
     "NetworkScriptAddressPrefix": 196,

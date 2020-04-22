@@ -8,7 +8,7 @@
     "Icon": "https://www.city-chain.org/images/icons/city-coin-128x128.png"
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
     "NetworkPubkeyAddressPrefix": 28,
     "NetworkScriptAddressPrefix": 88,
     "NetworkWitnessPrefix": "city",
