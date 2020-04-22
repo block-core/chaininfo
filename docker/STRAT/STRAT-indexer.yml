@@ -13,7 +13,7 @@ services:
     networks:
       indexer:
         ipv4_address: 172.16.12.10
-    image: blockcore/indexer:0.0.3
+    image: blockcore/indexer:0.0.5
     environment:
       VIRTUAL_HOST: strat.indexer.blockcore.net
       VIRTUAL_PORT: 9910
