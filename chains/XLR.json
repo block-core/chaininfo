@@ -14,8 +14,8 @@
     "NetworkScriptAddressPrefix": 196,
     "NetworkWitnessPrefix": "xlr",
     "P2PPort": 60008,
-    "RPCPort": 61008,
-    "APIPort": 62008
+    "RPCPort": 61000,
+    "APIPort": 62000
   },
   "Indexer": {
     "DatabaseNameSubfix": false,
