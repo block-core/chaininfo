@@ -17,7 +17,6 @@
     "APIPort": 37221
   },
   "Indexer": {
-    "DatabaseNameSubfix": false,
     "StoreRawTransactions": true
   },
   "Explorer": {
