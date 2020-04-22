@@ -162,3 +162,18 @@ sudo docker-compose -f XLR-indexer.yml -f XLR-explorer.yml up -d
 sudo docker network connect xlr-network proxy
 sudo docker network connect xlr_default proxy
 ```
+
+Use the down command stop and start up again. This should remove container data, except persistent volumes.
+```
+sudo docker-compose down
+```
+
+Look into the running container
+```
+sudo docker exec -it xlr-chain /bin/bash
+```
+
+Data folders are located in:
+```
+/root/.blockcore/xlr/
+```
