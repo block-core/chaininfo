@@ -9,6 +9,7 @@
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkType": "",
     "NetworkPubkeyAddressPrefix": 111,
     "NetworkScriptAddressPrefix": 196,
     "NetworkWitnessPrefix": "xlr",

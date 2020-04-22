@@ -154,3 +154,11 @@ sudo docker-compose -f XDS-indexer.yml -f XDS-explorer.yml up -d
 sudo docker network connect xds-network proxy
 sudo docker network connect xds_default proxy
 ```
+
+### XLR
+
+```
+sudo docker-compose -f XLR-indexer.yml -f XLR-explorer.yml up -d
+sudo docker network connect xlr-network proxy
+sudo docker network connect xlr_default proxy
+```
