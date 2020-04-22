@@ -28,7 +28,7 @@ services:
 
   chain:
     container_name: xds-chain
-    image: blockcore/node-xds:1.0.6
+    image: blockcore/node-xds:1.0.7
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.11.10", "-rpcbind=xds-chain", "-apiuri=http://0.0.0.0:48334", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
