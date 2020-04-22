@@ -8,7 +8,7 @@
     "Icon": ""
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
+    "NetworkType": "Blockcore.Networks.Stratis.StratisMain, Blockcore.Networks.Stratis",
     "NetworkPubkeyAddressPrefix": 63,
     "NetworkScriptAddressPrefix": 125,
     "NetworkWitnessPrefix": "strat",
