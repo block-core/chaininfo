@@ -1,0 +1,58 @@
+version: "3.7"
+
+volumes:
+  database:
+    name: xlr-db
+  blockchain:
+    name: xlr-data
+
+services:
+
+  indexer:
+    container_name: xlr-indexer
+    networks:
+      indexer:
+        ipv4_address: 172.16.13.10
+    image: blockcore/indexer:0.0.4
+    environment:
+      VIRTUAL_HOST: xlr.indexer.blockcore.net
+      VIRTUAL_PORT: 9910
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: xlr.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    command: ["--chain=XLR"]
+    restart: always
+    depends_on:
+        - mongo
+        - chain
+
+  chain:
+    container_name: xlr-chain
+    image: blockcore/node-xlr:1.0.6
+    command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.13.10", "-rpcbind=xlr-chain", "-apiuri=http://0.0.0.0:62008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: always
+    stop_grace_period: 15m
+    networks:
+      - indexer
+    volumes:
+      - blockchain:/root/.xlr
+    ports:
+      - 60008:60008
+
+  mongo:
+    container_name: xlr-mongo
+    image: mongo:3.4
+    restart: always
+    stop_grace_period: 5m
+    networks:
+      - indexer
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+
+networks:
+  indexer:
+    name: xlr-network
+    ipam:
+      config:
+        - subnet: 172.16.13.0/28

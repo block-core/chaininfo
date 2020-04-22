@@ -1,24 +1,52 @@
 {
+  "Chain": {
+    "Name": "Impleum",
+    "Symbol": "IMPL",
+    "Description": "Impleum is a blockchain platform for mobile, web and desktop applications",
+    "Url": "https://impleum.com/",
+    "Logo": "",
+    "Icon": "THIS-IS-NOT-FINISHED-DEFINITION!"
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkPubkeyAddressPrefix": 28,
+    "NetworkScriptAddressPrefix": 88,
+    "NetworkWitnessPrefix": "city",
+    "P2PPort": 4333,
+    "RPCPort": 4334,
+    "APIPort": 4335
+  },
+  "Indexer": {
+    "DatabaseNameSubfix": false,
+    "StoreRawTransactions": true
+  },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "http://localhost:9030/api"
+      "ApiUrl": "https://city.indexer.blockcore.net/api/"
     },
+    "Currency": {
+      "ApiUrl": "https://api.coincap.io/v2/rates",
+      "AutoConvert": true
+   },
     "Ticker": {
-      "ApiUrl": "https://api.coincap.io/v2/assets/stratis",
-      "WebUrl": "https://coincap.io/assets/stratis",
-      "PricePath": "data.priceUsd", // coincap.io
-      "PercentagePath": "data.changePercent24Hr" // coincap.io
+      "WebUrl": "https://p2pb2b.io/trade/CITY_BTC",
+      "ApiUrl": "https://p2pb2b.io/api/v1/public/ticker?market=CITY_BTC",
+      "PricePath": "result.last",
+      "PercentagePath": "result.change",
+      "IsBitcoinPrice": true
     },
     "Setup": {
-      "Title": "Impleum Explorer",
-      "Chain": "Impleum",
-      "Coin": "IMPL",
-      "Footer": "https://impleum.com/"
+      "Title": "City Chain Explorer",
+      "Footer": "https://www.city-chain.org"
     },
     "Features": {
-      "Lottery": false,
-      "Vanity": false,
-      "Generator": false
+      "Home": true,
+      "Ticker": true,
+      "Explorer": true,
+      "API": true,
+      "About": true,
+      "Footer": true,
+      "POSWeight": false
     }
   }
 }
