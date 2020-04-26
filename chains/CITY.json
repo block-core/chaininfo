@@ -9,6 +9,7 @@
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
+    "NetworkType": "City.Networks.CityMain, Blockcore.Networks.City",
     "NetworkPubkeyAddressPrefix": 28,
     "NetworkScriptAddressPrefix": 88,
     "NetworkWitnessPrefix": "city",
