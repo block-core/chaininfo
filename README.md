@@ -76,7 +76,7 @@ All supported chains should be located within the "docker" folder. Navigate to e
 Here is how you can run both indexer and explorer at the same time:
 
 ```sh
-sudo docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up -d
+sudo docker-compose -f indexer.yml -f explorer.yml up -d
 ``` 
 
 Due to the way custom network is setup for the node and indexer, you need to connect the proxy with the custom networks. You do this, after you have run/started the individual proxies:
@@ -103,12 +103,6 @@ Additionally you would need to modify the startup parameters for the explorer to
    command: ["--chain=CITY", "--Explorer:Indexer:ApiUrl=http://127.0.0.1:9910/api/"]
 ```
 
-Here is how you can run both indexer and explorer at the same time:
-
-```sh
-sudo docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up
-``` 
-
 ### Clean Your Docker Instance
 
 ```sh
@@ -134,7 +128,7 @@ Navigate into the chaininfo/docker/CHAIN folders and run these commands.
 ### CITY
 
 ```
-sudo docker-compose -f CITY-indexer.yml -f CITY-explorer.yml up -d
+sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect city-network proxy
 sudo docker network connect city_default proxy
 ```
@@ -142,7 +136,7 @@ sudo docker network connect city_default proxy
 ### STRAT
 
 ```
-sudo docker-compose -f STRAT-indexer.yml -f STRAT-explorer.yml up -d
+sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect strat-network proxy
 sudo docker network connect strat_default proxy
 ```
@@ -150,7 +144,7 @@ sudo docker network connect strat_default proxy
 ### XDS
 
 ```
-sudo docker-compose -f XDS-indexer.yml -f XDS-explorer.yml up -d
+sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect xds-network proxy
 sudo docker network connect xds_default proxy
 ```
@@ -158,7 +152,7 @@ sudo docker network connect xds_default proxy
 ### XLR
 
 ```
-sudo docker-compose -f XLR-indexer.yml -f XLR-explorer.yml up -d
+sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect xlr-network proxy
 sudo docker network connect xlr_default proxy
 ```
