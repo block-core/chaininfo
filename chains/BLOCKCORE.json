@@ -1,0 +1,65 @@
+{
+  "Chain": {
+    "Name": "Blockcore",
+    "Symbol": "BLOCKCORE",
+    "Description": "Blockcore is a platform that enables you to build your own blockchains.",
+    "Url": "https://www.blockcore.net/",
+    "Logo": "https://chains.blockcore.net/assets/BLOCKCORE/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/BLOCKCORE/icon.png"
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
+    "NetworkPubkeyAddressPrefix": 0,
+    "NetworkScriptAddressPrefix": 0,
+    "NetworkWitnessPrefix": "",
+    "P2PPort": 0,
+    "RPCPort": 0,
+    "APIPort": 0
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": ""
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": true
+    },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "Blockcore Explorer",
+      "Footer": "Blockcore is an open source project started by a group of blockchain developers and engineers to realize a fully integrated platform for building custom blockchains.",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://www.github.com/block-core/"
+        },
+        {
+          "icon": "fas fa-link",
+          "url": "https://www.blockcore.net/"
+        },
+        {
+          "icon": "fab fa-discord",
+          "link": "https://discord.gg/xa5BxWr"
+        }
+      ]
+    },
+    "Features": {
+      "Home": true,
+      "Ticker": true,
+      "Explorer": true,
+      "API": true,
+      "About": true,
+      "Footer": true,
+      "POSWeight": false
+    }
+  }
+}
