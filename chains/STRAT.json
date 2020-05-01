@@ -28,10 +28,13 @@
       "AutoConvert": true
     },
     "Ticker": {
-      "ApiUrl": "https://api.coincap.io/v2/assets/stratis",
-      "WebUrl": "https://coincap.io/assets/stratis",
-      "PricePath": "data.priceUsd",
-      "IsBitcoinPrice": false
+      "WebUrl": "https://coinpaprika.com/coin/strat-stratis/",
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/strat-stratis?quotes=USD,BTC",
+      "PricePath": "quotes.BTC.price",
+      "PricePathBTC": "quotes.BTC.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.BTC.percent_change_1h",
+      "IsBitcoinPrice": true
     },
     "Setup": {
       "Title": "Stratis Explorer",
