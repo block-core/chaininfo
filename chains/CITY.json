@@ -38,21 +38,21 @@
     "Setup": {
       "Title": "City Chain Explorer",
       "Footer": "Blockchain for Smart Cities. Empowering global citizens in the modern era.",
-      "Link": [
+      "Links": [
         {
-          "type": "github",
+          "icon": "fab fa-github",
           "url": "https://github.com/CityChainFoundation/"
         },
         {
-          "type": "link",
+          "icon": "fas fa-link",
           "url": "https://city-chain.org/"
         },
         {
-          "type": "discord",
+          "icon": "fab fa-discord",
           "link": "https://discord.gg/CD8CTJt"
         },
         {
-          "type": "telegram",
+          "icon": "fab fa-telegram-plane",
           "url": "https://t.me/citychain"
         }
       ]
