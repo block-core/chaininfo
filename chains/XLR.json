@@ -29,11 +29,13 @@
       "AutoConvert": true
     },
     "Ticker": {
-      "WebUrl": "https://coincap.io/assets/solaris",
-      "ApiUrl": "https://api.coincap.io/v2/assets/solaris",
-      "PricePath": "data.priceUsd",
-      "PercentagePath": "data.changePercent24Hr",
-      "IsBitcoinPrice": false
+      "WebUrl": "https://coinpaprika.com/coin/xlr-solaris/",
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/xlr-solaris?quotes=USD,BTC",
+      "PricePath": "quotes.BTC.price",
+      "PricePathBTC": "quotes.BTC.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.BTC.percent_change_1h",
+      "IsBitcoinPrice": true
     },
     "Setup": {
       "Title": "Solaris Explorer",
