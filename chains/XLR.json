@@ -4,8 +4,8 @@
     "Symbol": "XLR",
     "Description": "Blockchain and Financial Ecosystem for the Digital Age",
     "Url": "https://solariscoin.com/",
-    "Logo": "https://chains.blockcore.net/assets/XLR/XLR-logo.png",
-    "Icon": "https://chains.blockcore.net/assets/XLR/XLR-icon.png"
+    "Logo": "https://chains.blockcore.net/assets/XLR/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/XLR/icon.png"
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
