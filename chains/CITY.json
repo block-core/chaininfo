@@ -27,7 +27,7 @@
     "Currency": {
       "ApiUrl": "https://api.coincap.io/v2/rates",
       "AutoConvert": true
-   },
+    },
     "Ticker": {
       "WebUrl": "https://p2pb2b.io/trade/CITY_BTC",
       "ApiUrl": "https://p2pb2b.io/api/v1/public/ticker?market=CITY_BTC",
@@ -37,7 +37,25 @@
     },
     "Setup": {
       "Title": "City Chain Explorer",
-      "Footer": "https://www.city-chain.org"
+      "Footer": "Blockchain for Smart Cities. Empowering global citizens in the modern era.",
+      "Link": [
+        {
+          "type": "github",
+          "url": "https://github.com/CityChainFoundation/"
+        },
+        {
+          "type": "link",
+          "url": "https://city-chain.org/"
+        },
+        {
+          "type": "discord",
+          "link": "https://discord.gg/CD8CTJt"
+        },
+        {
+          "type": "telegram",
+          "url": "https://t.me/citychain"
+        }
+      ]
     },
     "Features": {
       "Home": true,
