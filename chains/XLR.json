@@ -27,7 +27,7 @@
     "Currency": {
       "ApiUrl": "https://api.coincap.io/v2/rates",
       "AutoConvert": true
-   },
+    },
     "Ticker": {
       "WebUrl": "https://coincap.io/assets/solaris",
       "ApiUrl": "https://api.coincap.io/v2/assets/solaris",
@@ -37,7 +37,21 @@
     },
     "Setup": {
       "Title": "Solaris Explorer",
-      "Footer": "https://solariscoin.com/"
+      "Footer": "Solaris is a decentralized open source cryptocurrency focused on privacy, innovation and advancement of technology.",
+      "Link": [
+        {
+          "icon": "fas fa-link",
+          "url": "https://solariscoin.com/"
+        },
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/SolarisPlatform"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discordapp.com/invite/wMcqapP"
+        }
+      ]
     },
     "Features": {
       "Home": true,
