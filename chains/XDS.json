@@ -4,8 +4,8 @@
     "Symbol": "XDS",
     "Description": "XDS - A Bitcoin-derived minable cryptocurrency with concurrent PoS",
     "Url": "https://github.com/sonofsatoshi2020/xds",
-    "Logo": "",
-    "Icon": ""
+    "Logo": "https://chains.blockcore.net/assets/XDS/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/XDS/icon.png"
   },
   "Network": {
     "NetworkConsensusFactoryType": "Blockcore.Networks.Xds.Consensus.XdsConsensusFactory, Blockcore.Networks.Xds",
