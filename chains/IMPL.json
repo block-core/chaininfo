@@ -26,7 +26,7 @@
     "Currency": {
       "ApiUrl": "https://api.coincap.io/v2/rates",
       "AutoConvert": true
-   },
+    },
     "Ticker": {
       "WebUrl": "https://p2pb2b.io/trade/CITY_BTC",
       "ApiUrl": "https://p2pb2b.io/api/v1/public/ticker?market=CITY_BTC",
@@ -35,16 +35,16 @@
       "IsBitcoinPrice": true
     },
     "Setup": {
-      "Title": "City Chain Explorer",
-      "Footer": "https://www.city-chain.org"
+      "Title": "Impleum Explorer",
+      "Footer": "https://impleum.com/",
+      "Links": [
+        {
+          "icon": "fas fa-link",
+          "url": "https://impleum.com/"
+        }
+      ]
     },
     "Features": {
-      "Home": true,
-      "Ticker": true,
-      "Explorer": true,
-      "API": true,
-      "About": true,
-      "Footer": true,
       "POSWeight": false
     }
   }

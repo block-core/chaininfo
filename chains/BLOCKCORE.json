@@ -53,12 +53,11 @@
       ]
     },
     "Features": {
-      "Home": true,
       "Ticker": true,
       "Explorer": true,
+      "Network": true,
       "API": true,
       "About": true,
-      "Footer": true,
       "POSWeight": false
     }
   }
