@@ -20,7 +20,7 @@
   },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://dst.explorer.blockcore.net/api/"
+      "ApiUrl": "https://dst.explorer.blockcore.net/api"
     },
     "Ticker": {
     },
