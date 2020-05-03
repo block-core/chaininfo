@@ -167,11 +167,11 @@ sudo docker network connect xlr_default proxy
 
 ### CHAINS
 
-How to run a multichain block explorer instance:
+To run multichain explorer, navigate to the BLOCKCORE folder and run:
 
 ```
 sudo docker-compose -f explorer.yml up -d
-sudo docker network connect chains_default proxy
+sudo docker network connect blockcore_default proxy
 ```
 
 ## Additional docker information.
