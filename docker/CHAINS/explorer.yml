@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+
+  explorer:
+    container_name: blockcore-explorer
+    image: blockcore/explorer:0.0.8
+    environment:
+      VIRTUAL_HOST: explorer.blockcore.net
+      VIRTUAL_PORT: 9911
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: explorer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    command: ["--chain=MULTI"]
+    restart: always
