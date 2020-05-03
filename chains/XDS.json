@@ -22,7 +22,8 @@
   },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://xds.indexer.blockcore.net/api"
+      "ApiUrl": "https://xds.indexer.blockcore.net/api",
+      "DocUrl": "https://xds.indexer.blockcore.net/docs"
     },
     "Currency": {
       "ApiUrl": "",

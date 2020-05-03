@@ -21,7 +21,8 @@
   },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://strat.indexer.blockcore.net/api"
+      "ApiUrl": "https://strat.indexer.blockcore.net/api",
+      "DocUrl": "https://strat.indexer.blockcore.net/docs"
     },
     "Currency": {
       "ApiUrl": "",
