@@ -30,10 +30,12 @@
 		},
     "Ticker": {
       "WebUrl": "https://app.stex.com/en/trade/pair/BTC/X42",
-      "ApiUrl": "https://api.coingecko.com/api/v3/coins/x42-protocol?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false",
-      "PricePath": "market_data.current_price.usd",
-      "PercentagePath": "market_data.price_change_percentage_24h",
-      "IsBitcoinPrice": false
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/x42-x42?quotes=USD,BTC",
+      "PricePath": "quotes.BTC.price",
+      "PricePathBTC": "quotes.BTC.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.BTC.percent_change_1h",
+      "IsBitcoinPrice": true
     },
     "Setup": {
       "Title": "x42 Explorer",
