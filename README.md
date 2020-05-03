@@ -141,6 +141,14 @@ sudo docker network connect strat-network proxy
 sudo docker network connect strat_default proxy
 ```
 
+### X42
+
+```
+sudo docker-compose -f indexer.yml -f explorer.yml up -d
+sudo docker network connect x42-network proxy
+sudo docker network connect x42_default proxy
+```
+
 ### XDS
 
 ```
@@ -156,6 +164,17 @@ sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect xlr-network proxy
 sudo docker network connect xlr_default proxy
 ```
+
+### CHAINS
+
+How to run a multichain block explorer instance:
+
+```
+sudo docker-compose -f explorer.yml up -d
+sudo docker network connect chains_default proxy
+```
+
+## Additional docker information.
 
 Use the down command stop and start up again. This should remove container data, except persistent volumes.
 ```

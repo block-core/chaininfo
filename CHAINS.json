@@ -1,0 +1,27 @@
+[
+   {
+      "name": "City Chain",
+      "symbol": "CITY",
+      "icon": "https://chains.blockcore.net/assets/CITY/icon.png"
+   },
+   {
+      "name": "Solaris",
+      "symbol": "XLR",
+      "icon": "https://chains.blockcore.net/assets/XLR/icon.png"
+   },
+   {
+      "name": "Stratis",
+      "symbol": "STRAT",
+      "icon": "https://chains.blockcore.net/assets/STRAT/icon.png"
+   },
+   {
+      "name": "X42",
+      "symbol": "X42",
+      "icon": "https://x42.tech/images/logos/logo.png"
+   },
+   {
+      "name": "XDS",
+      "symbol": "XDS",
+      "icon": "https://chains.blockcore.net/assets/XDS/icon.png"
+   }
+]
