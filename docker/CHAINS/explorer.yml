@@ -11,5 +11,5 @@ services:
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: explorer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=CHAINS"]
+    command: ["--chain=BLOCKCORE"]
     restart: always
