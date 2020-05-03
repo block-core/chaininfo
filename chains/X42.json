@@ -41,9 +41,21 @@
       "Title": "x42 Explorer",
       "Footer": "Meet x42 Protocol, the feeless blockchain that will allow anyone to host decentralized applications the easy way.",
       "Links": [
+	{
+          "icon": "fab fa-github",
+          "url": "https://github.com/x42protocol"
+        },
         {
           "icon": "fas fa-link",
           "url": "https://x42.tech/"
+        },
+	{
+          "icon": "fab fa-discord",
+          "url": "https://discord.gg/dtJcfJT"
+        },
+	{
+          "icon": "fab fa-telegram-plane",
+          "url": "https://t.me/x42tech"
         }
       ]
     },
