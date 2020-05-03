@@ -15,13 +15,13 @@
       "icon": "https://chains.blockcore.net/assets/STRAT/icon.png"
    },
    {
-      "name": "XDS",
-      "symbol": "XDS",
-      "icon": "https://chains.blockcore.net/assets/XDS/icon.png"
-   },
-   {
       "name": "X42",
       "symbol": "X42",
       "icon": "https://x42.tech/images/logos/logo.png"
+   },
+   {
+      "name": "XDS",
+      "symbol": "XDS",
+      "icon": "https://chains.blockcore.net/assets/XDS/icon.png"
    }
 ]
