@@ -17,12 +17,11 @@
     "APIPort": 42220
   },
   "Indexer": {
-    "DatabaseNameSubfix": false,
     "StoreRawTransactions": true
   },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://x42.explorer.blockcore.net/api/"
+      "ApiUrl": "https://x42.indexer.blockcore.net/api/"
     },
     "Currency": {
 			"ApiUrl": "https://api.coincap.io/v2/rates",
