@@ -9,6 +9,10 @@ If your project/chain is not listed in the list yet, please go ahead and provide
 
 The Blockcore devs reserves the rights to remove a chain from this repo at any time. Projects (chains) that are not responding and is not acting responsible, will likely be removed from this repo.
 
+# Add your own chain
+
+Feel free to go ahead and duplicate one of the existing configurations for a chain, and create a pull request for us to approve. It is fairl self-describing how to do it if you look at existing files and setup.
+
 # Host a Blockcore Infrastructure Server
 
 ## Server Deployment
@@ -125,10 +129,15 @@ sudo docker exec proxy cat /etc/nginx/conf.d/default.conf
 
 Navigate into the chaininfo/docker/CHAIN folders and run these commands.
 
+### Spin up docker containers
+
+sudo docker-compose -f indexer.yml -f explorer.yml up -d
+
+After this, you must connect the networks between the chain, and the proxy/lets-encrypt containers:
+
 ### CITY
 
 ```
-sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect city-network proxy
 sudo docker network connect city_default proxy
 ```
@@ -136,7 +145,6 @@ sudo docker network connect city_default proxy
 ### STRAT
 
 ```
-sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect strat-network proxy
 sudo docker network connect strat_default proxy
 ```
@@ -144,7 +152,6 @@ sudo docker network connect strat_default proxy
 ### X42
 
 ```
-sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect x42-network proxy
 sudo docker network connect x42_default proxy
 ```
@@ -152,7 +159,6 @@ sudo docker network connect x42_default proxy
 ### XDS
 
 ```
-sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect xds-network proxy
 sudo docker network connect xds_default proxy
 ```
@@ -160,7 +166,6 @@ sudo docker network connect xds_default proxy
 ### XLR
 
 ```
-sudo docker-compose -f indexer.yml -f explorer.yml up -d
 sudo docker network connect xlr-network proxy
 sudo docker network connect xlr_default proxy
 ```
