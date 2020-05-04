@@ -5,7 +5,8 @@
     "Description": "Blockcore is a platform that enables you to build your own blockchains.",
     "Url": "https://www.blockcore.net/",
     "Logo": "https://chains.blockcore.net/assets/BLOCKCORE/logo.png",
-    "Icon": "https://chains.blockcore.net/assets/BLOCKCORE/icon.png"
+    "Icon": "https://chains.blockcore.net/assets/BLOCKCORE/icon.png",
+    "IconFilter": true
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
