@@ -5,7 +5,8 @@
     "Description": "Open. Feeless. Infinite.",
     "Url": "https://x42.tech/",
     "Logo": "https://x42.tech/images/logos/logo.png",
-    "Icon": "https://x42.tech/images/logos/logo.png"
+    "Icon": "https://x42.tech/images/logos/logo.png",
+    "IconFilter": true
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",

@@ -17,11 +17,13 @@
    {
       "name": "X42",
       "symbol": "X42",
-      "icon": "https://x42.tech/images/logos/logo.png"
+      "icon": "https://x42.tech/images/logos/logo.png",
+      "filter": true
    },
    {
       "name": "XDS",
       "symbol": "XDS",
-      "icon": "https://chains.blockcore.net/assets/XDS/icon.png"
+      "icon": "https://chains.blockcore.net/assets/XDS/icon.png",
+      "filter": true
    }
 ]
