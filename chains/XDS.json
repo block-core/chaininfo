@@ -39,7 +39,13 @@
     },
     "Setup": {
       "Title": "XDS Explorer",
-      "Footer": "https://github.com/sonofsatoshi2020/xds"
+      "Footer": "A Bitcoin-derived minable cryptocurrency with concurrent PoS",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/sonofsatoshi2020/xds"
+        }
+      ]
     },
     "Features": {
       "Ticker": false,
