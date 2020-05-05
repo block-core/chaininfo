@@ -195,3 +195,72 @@ Data folders are located in:
 ```
 /root/.blockcore/xlr/
 ```
+
+## Limiting Resource Usage
+
+MongoDB which is used for Blockcore Indexer, will often utilize a fair amount of memory if it can.
+
+If you want to restrict this, especially if you run more than a single instance on the same machine, you can do the following:
+
+1. Configuring Ubuntu to Use Docker’s Limiting Resources Feature
+
+```
+sudo docker info
+```
+
+At the end of this command output, you should see:
+
+WARNING: Noswaplimitsupport
+
+2. Enable SWAP limit support.
+
+```
+sudo nano /etc/default/grub
+```
+
+Then edit and add the following
+
+```
+GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1"
+```
+
+Then run:
+
+```
+sudo update-grub
+```
+
+Now you must restart your computer.
+
+After restart, run the same command to see if warning is gone:
+
+```
+sudo docker info
+```
+
+3. Limit a Container's Memory Access
+
+Set the "mem_limit" option in the docker-compose (v2.x) file and specifically for MongoDB, specify the wiredTigerCacheSizeGB argument.
+
+```
+  mongo:
+    container_name: xlr-mongo
+    image: mongo:3.6.18
+    command: "--wiredTigerCacheSizeGB 0.25"
+    mem_limit: 250m
+```
+
+4. Verify
+
+If you run stats you can check if the container has an actual memory limit:
+
+```
+sudo docker stats
+```
+
+Then you can verify that MongoDB starts up with the restritions by looking in the log:
+
+```
+sudo docker logs -f xlr-mongo
+```
+

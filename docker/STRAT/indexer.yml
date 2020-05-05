@@ -1,4 +1,4 @@
-version: "3.7"
+version: "2.4"
 
 volumes:
   database:
@@ -41,7 +41,9 @@ services:
 
   mongo:
     container_name: strat-mongo
-    image: mongo:3.4
+    image: mongo:3.6.18
+    command: "--wiredTigerCacheSizeGB 0.25"
+    mem_limit: 250m
     restart: always
     stop_grace_period: 5m
     networks:
