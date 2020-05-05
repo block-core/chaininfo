@@ -41,7 +41,7 @@
     "Setup": {
       "Title": "Solaris Explorer",
       "Footer": "Solaris is a decentralized open source cryptocurrency focused on privacy, innovation and advancement of technology.",
-      "Link": [
+      "Links": [
         {
           "icon": "fas fa-link",
           "url": "https://solariscoin.com/"

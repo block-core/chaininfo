@@ -4,7 +4,7 @@ services:
 
   explorer:
     container_name: strat-explorer
-    image: blockcore/explorer:0.1.3
+    image: blockcore/explorer:0.1.5
     environment:
       VIRTUAL_HOST: strat.explorer.blockcore.net
       VIRTUAL_PORT: 9911
