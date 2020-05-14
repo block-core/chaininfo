@@ -22,13 +22,13 @@ To deploy and run the indexer and explorer, you need a computer with Docker. As 
 ### Ubuntu 19.10
 
 ```sh
-$ sudo apt update
-$ sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-$ sudo apt-key fingerprint 0EBFCD88
-$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
-$ sudo apt update
-$ sudo apt install docker-ce
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
+sudo apt update
+sudo apt install docker-ce
 ```
 
 Next you also need docker-compose. Make sure you run the installation like explained in the official documentation and not apt-get, as that repository has an older version of docker-compose.
@@ -86,8 +86,8 @@ sudo docker-compose -f indexer.yml -f explorer.yml up -d
 Due to the way custom network is setup for the node and indexer, you need to connect the proxy with the custom networks. You do this, after you have run/started the individual proxies:
 
 ```sh
-$ sudo docker network connect city-network blockcore-proxy
-$ sudo docker network connect city_default_ blockcore-proxy
+sudo docker network connect city-network blockcore-proxy
+sudo docker network connect city_default_ blockcore-proxy
 ```
 
 ### Local Image Dependency (Optional)
