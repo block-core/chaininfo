@@ -5,7 +5,8 @@
     "Description": "Blockchain for Smart Cities",
     "Url": "https://www.city-chain.org/",
     "Logo": "https://chains.blockcore.net/assets/CITY/logo.png",
-    "Icon": "https://chains.blockcore.net/assets/CITY/icon.png"
+    "Icon": "https://chains.blockcore.net/assets/CITY/icon.png",
+    "Color": "#dfab3c"
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",

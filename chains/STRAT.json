@@ -5,7 +5,8 @@
     "Description": "Decentralize the enterprise",
     "Url": "https://stratisplatform.com/",
     "Logo": "https://chains.blockcore.net/assets/STRAT/logo.png",
-    "Icon": "https://chains.blockcore.net/assets/STRAT/icon.png"
+    "Icon": "https://chains.blockcore.net/assets/STRAT/icon.png",
+    "Color": "#1382c6"
   },
   "Network": {
     "NetworkType": "Blockcore.Networks.Stratis.StratisMain, Blockcore.Networks.Stratis",

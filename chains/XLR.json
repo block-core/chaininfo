@@ -5,7 +5,8 @@
     "Description": "Blockchain and Financial Ecosystem for the Digital Age",
     "Url": "https://solariscoin.com/",
     "Logo": "https://chains.blockcore.net/assets/XLR/logo.png",
-    "Icon": "https://chains.blockcore.net/assets/XLR/icon.png"
+    "Icon": "https://chains.blockcore.net/assets/XLR/icon.png",
+    "Color": "#ffc037"
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
