@@ -13,7 +13,7 @@ services:
     networks:
       indexer:
         ipv4_address: 172.16.10.10
-    image: blockcore/indexer:0.1.2
+    image: blockcore/indexer:0.1.3
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net,indexer.city-chain.org
       VIRTUAL_PORT: 9910
