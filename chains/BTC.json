@@ -6,7 +6,7 @@
     "Url": "https://github.com/bitcoin/bitcoin",
     "Logo": "https://chains.blockcore.net/assets/BTC/logo.png",
     "Icon": "https://chains.blockcore.net/assets/BTC/icon.png",
-    "Color": "#f2a900"
+    "Color": "#f7931a"
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, Blockcore.NBitcoin",
