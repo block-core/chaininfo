@@ -4,14 +4,18 @@
     "Symbol": "BTC",
     "Description": "Bitcoin: A Peer-to-Peer Electronic Cash System",
     "Url": "https://github.com/bitcoin/bitcoin",
-    "Logo": "",
-    "Icon": ""
+    "Logo": "https://chains.blockcore.net/assets/BTC/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/BTC/icon.png",
+    "Color": "#f2a900"
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, Blockcore.NBitcoin",
     "NetworkPubkeyAddressPrefix": 0,
     "NetworkScriptAddressPrefix": 5,
-    "NetworkWitnessPrefix": "bc"
+    "NetworkWitnessPrefix": "bc",
+    "P2PPort": 8333,
+    "RPCPort": 8332,
+    "APIPort": 37220
   },
   "Indexer": {
     "StoreRawTransactions": false,
@@ -20,18 +24,37 @@
   },
   "Explorer": {
     "Indexer": {
+      "ApiUrl": "https://btc.indexer.blockcore.net/api",
+      "DocUrl": "https://btc.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "https://api.coincap.io/v2/rates",
+      "AutoConvert": true
     },
     "Ticker": {
+      "WebUrl": "https://coinpaprika.com/coin/btc-bitcoin/",
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/btc-bitcoin?quotes=USD,BTC",
+      "PricePath": "quotes.BTC.price",
+      "PricePathBTC": "quotes.BTC.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.BTC.percent_change_1h",
+      "IsBitcoinPrice": true
     },
     "Setup": {
+      "Title": "Bitcoin Explorer",
+      "Footer": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/bitcoin/bitcoin"
+        },
+        {
+          "icon": "fas fa-link",
+          "url": "https://bitcoin.org/"
+        }
+      ]
     },
     "Features": {
-      "Home": false,
-      "Ticker": false,
-      "Explorer": true,
-      "API": true,
-      "About": true,
-      "Footer": true,
       "POSWeight": false
     }
   }

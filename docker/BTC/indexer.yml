@@ -1,0 +1,60 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: btc-db
+  blockchain:
+    name: btc-data
+
+services:
+
+  indexer:
+    container_name: btc-indexer
+    networks:
+      indexer:
+        ipv4_address: 172.16.14.10
+    image: blockcore/indexer:0.1.3
+    environment:
+      VIRTUAL_HOST: btc.indexer.blockcore.net
+      VIRTUAL_PORT: 9910
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: btc.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    command: ["--chain=BTC"]
+    restart: always
+    depends_on:
+        - mongo
+        - chain
+
+  chain:
+    container_name: btc-chain
+    image: blockcore/node-btc:1.0.9
+    command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.14.10", "-rpcbind=btc-chain", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: always
+    stop_grace_period: 15m
+    networks:
+      - indexer
+    volumes:
+      - blockchain:/root/.blockcore
+    ports:
+      - 4333:4333
+
+  mongo:
+    container_name: btc-mongo
+    image: mongo:3.6.18
+    command: "--wiredTigerCacheSizeGB 0.25"
+    mem_limit: 250m
+    restart: always
+    stop_grace_period: 5m
+    networks:
+      - indexer
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+
+networks:
+  indexer:
+    name: btc-network
+    ipam:
+      config:
+        - subnet: 172.16.14.0/28
