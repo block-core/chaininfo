@@ -4,7 +4,7 @@ services:
 
   explorer:
     container_name: xlr-explorer
-    image: blockcore/explorer:0.1.6
+    image: blockcore/explorer:0.1.7
     environment:
       VIRTUAL_HOST: xlr.explorer.blockcore.net
       VIRTUAL_PORT: 9911
