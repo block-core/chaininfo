@@ -37,7 +37,7 @@ services:
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 52342:52342
+      - 52343:52343
 
   mongo:
     container_name: x42-mongo
