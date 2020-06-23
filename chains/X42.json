@@ -11,6 +11,7 @@
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
+    "NetworkType": "x42.Networks.x42Main, Blockcore.Networks.x42",
     "NetworkPubkeyAddressPrefix": 75,
     "NetworkScriptAddressPrefix": 125,
     "NetworkWitnessPrefix": "x42",
