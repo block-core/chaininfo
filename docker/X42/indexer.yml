@@ -1,0 +1,60 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: x42-db
+  blockchain:
+    name: x42-data
+
+services:
+
+  indexer:
+    container_name: x42-indexer
+    networks:
+      indexer:
+        ipv4_address: 172.16.15.10
+    image: blockcore/indexer:0.1.5
+    environment:
+      VIRTUAL_HOST: x42.indexer.blockcore.net
+      VIRTUAL_PORT: 9910
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: x42.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    command: ["--chain=X42"]
+    restart: always
+    depends_on:
+        - mongo
+        - chain
+
+  chain:
+    container_name: x42-chain
+    image: blockcore/node-x42:1.0.14
+    command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.15.10", "-rpcbind=x42-chain", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: always
+    stop_grace_period: 15m
+    networks:
+      - indexer
+    volumes:
+      - blockchain:/root/.blockcore
+    ports:
+      - 52342:52342
+
+  mongo:
+    container_name: x42-mongo
+    image: mongo:3.6.18
+    command: "--wiredTigerCacheSizeGB 0.25"
+    mem_limit: 250m
+    restart: always
+    stop_grace_period: 5m
+    networks:
+      - indexer
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+
+networks:
+  indexer:
+    name: x42-network
+    ipam:
+      config:
+        - subnet: 172.16.15.0/28
