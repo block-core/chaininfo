@@ -28,7 +28,7 @@ services:
 
   chain:
     container_name: city-chain
-    image: blockcore/node-city:1.0.10
+    image: blockcore/node-city:1.0.15
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.10.10", "-rpcbind=city-chain", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m

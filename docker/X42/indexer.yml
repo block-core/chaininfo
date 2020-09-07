@@ -28,7 +28,7 @@ services:
 
   chain:
     container_name: x42-chain
-    image: blockcore/node-x42:1.0.14
+    image: blockcore/node-x42:1.0.15
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.15.10", "-rpcbind=x42-chain", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m

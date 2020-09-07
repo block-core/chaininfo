@@ -28,7 +28,7 @@ services:
 
   chain:
     container_name: strat-chain
-    image: blockcore/node-strat:1.0.9
+    image: blockcore/node-strat:1.0.15
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.12.10", "-rpcbind=strat-chain", "-apiuri=http://0.0.0.0:37221", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
