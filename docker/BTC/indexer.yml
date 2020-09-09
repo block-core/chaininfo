@@ -28,7 +28,7 @@ services:
 
   chain:
     container_name: btc-chain
-    image: blockcore/node-btc:1.0.15
+    image: blockcore/node-btc:1.0.16
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.14.10", "-rpcbind=btc-chain", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
@@ -37,7 +37,7 @@ services:
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 4333:4333
+      - 8333:8333
 
   mongo:
     container_name: btc-mongo

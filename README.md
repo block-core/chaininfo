@@ -135,6 +135,13 @@ sudo docker-compose -f indexer.yml -f explorer.yml up -d
 
 After this, you must connect the networks between the chain, and the proxy/lets-encrypt containers:
 
+### BTC
+
+```
+sudo docker network connect btc-network proxy
+sudo docker network connect btc_default proxy
+```
+
 ### CITY
 
 ```
