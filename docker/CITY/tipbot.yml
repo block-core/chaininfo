@@ -1,0 +1,34 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: city-tipbot-db
+  blockchain:
+    name: city-tipbot-data
+
+services:
+
+  chain:
+    container_name: city-tipbot-chain
+    image: blockcore/node-city:1.0.15
+    command: ["-server=1", "-txindex=1", "-rpcallowip=127.0.0.1", "-rpcbind=city-tipbot-chain", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: always
+    stop_grace_period: 15m
+    volumes:
+      - blockchain:/root/.blockcore
+    ports:
+      - 127.0.0.1:4333:4333 # P2P - Only expose these during local test and development, not needed for production.
+      - 127.0.0.1:4334:4334 # RPC - Only expose these during local test and development, not needed for production.
+      - 127.0.0.1:4335:4335 # API - Only expose these during local test and development, not needed for production.
+
+  database:
+    container_name: city-tipbot-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: MyVeryOwnPassword!23
+      ACCEPT_EULA: Y
+    restart: always
+    volumes:
+      - database:/var/opt/mssql
+    ports:
+      - 1433:1433 # Only expose these during local test and development, not needed for production.

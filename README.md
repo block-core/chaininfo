@@ -135,6 +135,12 @@ sudo docker-compose -f indexer.yml -f explorer.yml up -d
 
 After this, you must connect the networks between the chain, and the proxy/lets-encrypt containers:
 
+### Spin up tipbot containers
+
+```sh
+sudo docker-compose -f tipbot.yml up -d
+```
+
 ### BTC
 
 ```
