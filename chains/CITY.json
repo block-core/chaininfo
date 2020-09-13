@@ -8,6 +8,14 @@
     "Icon": "https://chains.blockcore.net/assets/CITY/icon.png",
     "Color": "#dfab3c"
   },
+  "TipBot": {
+    "Ticker": "CITY",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://127.0.0.1:4335/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919"
+  },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
     "NetworkType": "City.Networks.CityMain, Blockcore.Networks.City",

@@ -8,10 +8,21 @@ volumes:
 
 services:
 
+  tipbot:
+    container_name: city-indexer
+    image: blockcore/tipbot:0.0.1
+    env_file:
+      - tipbot.env
+    command: ["--chain=CITY"]
+    restart: always
+    depends_on:
+        - database
+        - chain
+
   chain:
     container_name: city-tipbot-chain
     image: blockcore/node-city:1.0.15
-    command: ["-server=1", "-txindex=1", "-rpcallowip=127.0.0.1", "-rpcbind=city-tipbot-chain", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["-server=1", "-txindex=0", "-rpcallowip=127.0.0.1", "-rpcbind=city-tipbot-chain", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
     volumes:
@@ -24,11 +35,12 @@ services:
   database:
     container_name: city-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
+    env_file:
+      - tipbot.env
     environment:
-      SA_PASSWORD: MyVeryOwnPassword!23
-      ACCEPT_EULA: Y
+      ACCEPT_EULA: "Y"
     restart: always
     volumes:
       - database:/var/opt/mssql
     ports:
-      - 1433:1433 # Only expose these during local test and development, not needed for production.
+      - 14330:1433 # Only expose these during local test and development, not needed for production.
