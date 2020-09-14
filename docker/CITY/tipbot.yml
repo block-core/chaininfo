@@ -9,7 +9,7 @@ volumes:
 services:
 
   tipbot:
-    container_name: city-indexer
+    container_name: city-tipbot
     image: blockcore/tipbot:0.0.1
     env_file:
       - tipbot.env
