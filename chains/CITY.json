@@ -14,7 +14,8 @@
     "ApiUrl": "http://127.0.0.1:4335/",
     "UseSegwit": false,
     "SupportUsername": "sondreb",
-    "SupportDiscriminator": "5919"
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-city"
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
