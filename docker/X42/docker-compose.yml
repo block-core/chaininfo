@@ -49,7 +49,7 @@ services:
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 16178:16178 # Make this a public node.
+      - 52342:52342 # Make this a public node.
 
   mongo:
     container_name: x42-mongo
