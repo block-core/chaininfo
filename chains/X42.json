@@ -11,9 +11,9 @@
   },
   "TipBot": {
     "Ticker": "X42",
-    "NetworkFee": "0.00100000",
+    "NetworkFee": "0.00000000",
     "ApiUrl": "http://x42-tipbot-chain:42220/",
-    "UseSegwit": false,
+    "UseSegwit": true,
     "SupportUsername": "sondreb",
     "SupportDiscriminator": "5919",
     "BotOptionalPrefix": "tipbot-x42"
