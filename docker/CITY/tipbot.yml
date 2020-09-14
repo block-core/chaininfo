@@ -27,10 +27,6 @@ services:
     stop_grace_period: 15m
     volumes:
       - blockchain:/root/.blockcore
-    ports:
-      - 127.0.0.1:4333:4333 # P2P - Only expose these during local test and development, not needed for production.
-      - 127.0.0.1:4334:4334 # RPC - Only expose these during local test and development, not needed for production.
-      - 127.0.0.1:4335:4335 # API - Only expose these during local test and development, not needed for production.
 
   database:
     container_name: city-tipbot-db
@@ -42,5 +38,3 @@ services:
     restart: always
     volumes:
       - database:/var/opt/mssql
-    ports:
-      - 14330:1433 # Only expose these during local test and development, not needed for production.
