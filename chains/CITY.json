@@ -11,7 +11,7 @@
   "TipBot": {
     "Ticker": "CITY",
     "NetworkFee": "0.00100000",
-    "ApiUrl": "http://127.0.0.1:4335/",
+    "ApiUrl": "http://city-tipbot-chain:4335/",
     "UseSegwit": false,
     "SupportUsername": "sondreb",
     "SupportDiscriminator": "5919",

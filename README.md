@@ -9,15 +9,19 @@ If your project/chain is not listed in the list yet, please go ahead and provide
 
 The Blockcore devs reserves the rights to remove a chain from this repo at any time. Projects (chains) that are not responding and is not acting responsible, will likely be removed from this repo.
 
+
 # Add your own chain
 
 Feel free to go ahead and duplicate one of the existing configurations for a chain, and create a pull request for us to approve. It is fairl self-describing how to do it if you look at existing files and setup.
 
+
 # Host a Blockcore Infrastructure Server
+
 
 ## Server Deployment
 
 To deploy and run the indexer and explorer, you need a computer with Docker. As long as Docker (Linux/Windows) is supported, you should be able to run your own Blockcore Infrastructure Server (BIS).
+
 
 ### Ubuntu 19.10
 
@@ -44,6 +48,7 @@ Then apply executable permissoins:
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+
 ### Reverse Proxy (route DNS to containers)
 
 Next step is to navigate to the docker/SERVER folder.
@@ -60,6 +65,7 @@ More information: https://github.com/JrCs/docker-letsencrypt-nginx-proxy-compani
 
 When this is done, you must ensure local firewall has open traffic for TCP 80 and TCP 443. If you run server behind a gateway/router, you must forward public traffic on port 80 and 443 and route that to the IP address of your server.
 
+
 ### Domain Names
 
 What domain names your explorer and indexer will respond to, is controlled by the VIRTUAL_HOST and LETSENCRYPT_HOST environment variables. You must edit these before you run up a chain.
@@ -72,6 +78,7 @@ What domain names your explorer and indexer will respond to, is controlled by th
 ```
 
 Then modify your DNS entry with your DNS provider to target your network public IP.
+
 
 ### Running a chain
 
@@ -90,6 +97,7 @@ sudo docker network connect city-network blockcore-proxy
 sudo docker network connect city_default_ blockcore-proxy
 ```
 
+
 ### Local Image Dependency (Optional)
 
 Normally your locally running Explorer, will attempt to request your Indexer, using public traffic. It will read the JSON configuration file hosted on chains.blockcore.net and forward traffic through your router. You can manually override this with the following instructions:
@@ -107,12 +115,14 @@ Additionally you would need to modify the startup parameters for the explorer to
    command: ["--chain=CITY", "--Explorer:Indexer:ApiUrl=http://127.0.0.1:9910/api/"]
 ```
 
+
 ### Clean Your Docker Instance
 
 ```sh
 // Cleanup the majority of resources (doesn't delete volumes)
 sudo docker system prune -a
 ```
+
 
 ## Debugging network issues
 
@@ -125,63 +135,30 @@ Output the configuration of the nginx reverse proxy:
 sudo docker exec proxy cat /etc/nginx/conf.d/default.conf
 ```
 
+
 ## Examples
 
 Navigate into the chaininfo/docker/CHAIN folders and run these commands.
 
+
 ### Spin up docker containers
 
-sudo docker-compose -f indexer.yml -f explorer.yml up -d
-
-After this, you must connect the networks between the chain, and the proxy/lets-encrypt containers:
-
-### Spin up tipbot containers
-
 ```sh
-sudo docker-compose -f tipbot.yml up -d
-```
-
-### BTC
-
-```
-sudo docker network connect btc-network proxy
-sudo docker network connect btc_default proxy
-```
-
-### CITY
-
-```
-sudo docker network connect city-network proxy
+sudo docker-compose up -d
 sudo docker network connect city_default proxy
 ```
 
-### STRAT
+After you start, you must connect the proxy network with the newly created network, like below:
 
-```
-sudo docker network connect strat-network proxy
+```sh
+sudo docker network connect city_default proxy
+sudo docker network connect btc_default proxy
 sudo docker network connect strat_default proxy
-```
-
-### X42
-
-```
-sudo docker network connect x42-network proxy
 sudo docker network connect x42_default proxy
-```
-
-### XDS
-
-```
-sudo docker network connect xds-network proxy
 sudo docker network connect xds_default proxy
-```
-
-### XLR
-
-```
-sudo docker network connect xlr-network proxy
 sudo docker network connect xlr_default proxy
 ```
+
 
 ### CHAINS
 
@@ -191,6 +168,7 @@ To run multichain explorer, navigate to the BLOCKCORE folder and run:
 sudo docker-compose -f explorer.yml up -d
 sudo docker network connect blockcore_default proxy
 ```
+
 
 ## Additional docker information.
 
@@ -208,6 +186,7 @@ Data folders are located in:
 ```
 /root/.blockcore/xlr/
 ```
+
 
 ## Limiting Resource Usage
 
