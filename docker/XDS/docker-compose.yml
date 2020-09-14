@@ -1,0 +1,94 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: xds-db
+  blockchain:
+    name: xds-data
+  tipbot-blockchain:
+    name: xds-tipbot-data
+  tipbot-database:
+    name: xds-tipbot-db
+
+services:
+
+  explorer:
+    container_name: xds-explorer
+    image: blockcore/explorer:0.1.7
+    environment:
+      VIRTUAL_HOST: xds.explorer.blockcore.net
+      VIRTUAL_PORT: 9911
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: xds.explorer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    command: ["--chain=XDS"]
+    restart: always
+
+  indexer:
+    container_name: xds-indexer
+    image: blockcore/indexer:0.1.5
+    environment:
+      VIRTUAL_HOST: xds.indexer.blockcore.net
+      VIRTUAL_PORT: 9910
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: xds.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: https://*:9910
+    command: ["--chain=XDS"]
+    restart: always
+    depends_on:
+        - mongo
+        - chain
+
+  chain:
+    container_name: xds-chain
+    image: blockcore/node-xds:1.0.16
+    command: ["-server=1", "-txindex=1", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:48334", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: always
+    stop_grace_period: 15m
+    volumes:
+      - blockchain:/root/.blockcore
+    ports:
+      - 38333:38333 # Make this a public node.
+
+  mongo:
+    container_name: xds-mongo
+    image: mongo:3.6.18
+    command: "--wiredTigerCacheSizeGB 0.5"
+    mem_limit: 500m
+    restart: always
+    stop_grace_period: 5m
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+
+  tipbot:
+    container_name: xds-tipbot
+    image: blockcore/tipbot:0.0.1
+    env_file:
+      - tipbot.env
+    command: ["--chain=XDS"]
+    restart: always
+    depends_on:
+        - tipbot-database
+        - tipbot-chain
+    
+  tipbot-chain:
+    container_name: xds-tipbot-chain
+    image: blockcore/node-xds:1.0.16
+    command: ["-server=1", "-txindex=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:48334", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: always
+    stop_grace_period: 15m
+    volumes:
+      - tipbot-blockchain:/root/.blockcore
+
+  tipbot-database:
+    container_name: xds-tipbot-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    env_file:
+      - tipbot.env
+    environment:
+      ACCEPT_EULA: "Y"
+    restart: always
+    volumes:
+      - tipbot-database:/var/opt/mssql
