@@ -11,7 +11,7 @@
   "TipBot": {
     "Ticker": "XDS",
     "NetworkFee": "0.00100000",
-    "ApiUrl": "http://xds-tipbot-chain:42220/",
+    "ApiUrl": "http://xds-tipbot-chain:48334/",
     "UseSegwit": false,
     "SupportUsername": "sondreb",
     "SupportDiscriminator": "5919",
