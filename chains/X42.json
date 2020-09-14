@@ -9,6 +9,15 @@
     "IconFilter": true,
     "Color": "#cc147f"
   },
+  "TipBot": {
+    "Ticker": "X42",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://x42-tipbot-chain:42220/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-x42"
+  },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",
     "NetworkType": "x42.Networks.x42Main, Blockcore.Networks.x42",

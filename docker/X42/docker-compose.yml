@@ -2,48 +2,48 @@ version: "2.4"
 
 volumes:
   database:
-    name: strat-db
+    name: x42-db
   blockchain:
-    name: strat-data
+    name: x42-data
   tipbot-blockchain:
-    name: strat-tipbot-data
+    name: x42-tipbot-data
   tipbot-database:
-    name: strat-tipbot-db
+    name: x42-tipbot-db
 
 services:
 
   explorer:
-    container_name: strat-explorer
+    container_name: x42-explorer
     image: blockcore/explorer:0.1.7
     environment:
-      VIRTUAL_HOST: strat.explorer.blockcore.net
+      VIRTUAL_HOST: x42.explorer.blockcore.net
       VIRTUAL_PORT: 9911
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: strat.explorer.blockcore.net
+      LETSENCRYPT_HOST: x42.explorer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=STRAT"]
+    command: ["--chain=X42"]
     restart: always
 
   indexer:
-    container_name: strat-indexer
+    container_name: x42-indexer
     image: blockcore/indexer:0.1.5
     environment:
-      VIRTUAL_HOST: strat.indexer.blockcore.net
+      VIRTUAL_HOST: x42.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: strat.indexer.blockcore.net
+      LETSENCRYPT_HOST: x42.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
-    command: ["--chain=STRAT"]
+    command: ["--chain=X42"]
     restart: always
     depends_on:
         - mongo
         - chain
 
   chain:
-    container_name: strat-chain
-    image: blockcore/node-strat:1.0.16
-    command: ["-server=1", "-txindex=1", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37221", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    container_name: x42-chain
+    image: blockcore/node-x42:1.0.16
+    command: ["-server=1", "-txindex=1", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
     volumes:
@@ -52,7 +52,7 @@ services:
       - 16178:16178 # Make this a public node.
 
   mongo:
-    container_name: strat-mongo
+    container_name: x42-mongo
     image: mongo:3.6.18
     command: "--wiredTigerCacheSizeGB 0.5"
     mem_limit: 500m
@@ -63,27 +63,27 @@ services:
       - database:/data/configdb
 
   tipbot:
-    container_name: strat-tipbot
+    container_name: x42-tipbot
     image: blockcore/tipbot:0.0.1
     env_file:
       - tipbot.env
-    command: ["--chain=STRAT"]
+    command: ["--chain=X42"]
     restart: always
     depends_on:
         - tipbot-database
         - tipbot-chain
     
   tipbot-chain:
-    container_name: strat-tipbot-chain
-    image: blockcore/node-strat:1.0.16
-    command: ["-server=1", "-txindex=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37221", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    container_name: x42-tipbot-chain
+    image: blockcore/node-x42:1.0.16
+    command: ["-server=1", "-txindex=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
     volumes:
       - tipbot-blockchain:/root/.blockcore
 
   tipbot-database:
-    container_name: strat-tipbot-db
+    container_name: x42-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
     env_file:
       - tipbot.env

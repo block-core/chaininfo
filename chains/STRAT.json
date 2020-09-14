@@ -8,6 +8,15 @@
     "Icon": "https://chains.blockcore.net/assets/STRAT/icon.png",
     "Color": "#1382c6"
   },
+  "TipBot": {
+    "Ticker": "STRAT",
+    "NetworkFee": "0.00010000",
+    "ApiUrl": "http://strat-tipbot-chain:37221/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-stratis"
+  },
   "Network": {
     "NetworkType": "Blockcore.Networks.Stratis.StratisMain, Blockcore.Networks.Stratis",
     "NetworkPubkeyAddressPrefix": 63,
