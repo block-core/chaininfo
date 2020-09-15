@@ -26,7 +26,7 @@ services:
 
   indexer:
     container_name: city-indexer
-    image: blockcore/indexer:0.1.5
+    image: blockcore/indexer:0.1.8
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net,indexer.city-chain.org
       VIRTUAL_PORT: 9910

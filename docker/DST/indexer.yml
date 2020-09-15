@@ -13,7 +13,7 @@ services:
     networks:
       indexer:
         ipv4_address: 172.16.11.10
-    image: blockcore/indexer:0.1.15
+    image: blockcore/indexer:0.1.8
     command: ["--chain=DST"]
     ports: 
         - "9912:9910"
