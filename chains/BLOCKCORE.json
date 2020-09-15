@@ -50,6 +50,10 @@
         {
           "icon": "fab fa-discord",
           "url": "https://discord.gg/xa5BxWr"
+        },
+        {
+          "icon": "fab fa-twitter",
+          "url": "https://twitter.com/blockcoredev"
         }
       ]
     },
