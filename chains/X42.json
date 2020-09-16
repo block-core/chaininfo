@@ -16,7 +16,8 @@
     "UseSegwit": true,
     "SupportUsername": "sondreb",
     "SupportDiscriminator": "5919",
-    "BotOptionalPrefix": "tipbot-x42"
+    "BotOptionalPrefix": "tipbot-x42",
+    "MinConfirmationsForDeposit": 6
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, NBitcoin",

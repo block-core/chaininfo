@@ -15,7 +15,8 @@
     "UseSegwit": true,
     "SupportUsername": "sondreb",
     "SupportDiscriminator": "5919",
-    "BotOptionalPrefix": "tipbot-xds"
+    "BotOptionalPrefix": "tipbot-xds",
+    "MinConfirmationsForDeposit": 12
   },
   "Network": {
     "NetworkConsensusFactoryType": "Blockcore.Networks.Xds.Consensus.XdsConsensusFactory, Blockcore.Networks.Xds",

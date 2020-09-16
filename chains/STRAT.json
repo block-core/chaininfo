@@ -15,7 +15,8 @@
     "UseSegwit": false,
     "SupportUsername": "sondreb",
     "SupportDiscriminator": "5919",
-    "BotOptionalPrefix": "tipbot-stratis"
+    "BotOptionalPrefix": "tipbot-stratis",
+    "MinConfirmationsForDeposit": 6
   },
   "Network": {
     "NetworkType": "Blockcore.Networks.Stratis.StratisMain, Blockcore.Networks.Stratis",
