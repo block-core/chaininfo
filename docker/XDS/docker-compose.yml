@@ -64,7 +64,7 @@ services:
 
   tipbot:
     container_name: xds-tipbot
-    image: blockcore/tipbot:0.0.1
+    image: blockcore/tipbot:0.0.2
     env_file:
       - tipbot.env
     command: ["--chain=XDS"]
