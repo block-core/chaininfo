@@ -10,6 +10,16 @@
       "icon": "https://chains.blockcore.net/assets/CITY/icon.png"
    },
    {
+      "name": "OpenExO",
+      "symbol": "EXOS",
+      "icon": "https://chains.blockcore.net/assets/EXOS/icon.png"
+   },
+   {
+      "name": "Rutanio",
+      "symbol": "RUTA",
+      "icon": "https://chains.blockcore.net/assets/RUTA/icon.png"
+   },
+   {
       "name": "Solaris",
       "symbol": "XLR",
       "icon": "https://chains.blockcore.net/assets/XLR/icon.png"
