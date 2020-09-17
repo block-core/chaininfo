@@ -15,7 +15,7 @@
      "UseSegwit": false,
      "SupportUsername": "sondreb",
      "SupportDiscriminator": "5919",
-     "BotOptionalPrefix": "tipbot-ruta",
+     "BotOptionalPrefix": "tipbot-rutanio",
      "MinConfirmationsForDeposit": 6
    },
    "Network": {
