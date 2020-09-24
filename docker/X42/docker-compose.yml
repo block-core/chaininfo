@@ -64,7 +64,7 @@ services:
 
   tipbot:
     container_name: x42-tipbot
-    image: blockcore/tipbot:0.0.2
+    image: blockcore/tipbot:0.0.3
     env_file:
       - tipbot.env
     command: ["--chain=X42"]
