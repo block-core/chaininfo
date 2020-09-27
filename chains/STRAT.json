@@ -9,6 +9,20 @@
     "Color": "#1382c6"
   },
   "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
     "Ticker": "STRAT",
     "NetworkFee": "0.00010000",
     "ApiUrl": "http://strat-tipbot-chain:37221/",

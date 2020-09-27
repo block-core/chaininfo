@@ -10,6 +10,20 @@
     "Color": "#cc147f"
   },
   "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
     "Ticker": "X42",
     "NetworkFee": "0.00000000",
     "ApiUrl": "http://x42-tipbot-chain:42220/",
@@ -38,9 +52,9 @@
       "DocUrl": "https://x42.indexer.blockcore.net/docs"
     },
     "Currency": {
-			"ApiUrl": "https://api.coincap.io/v2/rates",
-			"AutoConvert": true
-		},
+      "ApiUrl": "https://api.coincap.io/v2/rates",
+      "AutoConvert": true
+    },
     "Ticker": {
       "WebUrl": "https://app.stex.com/en/trade/pair/BTC/X42",
       "ApiUrl": "https://api.coinpaprika.com/v1/tickers/x42-x42?quotes=USD,BTC",
@@ -54,7 +68,7 @@
       "Title": "x42 Explorer",
       "Footer": "Meet x42 Protocol, the feeless blockchain that will allow anyone to host decentralized applications the easy way.",
       "Links": [
-	{
+        {
           "icon": "fab fa-github",
           "url": "https://github.com/x42protocol"
         },
@@ -62,18 +76,18 @@
           "icon": "fas fa-link",
           "url": "https://x42.tech/"
         },
-	{
+        {
           "icon": "fab fa-discord",
           "url": "https://discord.gg/dtJcfJT"
         },
-	{
+        {
           "icon": "fab fa-telegram-plane",
           "url": "https://t.me/x42tech"
         }
       ]
     },
     "Features": {
-    "POSWeight": true
+      "POSWeight": true
     }
   }
 }

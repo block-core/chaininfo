@@ -9,6 +9,24 @@
     "Color": "#dfab3c"
   },
   "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false,
+      "AccessToken": "",
+      "Channels": [
+        "vanarki"
+      ]
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
     "Ticker": "CITY",
     "NetworkFee": "0.00100000",
     "ApiUrl": "http://city-tipbot-chain:4335/",

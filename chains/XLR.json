@@ -8,6 +8,30 @@
     "Icon": "https://chains.blockcore.net/assets/XLR/icon.png",
     "Color": "#ffc037"
   },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "XLR",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://xlr-tipbot-chain:62000/",
+    "UseSegwit": true,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-xlr",
+    "MinConfirmationsForDeposit": 6
+  },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
     "NetworkType": "",

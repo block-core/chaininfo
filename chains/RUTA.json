@@ -1,68 +1,82 @@
 {
-   "Chain": {
-     "Name": "Rutanio",
-     "Symbol": "RUTA",
-     "Description": "Rutanio acelera y conecta ecosistemas locales de innovación con el mundo.",
-     "Url": "https://www.rutanio.com/",
-     "Logo": "https://chains.blockcore.net/assets/RUTA/logo.png",
-     "Icon": "https://chains.blockcore.net/assets/RUTA/icon.png",
-     "Color": "#ff4864"
-   },
-   "TipBot": {
-     "Ticker": "RUTA",
-     "NetworkFee": "0.00100000",
-     "ApiUrl": "http://ruta-tipbot-chain:39220/",
-     "UseSegwit": false,
-     "SupportUsername": "sondreb",
-     "SupportDiscriminator": "5919",
-     "BotOptionalPrefix": "tipbot-rutanio",
-     "MinConfirmationsForDeposit": 6
-   },
-   "Network": {
-     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
-     "NetworkType": "Rutanio.Networks.RutanioMain, Blockcore.Networks.Rutanio",
-     "NetworkPubkeyAddressPrefix": 60,
-     "NetworkScriptAddressPrefix": 122,
-     "NetworkWitnessPrefix": "ruta",
-     "P2PPort": 6782,
-     "RPCPort": 6781,
-     "APIPort": 39220
-   },
-   "Indexer": {
-     "StoreRawTransactions": true
-   },
-   "Explorer": {
-     "Indexer": {
-       "ApiUrl": "https://ruta.indexer.blockcore.net/api",
-       "DocUrl": "https://ruta.indexer.blockcore.net/docs"
-     },
-     "Currency": {
+  "Chain": {
+    "Name": "Rutanio",
+    "Symbol": "RUTA",
+    "Description": "Rutanio acelera y conecta ecosistemas locales de innovación con el mundo.",
+    "Url": "https://www.rutanio.com/",
+    "Logo": "https://chains.blockcore.net/assets/RUTA/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/RUTA/icon.png",
+    "Color": "#ff4864"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "RUTA",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://ruta-tipbot-chain:39220/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-rutanio",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
+    "NetworkType": "Rutanio.Networks.RutanioMain, Blockcore.Networks.Rutanio",
+    "NetworkPubkeyAddressPrefix": 60,
+    "NetworkScriptAddressPrefix": 122,
+    "NetworkWitnessPrefix": "ruta",
+    "P2PPort": 6782,
+    "RPCPort": 6781,
+    "APIPort": 39220
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://ruta.indexer.blockcore.net/api",
+      "DocUrl": "https://ruta.indexer.blockcore.net/docs"
+    },
+    "Currency": {
       "ApiUrl": "",
       "AutoConvert": false
-   },
-     "Ticker": {
+    },
+    "Ticker": {
       "WebUrl": "",
       "ApiUrl": "",
       "PricePath": "",
       "PercentagePath": "",
       "IsBitcoinPrice": true
     },
-     "Setup": {
-       "Title": "Rutanio Explorer",
-       "Footer": "Rutanio acelera y conecta ecosistemas locales de innovación con el mundo.",
-       "Links": [
-         {
-           "icon": "fab fa-github",
-           "url": "https://github.com/rutanio"
-         },
-         {
-           "icon": "fab fa-discord",
-           "url": "https://link.rutanio.com/discord"
-         }
-       ]
-     },
-     "Features": {
-       "POSWeight": false
-     }
-   }
- }
+    "Setup": {
+      "Title": "Rutanio Explorer",
+      "Footer": "Rutanio acelera y conecta ecosistemas locales de innovación con el mundo.",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/rutanio"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://link.rutanio.com/discord"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

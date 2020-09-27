@@ -9,6 +9,20 @@
     "IconFilter": true
   },
   "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
     "Ticker": "XDS",
     "NetworkFee": "0.00100000",
     "ApiUrl": "http://xds-tipbot-chain:48334/",
@@ -39,7 +53,7 @@
     "Currency": {
       "ApiUrl": "",
       "AutoConvert": false
-   },
+    },
     "Ticker": {
       "WebUrl": "",
       "ApiUrl": "",
