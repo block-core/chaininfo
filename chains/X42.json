@@ -52,14 +52,16 @@
       "DocUrl": "https://x42.indexer.blockcore.net/docs"
     },
     "Currency": {
-      "ApiUrl": "",
-      "AutoConvert": false
+      "ApiUrl": "https://api.coincap.io/v2/rates",
+      "AutoConvert": true
     },
     "Ticker": {
-      "WebUrl": "",
-      "ApiUrl": "",
-      "PricePath": "",
-      "PercentagePath": "",
+      "WebUrl": "https://app.stex.com/en/trade/pair/BTC/X42",
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/x42-x42?quotes=USD,BTC",
+      "PricePath": "quotes.BTC.price",
+      "PricePathBTC": "quotes.BTC.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.BTC.percent_change_1h",
       "IsBitcoinPrice": true
     },
     "Setup": {
