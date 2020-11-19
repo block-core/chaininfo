@@ -42,7 +42,7 @@ services:
 
   chain:
     container_name: exos-chain
-    image: blockcore/node-exos:1.0.18
+    image: blockcore/node-exos:1.0.19
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
@@ -75,7 +75,7 @@ services:
     
   tipbot-chain:
     container_name: exos-tipbot-chain
-    image: blockcore/node-exos:1.0.18
+    image: blockcore/node-exos:1.0.19
     command: ["-server=1", "-txindex=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
