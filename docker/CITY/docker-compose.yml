@@ -12,6 +12,67 @@ volumes:
 
 services:
 
+  bwsnode:
+    container_name: city-chain-bws-node
+    image: blockcore-bws-city
+    command: ["node"]
+    environment:
+      VIRTUAL_HOST: city.api.blockcore.net
+      VIRTUAL_PORT: 3000
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: city.api.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      DB_HOST: city-mongo
+    restart: always
+    depends_on:
+        - mongo
+        - chain
+    ports:
+      #- 8100:8100
+      - 3000:3000
+    env_file:
+      - bws.env
+
+  bwsapi:
+    # build: .
+    tty: true
+    container_name: city-chain-bws-api
+    image: blockcore-bws-city
+    command: ["bws:start"]
+    environment:
+      VIRTUAL_HOST: city.bws.blockcore.net
+      VIRTUAL_PORT: 3232
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: city.bws.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      DB_HOST: city-mongo
+    depends_on:
+        - mongo
+        - chain
+    ports:
+      - 3232:3232
+    env_file:
+      - bws.env
+
+  bwsinsight:
+    container_name: city-chain-bws-insight
+    image: blockcore-bws-city
+    command: ["insight"]
+    environment:
+      VIRTUAL_HOST: city.insight.blockcore.net
+      VIRTUAL_PORT: 8100
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: city.insight.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      DB_HOST: city-mongo
+    restart: always
+    depends_on:
+        - mongo
+    ports:
+      - 8100:8100
+    env_file:
+      - bws.env
+
   explorer:
     container_name: city-explorer
     image: blockcore/explorer:0.1.7
@@ -43,7 +104,7 @@ services:
   chain:
     container_name: city-chain
     image: blockcore/node-city:1.0.19
-    command: ["-server=1", "-txindex=1", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
     volumes:

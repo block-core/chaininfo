@@ -256,3 +256,19 @@ Then you can verify that MongoDB starts up with the restritions by looking in th
 sudo docker logs -f xlr-mongo
 ```
 
+# Blockcore Wallet Service (BWS)
+
+The Blockcore Wallet Service is based upon a fork of Bitcore.
+
+```
+git clone repo
+```
+
+```
+// Navigate to:
+CITY/BWS/
+```
+
+```
+sudo docker-compose up -d
+```
