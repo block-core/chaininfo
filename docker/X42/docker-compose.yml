@@ -42,7 +42,7 @@ services:
 
   chain:
     container_name: x42-chain
-    image: blockcore/node-x42:1.0.19
+    image: blockcore/node-x42:1.0.20
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
@@ -75,7 +75,7 @@ services:
     
   tipbot-chain:
     container_name: x42-tipbot-chain
-    image: blockcore/node-x42:1.0.19
+    image: blockcore/node-x42:1.0.20
     command: ["-server=1", "-txindex=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m

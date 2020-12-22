@@ -28,7 +28,7 @@ services:
 
   chain:
     container_name: xlr-chain
-    image: blockcore/node-xlr:1.0.19
+    image: blockcore/node-xlr:1.0.20
     command: ["-server=1", "-addnode=80.211.88.141", "-txindex=1", "-rpcallowip=172.16.13.10", "-rpcbind=xlr-chain", "-apiuri=http://0.0.0.0:62008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
