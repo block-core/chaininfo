@@ -9,11 +9,13 @@ volumes:
     name: city-tipbot-data
   tipbot-database:
     name: city-tipbot-db
+  bws-database:
+    name: city-bws-db
 
 services:
 
   bwsnode:
-    container_name: city-chain-bws-node
+    container_name: city-bws-node
     image: blockcore-bws-city
     command: ["node"]
     environment:
@@ -22,7 +24,7 @@ services:
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: city.api.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-      DB_HOST: city-mongo
+      DB_HOST: city-bws-mongo
     restart: always
     depends_on:
         - mongo
@@ -36,7 +38,7 @@ services:
   bwsapi:
     # build: .
     tty: true
-    container_name: city-chain-bws-api
+    container_name: city-bws-api
     image: blockcore-bws-city
     command: ["bws:start"]
     environment:
@@ -45,7 +47,7 @@ services:
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: city.bws.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-      DB_HOST: city-mongo
+      DB_HOST: city-bws-mongo
     depends_on:
         - mongo
         - chain
@@ -55,23 +57,35 @@ services:
       - bws.env
 
   bwsinsight:
-    container_name: city-chain-bws-insight
+    container_name: city-bws-insight
     image: blockcore-bws-city
-    command: ["insight"]
+    command: ["insight:prod"]
     environment:
       VIRTUAL_HOST: city.insight.blockcore.net
-      VIRTUAL_PORT: 8100
+      VIRTUAL_PORT: 8200
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: city.insight.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-      DB_HOST: city-mongo
+      DB_HOST: city-bws-mongo
     restart: always
     depends_on:
         - mongo
     ports:
-      - 8100:8100
+      - 8200:8200
     env_file:
       - bws.env
+
+  bwsmongo:
+    container_name: city-bws-mongo
+    image: mongo:3.6.18
+    command: "--wiredTigerCacheSizeGB 3.5"
+    mem_limit: 3500m
+    restart: always
+    stop_grace_period: 5m
+    volumes:
+      - bws-database:/data/db
+      - bws-database:/data/configdb
+
 
   explorer:
     container_name: city-explorer
@@ -89,10 +103,10 @@ services:
     container_name: city-indexer
     image: blockcore/indexer:0.1.8
     environment:
-      VIRTUAL_HOST: city.indexer.blockcore.net,indexer.city-chain.org
+      VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: city.indexer.blockcore.net,indexer.city-chain.org
+      LETSENCRYPT_HOST: city.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
     command: ["--chain=CITY"]
@@ -104,7 +118,7 @@ services:
   chain:
     container_name: city-chain
     image: blockcore/node-city:1.0.20
-    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=172.0.0.0/8", "-whitelist=172.27.0.1", "-whitelist=172.27.0.2", "-whitelist=172.27.0.3", "-whitelist=172.27.0.4", "-whitelist=172.27.0.5", "-whitelist=172.27.0.6", "-whitelist=172.27.0.7", "-whitelist=172.27.0.8", "-whitelist=172.27.0.9", "-whitelist=172.27.0.10", "-whitelist=172.27.0.11", "-whitelist=172.27.0.12", "-whitelist=172.27.0.13", "-whitelist=172.27.0.14", "-whitelist=172.27.0.15", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
     volumes:
@@ -115,8 +129,8 @@ services:
   mongo:
     container_name: city-mongo
     image: mongo:3.6.18
-    command: "--wiredTigerCacheSizeGB 0.35"
-    mem_limit: 350m
+    command: "--wiredTigerCacheSizeGB 3.5"
+    mem_limit: 3500m
     restart: always
     stop_grace_period: 5m
     volumes:
@@ -153,3 +167,5 @@ services:
     restart: always
     volumes:
       - tipbot-database:/var/opt/mssql
+#    ports:
+#      - 1433:1433

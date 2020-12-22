@@ -28,6 +28,7 @@ services:
 
   chain:
     container_name: btc-chain
+    mem_limit: 6000m
     image: blockcore/node-btc:1.0.20
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.14.10", "-rpcbind=btc-chain", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always

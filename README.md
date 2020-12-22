@@ -151,6 +151,9 @@ sudo docker network connect city_default proxy
 After you start, you must connect the proxy network with the newly created network, like below:
 
 ```sh
+sudo docker network connect blockcore_default proxy
+sudo docker network connect exos_default proxy
+sudo docker network connect ruta_default proxy
 sudo docker network connect city_default proxy
 sudo docker network connect btc_default proxy
 sudo docker network connect strat_default proxy
@@ -159,6 +162,11 @@ sudo docker network connect xds_default proxy
 sudo docker network connect xlr_default proxy
 ```
 
+Also if you run mongo-express for debugging:
+
+```sh
+sudo docker network connect city_default mongo-express
+```
 
 ### CHAINS
 
