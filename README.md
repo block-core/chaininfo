@@ -162,6 +162,11 @@ sudo docker network connect xds_default proxy
 sudo docker network connect xlr_default proxy
 ```
 
+If you host the paperwallet, you'll also need:
+```
+sudo docker network connect paperwallet_default proxy
+```
+
 Also if you run mongo-express for debugging:
 
 ```sh

@@ -43,7 +43,7 @@ services:
   chain:
     container_name: xds-chain
     image: blockcore/node-xds:1.0.20
-    command: ["-server=1", "-txindex=1", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:48334", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:48334", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
     volumes:
