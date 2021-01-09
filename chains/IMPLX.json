@@ -1,0 +1,87 @@
+{
+  "Chain": {
+    "Name": "ImpleumX",
+    "Symbol": "IMPLX",
+    "Description": "Impleum is a blockchain platform for mobile, web and desktop applications",
+    "Url": "https://impleum.com/",
+    "Logo": "https://chains.blockcore.net/assets/IMPLX/icon.png",
+    "Icon": "https://chains.blockcore.net/assets/IMPLX/icon.png",
+    "Color": "#00A0F3"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "IMPLX",
+    "NetworkFee": "0.00010000",
+    "ApiUrl": "http://implx-tipbot-chain:18103/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-stratis",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkType": "Blockcore.Networks.Impleum.ImpleumMain, Blockcore.Networks.Impleum",
+    "NetworkPubkeyAddressPrefix": 76,
+    "NetworkScriptAddressPrefix": 141,
+    "NetworkWitnessPrefix": "implx",
+    "P2PPort": 18105,
+    "RPCPort": 18104,
+    "APIPort": 18103
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://implx.indexer.blockcore.net/api",
+      "DocUrl": "https://implx.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": true
+    },
+    "Ticker": {
+      "WebUrl": "https://coinpaprika.com/coin/impl-impleum/",
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/impl-impleum?quotes=USD,BTC",
+      "PricePath": "quotes.BTC.price",
+      "PricePathBTC": "quotes.BTC.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.BTC.percent_change_1h",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "ImpleimX Explorer",
+      "Footer": "Impleum Blockchain Development Platform",
+      "Links": [
+        {
+          "icon": "fas fa-link",
+          "url": "https://impleum.com/"
+        },
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/impleum"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discord.gg/AyV8Ssa"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}
