@@ -10,6 +10,11 @@
       "icon": "https://chains.blockcore.net/assets/CITY/icon.png"
    },
    {
+      "name": "Impleum",
+      "symbol": "IMPLX",
+      "icon": "https://chains.blockcore.net/assets/IMPLX/icon.png"
+   },
+   {
       "name": "OpenExO",
       "symbol": "EXOS",
       "icon": "https://chains.blockcore.net/assets/EXOS/icon.png"
