@@ -2,7 +2,7 @@ version: '2'
 
 services:
   proxy:
-    image: jwilder/nginx-proxy:latest
+    image: jwilder/nginx-proxy:0.8.0
     container_name: proxy
     ports:
       - "80:80"
@@ -18,7 +18,7 @@ services:
     network_mode: bridge
 
   letsencrypt:
-    image: jrcs/letsencrypt-nginx-proxy-companion:latest
+    image: jrcs/letsencrypt-nginx-proxy-companion:v1.13.1
     container_name: letsencrypt
     volumes_from:
       - proxy
