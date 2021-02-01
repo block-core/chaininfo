@@ -49,7 +49,7 @@ services:
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 4562:4562 # Make this a public node.
+      - 18105:18105 # Make this a public node.
 
   mongo:
     container_name: implx-mongo

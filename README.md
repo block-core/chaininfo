@@ -160,6 +160,7 @@ sudo docker network connect strat_default proxy
 sudo docker network connect x42_default proxy
 sudo docker network connect xds_default proxy
 sudo docker network connect xlr_default proxy
+sudo docker network connect implx_default proxy
 ```
 
 If you host the paperwallet, you'll also need:
