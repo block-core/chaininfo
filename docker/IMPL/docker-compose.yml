@@ -2,48 +2,48 @@ version: "2.4"
 
 volumes:
   database:
-    name: exos-db
+    name: impl-db
   blockchain:
-    name: exos-data
+    name: impl-data
   tipbot-blockchain:
-    name: exos-tipbot-data
+    name: impl-tipbot-data
   tipbot-database:
-    name: exos-tipbot-db
+    name: impl-tipbot-db
 
 services:
 
   explorer:
-    container_name: exos-explorer
+    container_name: impl-explorer
     image: blockcore/explorer:0.1.7
     environment:
-      VIRTUAL_HOST: exos.explorer.blockcore.net
+      VIRTUAL_HOST: impl.explorer.blockcore.net
       VIRTUAL_PORT: 9911
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: exos.explorer.blockcore.net
+      LETSENCRYPT_HOST: impl.explorer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=EXOS"]
+    command: ["--chain=IMPLX"]
     restart: always
 
   indexer:
-    container_name: exos-indexer
+    container_name: impl-indexer
     image: blockcore/indexer:0.1.9
     environment:
-      VIRTUAL_HOST: exos.indexer.blockcore.net
+      VIRTUAL_HOST: impl.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: exos.indexer.blockcore.net
+      LETSENCRYPT_HOST: impl.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
-    command: ["--chain=EXOS"]
+    command: ["--chain=IMPLX"]
     restart: always
     depends_on:
         - mongo
         - chain
 
   chain:
-    container_name: exos-chain
-    image: blockcore/node-exos:1.0.21
-    command: ["-server=1", "-txindex=1", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    container_name: impl-chain
+    image: blockcore/node-impl:1.0.21
+    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
     volumes:
@@ -52,7 +52,7 @@ services:
       - 4562:4562 # Make this a public node.
 
   mongo:
-    container_name: exos-mongo
+    container_name: impl-mongo
     image: mongo:3.6.18
     command: "--wiredTigerCacheSizeGB 0.5"
     mem_limit: 500m
@@ -63,19 +63,19 @@ services:
       - database:/data/configdb
 
   tipbot:
-    container_name: exos-tipbot
+    container_name: impl-tipbot
     image: blockcore/tipbot:0.0.3
     env_file:
       - tipbot.env
-    command: ["--chain=EXOS"]
+    command: ["--chain=IMPLX"]
     restart: always
     depends_on:
         - tipbot-database
         - tipbot-chain
     
   tipbot-chain:
-    container_name: exos-tipbot-chain
-    image: blockcore/node-exos:1.0.21
+    container_name: impl-tipbot-chain
+    image: blockcore/node-impl:1.0.21
     command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
@@ -83,7 +83,7 @@ services:
       - tipbot-blockchain:/root/.blockcore
 
   tipbot-database:
-    container_name: exos-tipbot-db
+    container_name: impl-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
     env_file:
       - tipbot.env

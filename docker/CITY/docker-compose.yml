@@ -117,7 +117,7 @@ services:
 
   chain:
     container_name: city-chain
-    image: blockcore/node-city:1.0.20
+    image: blockcore/node-city:1.0.21
     command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=172.0.0.0/8", "-whitelist=172.27.0.1", "-whitelist=172.27.0.2", "-whitelist=172.27.0.3", "-whitelist=172.27.0.4", "-whitelist=172.27.0.5", "-whitelist=172.27.0.6", "-whitelist=172.27.0.7", "-whitelist=172.27.0.8", "-whitelist=172.27.0.9", "-whitelist=172.27.0.10", "-whitelist=172.27.0.11", "-whitelist=172.27.0.12", "-whitelist=172.27.0.13", "-whitelist=172.27.0.14", "-whitelist=172.27.0.15", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
@@ -150,8 +150,8 @@ services:
     
   tipbot-chain:
     container_name: city-tipbot-chain
-    image: blockcore/node-city:1.0.20
-    command: ["-server=1", "-txindex=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    image: blockcore/node-city:1.0.21
+    command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
     volumes:
