@@ -9,7 +9,7 @@
     "IconFilter": true
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore.Core",
     "NetworkPubkeyAddressPrefix": 0,
     "NetworkScriptAddressPrefix": 0,
     "NetworkWitnessPrefix": "",

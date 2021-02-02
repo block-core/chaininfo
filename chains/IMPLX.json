@@ -34,7 +34,6 @@
   },
   "Network": {
     "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
-    "NetworkType": "Blockcore.Networks.Impleum.ImpleumMain, Blockcore.Networks.Impleum",
     "NetworkPubkeyAddressPrefix": 76,
     "NetworkScriptAddressPrefix": 141,
     "NetworkWitnessPrefix": "implx",
