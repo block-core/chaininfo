@@ -89,7 +89,7 @@ services:
 
   explorer:
     container_name: city-explorer
-    image: blockcore/explorer:0.1.7
+    image: blockcore/explorer:0.1.8
     environment:
       VIRTUAL_HOST: city.explorer.blockcore.net,explorer.city-chain.org
       VIRTUAL_PORT: 9911
@@ -101,7 +101,7 @@ services:
 
   indexer:
     container_name: city-indexer
-    image: blockcore/indexer:0.1.8
+    image: blockcore/indexer:0.1.11
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
