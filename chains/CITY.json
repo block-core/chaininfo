@@ -37,8 +37,8 @@
     "MinConfirmationsForDeposit": 3
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
-    "NetworkType": "City.Networks.CityMain, Blockcore.Networks.City",
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "Blockcore.Networks.City.Networks.CityMain, Blockcore.Networks.City",
     "NetworkPubkeyAddressPrefix": 28,
     "NetworkScriptAddressPrefix": 88,
     "NetworkWitnessPrefix": "city",
@@ -49,6 +49,53 @@
   "Indexer": {
     "StoreRawTransactions": true
   },
+  "Insight": {
+    "Rewards": [
+       {
+          "Height": 0,
+          "Reward": 2
+       },
+       {
+          "Height": 2500,
+          "Reward": 20
+       },
+       {
+          "Height": 1111111,
+          "Reward": 2
+       }
+    ],
+    "Wallets": [
+       {
+          "Name": "City Chain Foundation",
+          "Type": "Fund",
+          "Url": "https://citychain.foundation",
+          "Address": [ "CU78ydNu7odWCEtrCcCSd3fN6hzZqBUyjz" ],
+          "InitialAmount": 2747200000.00,
+          "Logo": "https://city-chain.org/images/logo/city-chain-foundation-vertical.png"
+       },
+       {
+          "Name": "Private City Fund",
+          "Type": "Fund",
+          "Url": "",
+          "Address": [ "Ccoquhaae7u6ASqQ5BiYueASz8EavUXrKn" ],
+          "InitialAmount": 7554800000.00,
+          "Logo": "https://city-chain.org/images/logo/private-city-fund-box.png"
+       },
+       {
+          "Name": "Private Business Incubator Program",
+          "Type": "Fund",
+          "Url": "",
+          "Address": [ "CSHuP5iNWrQ3AFPvK9ZnkcH8qvhPHp94kK" ],
+          "InitialAmount": 3434000000.00,
+          "Logo": "https://city-chain.org/images/logo/private-city-fund-box.png"
+       },
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
   "Explorer": {
     "Indexer": {
       "ApiUrl": "https://city.indexer.blockcore.net/api",
