@@ -4,7 +4,7 @@ services:
 
   explorer:
     container_name: dst-explorer
-    image: blockcore/explorer:0.1.7
+    image: blockcore/explorer:0.1.10
     command: ["--chain=DST"]
     ports: 
         - "9913:9911"

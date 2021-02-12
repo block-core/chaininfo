@@ -45,6 +45,18 @@
   "Indexer": {
     "StoreRawTransactions": true
   },
+  "Insight": {
+    "Rewards": [
+      
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
   "Explorer": {
     "Indexer": {
       "ApiUrl": "https://xds.indexer.blockcore.net/api",

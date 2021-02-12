@@ -14,7 +14,7 @@ services:
 
   explorer:
     container_name: ruta-explorer
-    image: blockcore/explorer:0.1.7
+    image: blockcore/explorer:0.1.10
     environment:
       VIRTUAL_HOST: ruta.explorer.blockcore.net
       VIRTUAL_PORT: 9911
@@ -26,7 +26,7 @@ services:
 
   indexer:
     container_name: ruta-indexer
-    image: blockcore/indexer:0.1.9
+    image: blockcore/indexer:0.1.12
     environment:
       VIRTUAL_HOST: ruta.indexer.blockcore.net
       VIRTUAL_PORT: 9910

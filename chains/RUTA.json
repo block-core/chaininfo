@@ -33,7 +33,7 @@
     "MinConfirmationsForDeposit": 6
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
     "NetworkType": "Rutanio.Networks.RutanioMain, Blockcore.Networks.Rutanio",
     "NetworkPubkeyAddressPrefix": 60,
     "NetworkScriptAddressPrefix": 122,
@@ -45,6 +45,18 @@
   "Indexer": {
     "StoreRawTransactions": true
   },
+  "Insight": {
+    "Rewards": [
+      
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
   "Explorer": {
     "Indexer": {
       "ApiUrl": "https://ruta.indexer.blockcore.net/api",

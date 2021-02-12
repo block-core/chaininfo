@@ -9,7 +9,7 @@
     "Color": "#f7931a"
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.ConsensusFactory, Blockcore.NBitcoin",
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.ConsensusFactory, Blockcore",
     "NetworkPubkeyAddressPrefix": 0,
     "NetworkScriptAddressPrefix": 5,
     "NetworkWitnessPrefix": "bc",
@@ -22,6 +22,18 @@
     "MaxItemsInQueue": 1000,
     "SyncInterval": 2
   },
+  "Insight": {
+    "Rewards": [
+      
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
   "Explorer": {
     "Indexer": {
       "ApiUrl": "https://btc.indexer.blockcore.net/api",

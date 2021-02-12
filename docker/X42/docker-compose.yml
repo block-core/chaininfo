@@ -14,7 +14,7 @@ services:
 
   explorer:
     container_name: x42-explorer
-    image: blockcore/explorer:0.1.7
+    image: blockcore/explorer:0.1.10
     environment:
       VIRTUAL_HOST: x42.explorer.blockcore.net
       VIRTUAL_PORT: 9911
@@ -26,7 +26,7 @@ services:
 
   indexer:
     container_name: x42-indexer
-    image: blockcore/indexer:0.1.8
+    image: blockcore/indexer:0.1.12
     environment:
       VIRTUAL_HOST: x42.indexer.blockcore.net
       VIRTUAL_PORT: 9910

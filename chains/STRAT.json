@@ -44,6 +44,18 @@
   "Indexer": {
     "StoreRawTransactions": true
   },
+  "Insight": {
+    "Rewards": [
+      
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
   "Explorer": {
     "Indexer": {
       "ApiUrl": "https://strat.indexer.blockcore.net/api",

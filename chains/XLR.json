@@ -33,7 +33,7 @@
     "MinConfirmationsForDeposit": 6
   },
   "Network": {
-    "NetworkConsensusFactoryType": "NBitcoin.PosConsensusFactory, Blockcore.NBitcoin",
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
     "NetworkType": "",
     "NetworkPubkeyAddressPrefix": 111,
     "NetworkScriptAddressPrefix": 196,
@@ -45,6 +45,18 @@
   "Indexer": {
     "StoreRawTransactions": true
   },
+  "Insight": {
+    "Rewards": [
+      
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
   "Explorer": {
     "Indexer": {
       "ApiUrl": "https://xlr.indexer.blockcore.net/api",
