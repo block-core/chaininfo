@@ -47,7 +47,14 @@
   },
   "Insight": {
     "Rewards": [
-      
+      {
+        "Height": 0,
+        "Reward": 12
+     },
+     {
+        "Height": 45000,
+        "Reward": 1
+     }
     ],
     "Wallets": [
        {
