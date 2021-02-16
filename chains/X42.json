@@ -48,16 +48,31 @@
   },
   "Insight": {
     "Rewards": [
-      
+      {
+        "Height": 0,
+        "Reward": 0
+      },
+      {
+        "Height": 524,
+        "Reward": 20
+      },
+      {
+        "Height": 400001,
+        "Reward": 2
+      },
+      {
+        "Height": 12155231,
+        "Reward": 0
+      }
     ],
     "Wallets": [
-       {
-          "Name": "Burnt",
-          "Type": "Burn",
-          "Address": []
-       }
+      {
+        "Name": "Burnt",
+        "Type": "Burn",
+        "Address": []
+      }
     ]
- },
+  },
   "Explorer": {
     "Indexer": {
       "ApiUrl": "https://x42.indexer.blockcore.net/api",
