@@ -51,11 +51,11 @@ services:
     container_name: btc-chain
     mem_limit: 6000m
     image: blockcore/node-btc:1.0.21
-    command: ["-server=1", "-txindex=1", "-dbtype=rocksdb", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["-server=1", "-txindex=1", "-dbtype=rocksdb", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-assumedvalid=00000000000000000004bac129769598d1fad2b42859e625729661a32b9c3e71"]
     restart: always
     stop_grace_period: 15m
     volumes:
-      - /media/blockcore/data/blockchain/btc-data:/root/.blockcore
+      - /mnt/storage/blockcore/btc/node:/root/.blockcore
     ports:
       - 8333:8333 # Make this a public node.
 
@@ -67,8 +67,8 @@ services:
     restart: always
     stop_grace_period: 5m
     volumes:
-      - /media/blockcore/data/blockchain/btc-db:/data/db
-      - /media/blockcore/data/blockchain/btc-db:/data/configdb
+      - /mnt/storage/blockcore/btc/db:/data/db
+      - /mnt/storage/blockcore/btc/db:/data/configdb
 
   # tipbot:
   #   container_name: strat-tipbot
