@@ -106,12 +106,12 @@
       "AutoConvert": true
     },
     "Ticker": {
-      "WebUrl": "https://coinpaprika.com/coin/city-city-coin/",
-      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/city-city-coin?quotes=USD,BTC",
-      "PricePath": "quotes.BTC.price",
-      "PricePathBTC": "quotes.BTC.price",
-      "PricePathUSD": "quotes.USD.price",
-      "PercentagePath": "quotes.BTC.percent_change_1h",
+      "WebUrl": "https://www.coingecko.com/en/coins/city-coin",
+      "ApiUrl": "https://api.coingecko.com/api/v3/coins/city-coin/tickers",
+      "PricePath": "tickers.0.last",
+      "PricePathBTC": "tickers.0.last",
+      "PricePathUSD": "tickers.0.converted_last.usd",
+      "PercentagePath": "",
       "IsBitcoinPrice": true
     },
     "Setup": {
