@@ -54,8 +54,8 @@ services:
   mongo:
     container_name: exos-mongo
     image: mongo:3.6.18
-    command: "--wiredTigerCacheSizeGB 0.5"
-    mem_limit: 500m
+    command: "--wiredTigerCacheSizeGB 1"
+    mem_limit: 1000m
     restart: always
     stop_grace_period: 5m
     volumes:
