@@ -1,1 +1,4 @@
 *.env
+
+# This is a sample env, don't put any secrets in this file!
+!docker/.env
