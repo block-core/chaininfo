@@ -49,19 +49,16 @@
    {
       "name": "X1",
       "symbol": "X1",
-      "icon": "https://chains.blockcore.net/assets/X1/icon.png",
-      "filter": true
+      "icon": "https://chains.blockcore.net/assets/X1/icon.png"
    },
    {
       "name": "XRC",
       "symbol": "XRC",
-      "icon": "https://chains.blockcore.net/assets/XRC/icon.png",
-      "filter": true
+      "icon": "https://chains.blockcore.net/assets/XRC/icon.png"
    },
    {
       "name": "HOMECOIN",
       "symbol": "HOMECOIN",
-      "icon": "https://chains.blockcore.net/assets/HOMECOIN/icon.png",
-      "filter": true
+      "icon": "https://chains.blockcore.net/assets/HOMECOIN/icon.png"
    }
 ]
