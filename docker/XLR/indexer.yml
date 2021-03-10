@@ -42,8 +42,8 @@ services:
   mongo:
     container_name: xlr-mongo
     image: mongo:3.6.18
-    command: "--wiredTigerCacheSizeGB 0.35"
-    mem_limit: 350m
+    command: "--wiredTigerCacheSizeGB 1"
+    mem_limit: 1000m
     restart: always
     stop_grace_period: 5m
     networks:
