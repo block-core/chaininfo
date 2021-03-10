@@ -13,7 +13,7 @@ services:
     networks:
       indexer:
         ipv4_address: 172.16.14.10
-    image: blockcore/indexer:0.1.12
+    image: blockcore/indexer:0.1.13
     environment:
       VIRTUAL_HOST: btc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -29,7 +29,7 @@ services:
   chain:
     container_name: btc-chain
     mem_limit: 6000m
-    image: blockcore/node-btc:1.0.21
+    image: blockcore/node-btc:1.0.23
     command: ["-server=1", "-txindex=1", "-rpcallowip=172.16.14.10", "-rpcbind=btc-chain", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m

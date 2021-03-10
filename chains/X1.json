@@ -1,0 +1,90 @@
+{
+  "Chain": {
+    "Name": "X1",
+    "Symbol": "X1",
+    "Description": "",
+    "Url": "",
+    "Logo": "https://chains.blockcore.net/assets/X1/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/X1/icon.png",
+    "Color": "#650081"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "X1",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://x1-tipbot-chain:39220/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-x1",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "Blockcore.Networks.X1.X1Main, Blockcore.Networks.X1",
+    "NetworkPubkeyAddressPrefix": 0,
+    "NetworkScriptAddressPrefix": 128,
+    "NetworkWitnessPrefix": "x1",
+    "P2PPort": 23333,
+    "RPCPort": 43333,
+    "APIPort": 43334
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+  
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://x1.indexer.blockcore.net/api",
+      "DocUrl": "https://x1.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+    },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "X1 Explorer",
+      "Footer": "",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/block-core"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

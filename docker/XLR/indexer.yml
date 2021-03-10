@@ -13,7 +13,7 @@ services:
     networks:
       indexer:
         ipv4_address: 172.16.13.10
-    image: blockcore/indexer:0.1.12
+    image: blockcore/indexer:0.1.13
     environment:
       VIRTUAL_HOST: xlr.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -28,7 +28,7 @@ services:
 
   chain:
     container_name: xlr-chain
-    image: blockcore/node-xlr:1.0.21
+    image: blockcore/node-xlr:1.0.23
     command: ["-server=1", "-addnode=80.211.88.141", "-txindex=1", "-rpcallowip=172.16.13.10", "-rpcbind=xlr-chain", "-apiuri=http://0.0.0.0:62008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: always
     stop_grace_period: 15m
