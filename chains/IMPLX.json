@@ -6,7 +6,7 @@
     "Url": "https://impleum.com/",
     "Logo": "https://chains.blockcore.net/assets/IMPLX/logo.png",
     "Icon": "https://chains.blockcore.net/assets/IMPLX/icon.png",
-    "Color": "#167fff"
+    "Color": "#00A0F3"
   },
   "TipBot": {
     "Discord": {
@@ -78,7 +78,7 @@
     },
     "Setup": {
       "Title": "Impleum Explorer",
-      "Footer": "Impleum is a blockchain platform for mobile, web and desktop applications",
+      "Footer": "Impleum Blockchain Development Platform",
       "Links": [
         {
           "icon": "fas fa-link",
@@ -90,7 +90,7 @@
         },
         {
           "icon": "fab fa-discord",
-          "url": "https://link.rutanio.com/discord"
+          "url": "https://discord.gg/AyV8Ssa"
         }
       ]
     },
