@@ -2,8 +2,8 @@
   "Chain": {
     "Name": "xRhodium",
     "Symbol": "XRC",
-    "Description": "R",
-    "Url": "",
+    "Description": "Store value for the future",
+    "Url": "https://www.xrhodium.org/",
     "Logo": "https://chains.blockcore.net/assets/XRC/logo.png",
     "Icon": "https://chains.blockcore.net/assets/XRC/icon.png",
     "Color": "#ff7f00"
@@ -84,11 +84,23 @@
     },
     "Setup": {
       "Title": "xRhodium Explorer",
-      "Footer": "",
+      "Footer": "xRhodium (XRC)",
       "Links": [
         {
+          "icon": "fas fa-link",
+          "url": "https://www.xrhodium.org/"
+        },
+		{
+          "icon": "fas fa-link",
+          "url": "https://www.freemarket.one/"
+        },
+        {
           "icon": "fab fa-github",
-          "url": "https://github.com/block-core"
+          "url": "https://gitlab.com/bitcoinrh"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discord.gg/WmxceSm"
         }
       ]
     },
