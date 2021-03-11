@@ -74,9 +74,11 @@
       "AutoConvert": false
     },
     "Ticker": {
-      "WebUrl": "",
-      "ApiUrl": "",
-      "PricePath": "",
+      "WebUrl": "https://www.coingecko.com/en/coins/bitcoin-rhodium",
+      "ApiUrl": "https://api.coingecko.com/api/v3/coins/bitcoin-rhodium/tickers",
+      "PricePath": "tickers.0.last",
+      "PricePathBTC": "tickers.0.last",
+      "PricePathUSD": "tickers.0.converted_last.usd",
       "PercentagePath": "",
       "IsBitcoinPrice": true
     },
