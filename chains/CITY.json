@@ -90,6 +90,11 @@
           "Logo": "https://city-chain.org/images/logo/private-city-fund-box.png"
        },
        {
+        "Name": "Rewards to be burnt",
+        "Type": "Burn",
+        "Address": [ "CeTQo6bTZyc3FwhysC3b2crNkMg21MLeuo" ]
+     },
+       {
           "Name": "Burnt",
           "Type": "Burn",
           "Address": []

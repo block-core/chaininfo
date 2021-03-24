@@ -289,3 +289,26 @@ CITY/BWS/
 ```
 sudo docker-compose up -d
 ```
+
+
+# Debugging
+
+## MongoDB - Database corruption
+
+You can run the following command to repair corrupted database for bws-mongo:
+
+```sh
+docker run -it -v /var/lib/docker/volumes/city-bws-db/_data:/data/db -v /var/lib/docker/volumes/city-bws-db/_data:/data/configdb mongo:3.6.18 mongod --repair
+```
+
+## Backups
+
+```sh
+sudo cp -a /var/lib/docker/volumes/city-bws-db /home/blockcore/backup/docker/city-bws-db
+```
+
+## Top processes
+
+```sh
+sudo ps aux --sort -rss | head -10
+```
