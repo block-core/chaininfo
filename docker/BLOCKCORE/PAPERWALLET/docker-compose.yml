@@ -11,7 +11,7 @@ services:
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: paperwallet.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-    restart: always
+    restart: unless-stopped
     volumes:
       - /home/blockcore/src/blockcore-paperwallet:/usr/share/nginx/html
     # ports:

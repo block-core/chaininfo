@@ -30,7 +30,7 @@ services:
       LETSENCRYPT_HOST: btc.explorer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=BTC"]
-    restart: always
+    restart: unless-stopped
 
   indexer:
     container_name: btc-indexer
@@ -42,7 +42,7 @@ services:
       LETSENCRYPT_HOST: btc.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=BTC"]
-    restart: always
+    restart: unless-stopped
     depends_on:
         - mongo
         - chain
@@ -52,7 +52,7 @@ services:
     mem_limit: 6000m
     image: blockcore/node-btc:1.0.23
     command: ["-server=1", "-txindex=1", "-dbtype=rocksdb", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-assumedvalid=00000000000000000004bac129769598d1fad2b42859e625729661a32b9c3e71"]
-    restart: always
+    restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - /mnt/storage/blockcore/btc/node:/root/.blockcore
@@ -64,7 +64,7 @@ services:
     image: mongo:3.6.18
     command: "--wiredTigerCacheSizeGB 5.0"
     mem_limit: 5000m
-    restart: always
+    restart: unless-stopped
     stop_grace_period: 5m
     volumes:
       - /mnt/storage/blockcore/btc/db:/data/db
@@ -76,7 +76,7 @@ services:
   #   env_file:
   #     - tipbot.env
   #   command: ["--chain=STRAT"]
-  #   restart: always
+  #   restart: unless-stopped
   #   depends_on:
   #       - tipbot-database
   #       - tipbot-chain
@@ -85,7 +85,7 @@ services:
   #   container_name: strat-tipbot-chain
   #   image: blockcore/node-strat:1.0.23
   #   command: ["-server=1", "-txindex=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37221", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
-  #   restart: always
+  #   restart: unless-stopped
   #   stop_grace_period: 15m
   #   volumes:
   #     - tipbot-blockchain:/root/.blockcore
@@ -97,6 +97,6 @@ services:
   #     - tipbot.env
   #   environment:
   #     ACCEPT_EULA: "Y"
-  #   restart: always
+  #   restart: unless-stopped
   #   volumes:
   #     - tipbot-database:/var/opt/mssql

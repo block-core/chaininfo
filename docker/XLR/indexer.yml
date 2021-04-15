@@ -21,7 +21,7 @@ services:
       LETSENCRYPT_HOST: xlr.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=XLR"]
-    restart: always
+    restart: unless-stopped
     depends_on:
         - mongo
         - chain
@@ -30,7 +30,7 @@ services:
     container_name: xlr-chain
     image: blockcore/node-xlr:1.0.23
     command: ["-server=1", "-addnode=80.211.88.141", "-txindex=1", "-rpcallowip=172.16.13.10", "-rpcbind=xlr-chain", "-apiuri=http://0.0.0.0:62008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
-    restart: always
+    restart: unless-stopped
     stop_grace_period: 15m
     networks:
       - indexer
@@ -44,7 +44,7 @@ services:
     image: mongo:3.6.18
     command: "--wiredTigerCacheSizeGB 1"
     mem_limit: 1000m
-    restart: always
+    restart: unless-stopped
     stop_grace_period: 5m
     networks:
       - indexer

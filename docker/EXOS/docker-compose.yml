@@ -22,7 +22,7 @@ services:
       LETSENCRYPT_HOST: exos.explorer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=EXOS"]
-    restart: always
+    restart: unless-stopped
 
   indexer:
     container_name: exos-indexer
@@ -35,7 +35,7 @@ services:
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
     command: ["--chain=EXOS"]
-    restart: always
+    restart: unless-stopped
     depends_on:
         - mongo
         - chain
@@ -44,7 +44,7 @@ services:
     container_name: exos-chain
     image: blockcore/node-exos:1.0.23
     command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
-    restart: always
+    restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - blockchain:/root/.blockcore
@@ -56,7 +56,7 @@ services:
     image: mongo:3.6.18
     command: "--wiredTigerCacheSizeGB 1.5"
     mem_limit: 1500m
-    restart: always
+    restart: unless-stopped
     stop_grace_period: 5m
     volumes:
       - database:/data/db
@@ -68,7 +68,7 @@ services:
     env_file:
       - tipbot.env
     command: ["--chain=EXOS"]
-    restart: always
+    restart: unless-stopped
     depends_on:
         - tipbot-database
         - tipbot-chain
@@ -77,7 +77,7 @@ services:
     container_name: exos-tipbot-chain
     image: blockcore/node-exos:1.0.23
     command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
-    restart: always
+    restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - tipbot-blockchain:/root/.blockcore
@@ -89,6 +89,6 @@ services:
       - tipbot.env
     environment:
       ACCEPT_EULA: "Y"
-    restart: always
+    restart: unless-stopped
     volumes:
       - tipbot-database:/var/opt/mssql
