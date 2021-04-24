@@ -10,6 +10,11 @@
       "icon": "https://chains.blockcore.net/assets/CITY/icon.png"
    },
    {
+      "name": "SERF",
+      "symbol": "SERF",
+      "icon": "https://chains.blockcore.net/assets/SERF/icon.png"
+   },
+   {
       "name": "Impleum",
       "symbol": "IMPLX",
       "icon": "https://chains.blockcore.net/assets/IMPLX/icon.png"
