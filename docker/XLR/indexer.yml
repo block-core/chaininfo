@@ -13,7 +13,7 @@ services:
     networks:
       indexer:
         ipv4_address: 172.16.13.10
-    image: blockcore/indexer:0.1.13
+    image: blockcore/indexer:0.1.14
     environment:
       VIRTUAL_HOST: xlr.indexer.blockcore.net
       VIRTUAL_PORT: 9910

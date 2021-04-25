@@ -102,7 +102,7 @@ services:
 
   indexer:
     container_name: city-indexer
-    image: blockcore/indexer:0.1.13
+    image: blockcore/indexer:0.1.14
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -130,8 +130,8 @@ services:
   mongo:
     container_name: city-mongo
     image: mongo:3.6.18
-    command: "--wiredTigerCacheSizeGB 3.5"
-    mem_limit: 3500m
+    command: "--wiredTigerCacheSizeGB 4.5"
+    mem_limit: 4500m
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
