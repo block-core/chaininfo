@@ -1,0 +1,90 @@
+{
+  "Chain": {
+    "Name": "HomeCoin",
+    "Symbol": "HOME",
+    "Description": "",
+    "Url": "",
+    "Logo": "https://chains.blockcore.net/assets/HOME/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/HOME/icon.png",
+    "Color": "#1976d2"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "HOME",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://homecoin-tipbot-chain:39220/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-homecoin",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "HomeCoin.Networks.HomeCoinMain, Blockcore.Networks.HomeCoin",
+    "NetworkPubkeyAddressPrefix": 40,
+    "NetworkScriptAddressPrefix": 160,
+    "NetworkWitnessPrefix": "home",
+    "P2PPort": 33331,
+    "RPCPort": 33332,
+    "APIPort": 33333
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+  
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://homecoin.indexer.blockcore.net/api",
+      "DocUrl": "https://homecoin.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+    },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "Home Coin Explorer",
+      "Footer": "",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/block-core"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

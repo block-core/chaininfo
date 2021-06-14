@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  proxy:
+    image: jwilder/nginx-proxy:0.8.0
+    container_name: proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam
+      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx.conf:/etc/nginx/conf.d/blockcore.conf:ro
+    network_mode: bridge
+    restart: unless-stopped
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion:v1.13.1
+    container_name: letsencrypt
+    volumes_from:
+      - proxy
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    network_mode: bridge
+    restart: unless-stopped
+
+volumes:
+  conf:
+  vhost:
+  html:
+  dhparam:
+  certs:

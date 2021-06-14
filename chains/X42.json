@@ -1,0 +1,120 @@
+{
+  "Chain": {
+    "Name": "x42",
+    "Symbol": "X42",
+    "Description": "Open. Feeless. Infinite.",
+    "Url": "https://x42.tech/",
+    "Logo": "https://chains.blockcore.net/assets/X42/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/X42/icon.png",
+    "IconFilter": true,
+    "Color": "#cc147f"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "X42",
+    "NetworkFee": "0.00000000",
+    "ApiUrl": "http://x42-tipbot-chain:42220/",
+    "UseSegwit": true,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-x42",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "Blockcore.Networks.x42.Networks.x42Main, Blockcore.Networks.x42",
+    "NetworkPubkeyAddressPrefix": 75,
+    "NetworkScriptAddressPrefix": 125,
+    "NetworkWitnessPrefix": "x42",
+    "P2PPort": 52342,
+    "RPCPort": 52343,
+    "APIPort": 42220
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+      {
+        "Height": 0,
+        "Reward": 0
+      },
+      {
+        "Height": 524,
+        "Reward": 20
+      },
+      {
+        "Height": 400001,
+        "Reward": 2
+      },
+      {
+        "Height": 12155231,
+        "Reward": 0
+      }
+    ],
+    "Wallets": [
+      {
+        "Name": "Burnt",
+        "Type": "Burn",
+        "Address": []
+      }
+    ]
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://x42.indexer.blockcore.net/api",
+      "DocUrl": "https://x42.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "https://api.coincap.io/v2/rates",
+      "AutoConvert": true
+    },
+    "Ticker": {
+      "WebUrl": "https://app.stex.com/en/trade/pair/BTC/X42",
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/x42-x42?quotes=USD,BTC",
+      "PricePath": "quotes.BTC.price",
+      "PricePathBTC": "quotes.BTC.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.BTC.percent_change_1h",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "x42 Explorer",
+      "Footer": "Meet x42 Protocol, the feeless blockchain that will allow anyone to host decentralized applications the easy way.",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/x42protocol"
+        },
+        {
+          "icon": "fas fa-link",
+          "url": "https://x42.tech/"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discord.gg/dtJcfJT"
+        },
+        {
+          "icon": "fab fa-telegram-plane",
+          "url": "https://t.me/x42tech"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

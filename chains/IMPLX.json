@@ -1,0 +1,101 @@
+{
+  "Chain": {
+    "Name": "Impleum",
+    "Symbol": "IMPLX",
+    "Description": "Impleum is a blockchain platform for mobile, web and desktop applications",
+    "Url": "https://impleum.com/",
+    "Logo": "https://chains.blockcore.net/assets/IMPLX/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/IMPLX/icon.png",
+    "Color": "#00A0F3"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "IMPLX",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://implx-tipbot-chain:18103/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-impleum",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "Blockcore.Networks.Impleum.ImpleumMain, Blockcore.Networks.Impleum",
+    "NetworkPubkeyAddressPrefix": 76,
+    "NetworkScriptAddressPrefix": 141,
+    "NetworkWitnessPrefix": "implx",
+    "P2PPort": 18105,
+    "RPCPort": 18104,
+    "APIPort": 18103
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+      {
+        "Height": 0,
+        "Reward": 1
+     }
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://implx.indexer.blockcore.net/api",
+      "DocUrl": "https://implx.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+    },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "Impleum Explorer",
+      "Footer": "Impleum Blockchain Development Platform",
+      "Links": [
+        {
+          "icon": "fas fa-link",
+          "url": "https://impleum.com/"
+        },
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/impleum"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discord.gg/AyV8Ssa"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

@@ -1,0 +1,94 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: ruta-db
+  blockchain:
+    name: ruta-data
+  tipbot-blockchain:
+    name: ruta-tipbot-data
+  tipbot-database:
+    name: ruta-tipbot-db
+
+services:
+
+  explorer:
+    container_name: ruta-explorer
+    image: blockcore/explorer:0.1.12
+    environment:
+      VIRTUAL_HOST: ruta.explorer.blockcore.net
+      VIRTUAL_PORT: 9911
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: ruta.explorer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    command: ["--chain=RUTA"]
+    restart: unless-stopped
+
+  indexer:
+    container_name: ruta-indexer
+    image: blockcore/indexer:0.1.14
+    environment:
+      VIRTUAL_HOST: ruta.indexer.blockcore.net
+      VIRTUAL_PORT: 9910
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: ruta.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: https://*:9910
+    command: ["--chain=RUTA"]
+    restart: unless-stopped
+    depends_on:
+        - mongo
+        - chain
+
+  chain:
+    container_name: ruta-chain
+    image: blockcore/node-ruta:1.0.24
+    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: unless-stopped
+    stop_grace_period: 15m
+    volumes:
+      - blockchain:/root/.blockcore
+    ports:
+      - 6782:6782 # Make this a public node.
+
+  mongo:
+    container_name: ruta-mongo
+    image: mongo:3.6.18
+    command: "--wiredTigerCacheSizeGB 1.5"
+    mem_limit: 1500m
+    restart: unless-stopped
+    stop_grace_period: 5m
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+
+  tipbot:
+    container_name: ruta-tipbot
+    image: blockcore/tipbot:0.0.3
+    env_file:
+      - tipbot.env
+    command: ["--chain=RUTA"]
+    restart: unless-stopped
+    depends_on:
+        - tipbot-database
+        - tipbot-chain
+    
+  tipbot-chain:
+    container_name: ruta-tipbot-chain
+    image: blockcore/node-ruta:1.0.24
+    command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: unless-stopped
+    stop_grace_period: 15m
+    volumes:
+      - tipbot-blockchain:/root/.blockcore
+
+  tipbot-database:
+    container_name: ruta-tipbot-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    env_file:
+      - tipbot.env
+    environment:
+      ACCEPT_EULA: "Y"
+    restart: unless-stopped
+    volumes:
+      - tipbot-database:/var/opt/mssql

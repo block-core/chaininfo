@@ -1,0 +1,93 @@
+{
+  "Chain": {
+    "Name": "XDS",
+    "Symbol": "XDS",
+    "Description": "XDS - A Bitcoin-derived minable cryptocurrency with concurrent PoS",
+    "Url": "https://github.com/sonofsatoshi2020/xds",
+    "Logo": "https://chains.blockcore.net/assets/XDS/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/XDS/icon.png",
+    "IconFilter": true
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "XDS",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://xds-tipbot-chain:48334/",
+    "UseSegwit": true,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-xds",
+    "MinConfirmationsForDeposit": 12
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Networks.Xds.Consensus.XdsConsensusFactory, Blockcore.Networks.Xds",
+    "NetworkType": "Blockcore.Networks.Xds.XdsMain, Blockcore.Networks.Xds",
+    "NetworkPubkeyAddressPrefix": 0,
+    "NetworkScriptAddressPrefix": 5,
+    "NetworkWitnessPrefix": "xds",
+    "P2PPort": 38333,
+    "RPCPort": 48333,
+    "APIPort": 48334
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+      {
+        "Height": 0,
+        "Reward": 50
+     }
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://xds.indexer.blockcore.net/api",
+      "DocUrl": "https://xds.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+    },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "XDS Explorer",
+      "Footer": "A Bitcoin-derived minable cryptocurrency with concurrent PoS",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/sonofsatoshi2020/xds"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

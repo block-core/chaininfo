@@ -1,0 +1,100 @@
+{
+  "Chain": {
+    "Name": "Solaris",
+    "Symbol": "XLR",
+    "Description": "Blockchain and Financial Ecosystem for the Digital Age",
+    "Url": "https://solariscoin.com/",
+    "Logo": "https://chains.blockcore.net/assets/XLR/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/XLR/icon.png",
+    "Color": "#ffc037"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "XLR",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://xlr-tipbot-chain:62000/",
+    "UseSegwit": true,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-xlr",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "",
+    "NetworkPubkeyAddressPrefix": 111,
+    "NetworkScriptAddressPrefix": 196,
+    "NetworkWitnessPrefix": "xlr",
+    "P2PPort": 60008,
+    "RPCPort": 61000,
+    "APIPort": 62000
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+      
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://xlr.indexer.blockcore.net/api",
+      "DocUrl": "https://xlr.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "https://api.coincap.io/v2/rates",
+      "AutoConvert": true
+    },
+    "Ticker": {
+      "WebUrl": "https://coinpaprika.com/coin/xlr-solaris/",
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/xlr-solaris?quotes=USD,BTC",
+      "PricePath": "quotes.BTC.price",
+      "PricePathBTC": "quotes.BTC.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.BTC.percent_change_1h",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "Solaris Explorer",
+      "Footer": "Solaris is a decentralized open source cryptocurrency focused on privacy, innovation and advancement of technology.",
+      "Links": [
+        {
+          "icon": "fas fa-link",
+          "url": "https://solariscoin.com/"
+        },
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/SolarisPlatform"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discordapp.com/invite/wMcqapP"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

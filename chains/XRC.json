@@ -1,0 +1,111 @@
+{
+  "Chain": {
+    "Name": "xRhodium",
+    "Symbol": "XRC",
+    "Description": "Store value for the future",
+    "Url": "https://www.xrhodium.org/",
+    "Logo": "https://chains.blockcore.net/assets/XRC/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/XRC/icon.png",
+    "Color": "#ff7f00"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "XRC",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://xrc-tipbot-chain:39220/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-xrc",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "Blockcore.Networks.XRC.XRCMain, Blockcore.Networks.XRC",
+    "NetworkPubkeyAddressPrefix": 61,
+    "NetworkScriptAddressPrefix": 100,
+    "NetworkWitnessPrefix": "xrc",
+    "P2PPort": 37270,
+    "RPCPort": 19660,
+    "APIPort": 37221
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+      {
+        "Height": 0,
+        "Reward": 200
+     },
+     {
+        "Height": 45000,
+        "Reward": 20
+     }
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://xrc.indexer.blockcore.net/api",
+      "DocUrl": "https://xrc.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+    },
+    "Ticker": {
+      "WebUrl": "https://www.coingecko.com/en/coins/bitcoin-rhodium",
+      "ApiUrl": "https://api.coingecko.com/api/v3/coins/bitcoin-rhodium/tickers",
+      "PricePath": "tickers.0.last",
+      "PricePathBTC": "tickers.0.last",
+      "PricePathUSD": "tickers.0.converted_last.usd",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "xRhodium Explorer",
+      "Footer": "xRhodium (XRC)",
+      "Links": [
+        {
+          "icon": "fas fa-link",
+          "url": "https://www.xrhodium.org/"
+        },
+		{
+          "icon": "fas fa-link",
+          "url": "https://www.freemarket.one/"
+        },
+        {
+          "icon": "fab fa-github",
+          "url": "https://gitlab.com/bitcoinrh"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discord.gg/WmxceSm"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

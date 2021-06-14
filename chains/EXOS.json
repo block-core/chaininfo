@@ -1,0 +1,105 @@
+{
+  "Chain": {
+    "Name": "ExO Economy",
+    "Symbol": "EXOS",
+    "Description": "The Global Transformation Economy",
+    "Url": "https://economy.openexo.com/",
+    "Logo": "https://chains.blockcore.net/assets/EXOS/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/EXOS/icon.png",
+    "Color": "#6128ff"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "EXOS",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://exos-tipbot-chain:39120/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-exos",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "OpenExo.Networks.OpenExoMain, Blockcore.Networks.OpenExo",
+    "NetworkPubkeyAddressPrefix": 28,
+    "NetworkScriptAddressPrefix": 88,
+    "NetworkWitnessPrefix": "exos",
+    "P2PPort": 4562,
+    "RPCPort": 4561,
+    "APIPort": 39120
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+      {
+        "Height": 0,
+        "Reward": 12
+     },
+     {
+        "Height": 45000,
+        "Reward": 1
+     }
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://exos.indexer.blockcore.net/api",
+      "DocUrl": "https://exos.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+    },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "ExO Economy Explorer",
+      "Footer": "The Global Transformation Economy",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/exoeconomy"
+        },
+        {
+          "icon": "fas fa-link",
+          "url": "https://economy.openexo.com/"
+        },
+        {
+          "icon": "fab fa-twitter",
+          "url": "https://twitter.com/exoeconomy"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}
