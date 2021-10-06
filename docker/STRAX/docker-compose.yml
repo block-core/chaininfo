@@ -2,57 +2,57 @@ version: "2.4"
 
 volumes:
   database:
-    name: x1-db
+    name: strax-db
   blockchain:
-    name: x1-data
+    name: strax-data
   tipbot-blockchain:
-    name: x1-tipbot-data
+    name: strax-tipbot-data
   tipbot-database:
-    name: x1-tipbot-db
+    name: strax-tipbot-db
 
 services:
 
   explorer:
-    container_name: x1-explorer
+    container_name: strax-explorer
     image: blockcore/explorer:0.1.12
     environment:
-      VIRTUAL_HOST: x1.explorer.blockcore.net
+      VIRTUAL_HOST: strax.explorer.blockcore.net
       VIRTUAL_PORT: 9911
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: x1.explorer.blockcore.net
+      LETSENCRYPT_HOST: strax.explorer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=X1"]
+    command: ["--chain=STRAX"]
     restart: unless-stopped
 
   indexer:
-    container_name: x1-indexer
-    image: blockcore/indexer:0.1.14
+    container_name: strax-indexer
+    image: blockcore/indexer:0.1.15
     environment:
-      VIRTUAL_HOST: x1.indexer.blockcore.net
+      VIRTUAL_HOST: strax.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: x1.indexer.blockcore.net
+      LETSENCRYPT_HOST: strax.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
-    command: ["--chain=X1"]
+    command: ["--chain=STRAX"]
     restart: unless-stopped
     depends_on:
         - mongo
         - chain
 
   chain:
-    container_name: x1-chain
-    image: blockcore/node-x1:1.0.26
-    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:43334", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    container_name: strax-chain
+    image: blockcore/node-strax:1.0.26
+    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:17103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 23333:23333 # Make this a public node.
+      - 17105:17105 # Make this a public node.
 
   mongo:
-    container_name: x1-mongo
+    container_name: strax-mongo
     image: mongo:3.6.18
     command: "--wiredTigerCacheSizeGB 1.5"
     mem_limit: 1500m
@@ -63,27 +63,27 @@ services:
       - database:/data/configdb
 
   tipbot:
-    container_name: x1-tipbot
+    container_name: strax-tipbot
     image: blockcore/tipbot:0.0.3
     env_file:
       - tipbot.env
-    command: ["--chain=X1"]
+    command: ["--chain=STRAX"]
     restart: unless-stopped
     depends_on:
         - tipbot-database
         - tipbot-chain
     
   tipbot-chain:
-    container_name: x1-tipbot-chain
-    image: blockcore/node-x1:1.0.26
-    command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:43334", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    container_name: strax-tipbot-chain
+    image: blockcore/node-strax:1.0.26
+    command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:17103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - tipbot-blockchain:/root/.blockcore
 
   tipbot-database:
-    container_name: x1-tipbot-db
+    container_name: strax-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
     env_file:
       - tipbot.env
