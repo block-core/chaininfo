@@ -1,0 +1,99 @@
+{
+  "Chain": {
+    "Name": "Stratis",
+    "Symbol": "STRAX",
+    "Description": "Decentralize the enterprise",
+    "Url": "https://stratisplatform.com/",
+    "Logo": "https://chains.blockcore.net/assets/STRAX/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/STRAX/icon.png",
+    "Color": "#1382c6"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "STRAX",
+    "NetworkFee": "0.00010000",
+    "ApiUrl": "http://strax-tipbot-chain:17103/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-strax",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkType": "Blockcore.Networks.Strax.StraxMain, Blockcore.Networks.Strax",
+    "NetworkPubkeyAddressPrefix": 75,
+    "NetworkScriptAddressPrefix": 140,
+    "NetworkWitnessPrefix": "strax",
+    "P2PPort": 17105,
+    "RPCPort": 17104,
+    "APIPort": 17103
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+      
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://strax.indexer.blockcore.net/api",
+      "DocUrl": "https://strax.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": true
+    },
+    "Ticker": {
+      "WebUrl": "https://www.coingecko.com/en/coins/stratis",
+      "ApiUrl": "https://api.coingecko.com/api/v3/coins/stratis/tickers",
+      "PricePath": "tickers.0.last",
+      "PricePathBTC": "tickers.0.last",
+      "PricePathUSD": "tickers.0.converted_last.usd",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "Stratis Explorer",
+      "Footer": "Stratis Blockchain Development Platform",
+      "Links": [
+        {
+          "icon": "fas fa-link",
+          "url": "https://stratisplatform.com/"
+        },
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/stratisproject"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discordapp.com/invite/9tDyfZs"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

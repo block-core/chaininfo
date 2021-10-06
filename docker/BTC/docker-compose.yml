@@ -50,7 +50,7 @@ services:
   chain:
     container_name: btc-chain
     mem_limit: 6000m
-    image: blockcore/node-btc:1.0.25
+    image: blockcore/node-btc:1.0.26
     command: ["-server=1", "-txindex=1", "-dbtype=rocksdb", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-assumedvalid=00000000000000000004bac129769598d1fad2b42859e625729661a32b9c3e71"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -83,7 +83,7 @@ services:
     
   # tipbot-chain:
   #   container_name: strat-tipbot-chain
-  #   image: blockcore/node-strat:1.0.25
+  #   image: blockcore/node-strat:1.0.26
   #   command: ["-server=1", "-txindex=0", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37221", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
   #   restart: unless-stopped
   #   stop_grace_period: 15m
