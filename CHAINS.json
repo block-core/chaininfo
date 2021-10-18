@@ -36,11 +36,6 @@
    },
    {
       "name": "Stratis",
-      "symbol": "STRAT",
-      "icon": "https://chains.blockcore.net/assets/STRAT/icon.png"
-   },
-   {
-      "name": "Stratis",
       "symbol": "STRAX",
       "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
    },
