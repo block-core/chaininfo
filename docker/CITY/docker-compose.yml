@@ -17,6 +17,11 @@ services:
   bwsnode:
     container_name: city-bws-node
     image: blockcore-bws-city
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     command: ["node"]
     environment:
       VIRTUAL_HOST: city.api.blockcore.net
@@ -40,6 +45,11 @@ services:
     tty: true
     container_name: city-bws-api
     image: blockcore-bws-city
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     command: ["bws:start"]
     environment:
       VIRTUAL_HOST: city.bws.blockcore.net
@@ -60,6 +70,11 @@ services:
   bwsinsight:
     container_name: city-bws-insight
     image: blockcore-bws-city
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     command: ["insight:prod"]
     environment:
       VIRTUAL_HOST: city.insight.blockcore.net
@@ -79,6 +94,11 @@ services:
   bwsmongo:
     container_name: city-bws-mongo
     image: mongo:3.6.18
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     command: "--wiredTigerCacheSizeGB 3.5"
     mem_limit: 3500m
     restart: unless-stopped
@@ -91,6 +111,11 @@ services:
   explorer:
     container_name: city-explorer
     image: blockcore/explorer:0.1.12
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     environment:
       VIRTUAL_HOST: city.explorer.blockcore.net,explorer.city-chain.org
       VIRTUAL_PORT: 9911
@@ -103,6 +128,11 @@ services:
   indexer:
     container_name: city-indexer
     image: blockcore/indexer:0.1.14
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -119,6 +149,11 @@ services:
   chain:
     container_name: city-chain
     image: blockcore/node-city:1.0.26
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-whitelist=172.27.0.1", "-whitelist=172.27.0.2", "-whitelist=172.27.0.3", "-whitelist=172.27.0.4", "-whitelist=172.27.0.5", "-whitelist=172.27.0.6", "-whitelist=172.27.0.7", "-whitelist=172.27.0.8", "-whitelist=172.27.0.9", "-whitelist=172.27.0.10", "-whitelist=172.27.0.11", "-whitelist=172.27.0.12", "-whitelist=172.27.0.13", "-whitelist=172.27.0.14", "-whitelist=172.27.0.15", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -130,6 +165,11 @@ services:
   mongo:
     container_name: city-mongo
     image: mongo:3.6.18
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     command: "--wiredTigerCacheSizeGB 4.5"
     mem_limit: 4500m
     restart: unless-stopped
@@ -141,6 +181,11 @@ services:
   tipbot:
     container_name: city-tipbot
     image: blockcore/tipbot:0.0.3
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     env_file:
       - tipbot.env
     command: ["--chain=CITY"]
@@ -152,6 +197,11 @@ services:
   tipbot-chain:
     container_name: city-tipbot-chain
     image: blockcore/node-city:1.0.26
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:4335", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -161,6 +211,11 @@ services:
   tipbot-database:
     container_name: city-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
+    logging:
+      driver: "json-file"
+      options:
+          max-file: 5
+          max-size: 100m
     env_file:
       - tipbot.env
     environment:
