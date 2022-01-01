@@ -312,3 +312,13 @@ sudo cp -a /var/lib/docker/volumes/city-bws-db /home/blockcore/backup/docker/cit
 ```sh
 sudo ps aux --sort -rss | head -10
 ```
+
+
+# Logging
+
+If left to run with default logging enabled, the containers will eventually use all available disk space for logging.
+
+Ensure you configure your daemon.json to keep log files in check:
+
+https://docs.docker.com/config/containers/logging/json-file/
+
