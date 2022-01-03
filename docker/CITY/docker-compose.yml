@@ -148,7 +148,7 @@ services:
 
   chain:
     container_name: city-chain
-    image: blockcore/node-city:1.0.26
+    image: blockcore/node-city:1.0.29
     logging:
       driver: "json-file"
       options:
@@ -196,7 +196,7 @@ services:
     
   tipbot-chain:
     container_name: city-tipbot-chain
-    image: blockcore/node-city:1.0.26
+    image: blockcore/node-city:1.0.29
     logging:
       driver: "json-file"
       options:
