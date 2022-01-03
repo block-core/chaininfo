@@ -323,3 +323,43 @@ Ensure you configure your daemon.json to keep log files in check:
 
 https://docs.docker.com/config/containers/logging/json-file/
 
+
+# mssql tipbot database restarts
+
+The mssql container can get into trouble with the lock file.
+
+When that happens, the container keeps restarting and the log says:
+
+```sh
+sudo docker logs -t --tail 1000 city-tipbot-db
+```
+
+```
+2022-01-03T04:24:58.094242967Z 
+2022-01-03T04:25:58.518057048Z SQL Server 2019 will run as non-root by default.
+2022-01-03T04:25:58.518070343Z This container is running as user mssql.
+2022-01-03T04:25:58.518072594Z Your master database file is owned by mssql.
+2022-01-03T04:25:58.518074227Z To learn more visit https://go.microsoft.com/fwlink/?linkid=2099216.
+2022-01-03T04:25:58.739964034Z sqlservr: Unable to read instance id from /var/opt/mssql/.system/instance_id: No such file or directory (2)
+2022-01-03T04:25:58.740007717Z /opt/mssql/bin/sqlservr: PAL initialization failed. Error: 101
+2022-01-03T04:25:58.740012125Z
+```
+
+This can be fixed by renaming the lock file:
+
+```
+# Stop the container
+sudo docker stop city-tipbot-db
+
+# Inspect to find volume path:
+sudo docker inspect city-tipbot-db
+
+# Navigate to:
+cd /var/lib/docker/volumes/city-tipbot-db/_data/.system
+
+# Move the file
+mv instance_id instance_id.bak
+
+sudo docker start city-tipbot-db
+```
+
