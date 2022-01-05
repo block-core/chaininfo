@@ -40,6 +40,11 @@
       "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
    },
    {
+      "name": "Cirrus",
+      "symbol": "CRS",
+      "icon": "https://chains.blockcore.net/assets/CRS/icon.png"
+   },
+   {
       "name": "XDS",
       "symbol": "XDS",
       "icon": "https://chains.blockcore.net/assets/XDS/icon.png",
