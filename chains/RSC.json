@@ -1,0 +1,72 @@
+{
+   "Chain": {
+      "Name": "Royal Sports City",
+      "Symbol": "RSC",
+      "Description": "",
+      "Url": "",
+      "Logo": "https://chains.blockcore.net/assets/SBC/logo.png",
+      "Icon": "https://chains.blockcore.net/assets/SBC/icon.png",
+      "Color": "#F45923"
+   },
+   "Network": {
+      "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+      "NetworkType": "Blockcore.Networks.RoyalSportsCity.Networks.RoyalSportsCityMain, Blockcore.Networks.RoyalSportsCity",
+      "NetworkPubkeyAddressPrefix": 60,
+      "NetworkScriptAddressPrefix": 122,
+      "NetworkWitnessPrefix": "RSC",
+      "P2PPort": 14001,
+      "RPCPort": 15002,
+      "APIPort": 14003
+   },
+   "Indexer": {
+      "StoreRawTransactions": true
+   },
+   "Insight": {
+      "Rewards": [
+         {
+            "Height": 0,
+            "Reward": 3000
+         },
+         {
+            "Height": 25000,
+            "Reward": 1000
+         }
+      ],
+      "Wallets": [
+         {
+            "Name": "Burnt",
+            "Type": "Burn",
+            "Address": []
+         }
+      ]
+   },
+   "Explorer": {
+      "Indexer": {
+         "ApiUrl": "https://rsc.indexer.blockcore.net/api",
+         "DocUrl": "https://rsc.indexer.blockcore.net/docs"
+      },
+      "Currency": {
+         "ApiUrl": "https://api.coincap.io/v2/rates",
+         "AutoConvert": false
+      },
+      "Ticker": {
+         "WebUrl": "",
+         "ApiUrl": "",
+         "PricePath": "tickers.0.last",
+         "PricePathBTC": "tickers.0.last",
+         "PricePathUSD": "tickers.0.converted_last.usd",
+         "PercentagePath": "",
+         "IsBitcoinPrice": true
+      },
+      "Setup": {
+         "Title": "Royal Sports City Blockchain Explorer",
+         "Footer": "Royal Sports City",
+         "Links": [
+           
+         ]
+      },
+      "Features": {
+         "POSWeight": false
+      }
+   }
+}
