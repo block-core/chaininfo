@@ -22,7 +22,12 @@
       "StoreRawTransactions": true
    },
    "Insight": {
-      "Rewards": [],
+      "Rewards": [
+         {
+            "Height": 0,
+            "Reward": 100
+         }
+      ],
       "Wallets": [
          {
             "Name": "Burnt",
