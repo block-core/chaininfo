@@ -1,0 +1,74 @@
+{
+   "Chain": {
+      "Name": "Senior Blockchain",
+      "Symbol": "SBC",
+      "Description": "",
+      "Url": "https://SeniorBlockchain.io",
+      "Logo": "https://chains.blockcore.net/assets/SBC/logo.png",
+      "Icon": "https://chains.blockcore.net/assets/SBC/icon.png",
+      "Color": "#F45923"
+   },
+   "Network": {
+      "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+      "NetworkType": "Blockcore.Networks.SeniorBlockCoin.Networks.SeniorBlockCoinMain, Blockcore.Networks.SeniorBlockCoin",
+      "NetworkPubkeyAddressPrefix": 63,
+      "NetworkScriptAddressPrefix": 125,
+      "NetworkWitnessPrefix": "CRS",
+      "P2PPort": 15006,
+      "RPCPort": 15007,
+      "APIPort": 15008
+   },
+   "Indexer": {
+      "StoreRawTransactions": true
+   },
+   "Insight": {
+      "Rewards": [],
+      "Wallets": [
+         {
+            "Name": "Burnt",
+            "Type": "Burn",
+            "Address": []
+         }
+      ]
+   },
+   "Explorer": {
+      "Indexer": {
+         "ApiUrl": "https://sbc.indexer.blockcore.net/api",
+         "DocUrl": "https://sbc.indexer.blockcore.net/docs"
+      },
+      "Currency": {
+         "ApiUrl": "https://api.coincap.io/v2/rates",
+         "AutoConvert": false
+      },
+      "Ticker": {
+         "WebUrl": "",
+         "ApiUrl": "",
+         "PricePath": "tickers.0.last",
+         "PricePathBTC": "tickers.0.last",
+         "PricePathUSD": "tickers.0.converted_last.usd",
+         "PercentagePath": "",
+         "IsBitcoinPrice": true
+      },
+      "Setup": {
+         "Title": "Senior Blockchain Explorer",
+         "Footer": "Senior Blockchain",
+         "Links": [
+            {
+               "icon": "fas fa-link",
+               "url": "https://SeniorBlockchain.io"
+            },
+            {
+               "icon": "fab fa-github",
+               "url": "https://github.com/seniorblockchain"
+            },
+            {
+               "icon": "fab fa-discord",
+               "url": "https://discord.gg/HfsEK6vf8z"
+            }
+         ]
+      },
+      "Features": {
+         "POSWeight": false
+      }
+   }
+}
