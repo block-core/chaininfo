@@ -15,7 +15,7 @@
       "NetworkScriptAddressPrefix": 122,
       "NetworkWitnessPrefix": "RSC",
       "P2PPort": 14001,
-      "RPCPort": 15002,
+      "RPCPort": 14002,
       "APIPort": 14003
    },
    "Indexer": {
@@ -25,11 +25,11 @@
       "Rewards": [
          {
             "Height": 0,
-            "Reward": 3000
+            "Reward": 210
          },
          {
-            "Height": 25000,
-            "Reward": 1000
+            "Height": 2100,
+            "Reward": 21
          }
       ],
       "Wallets": [
