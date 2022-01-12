@@ -43,7 +43,7 @@ services:
   chain:
     container_name: sbc-chain
     image: blockcore/node-multi:1.0.31
-    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["--chain=SBC", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
@@ -76,7 +76,7 @@ services:
   # tipbot-chain:
   #   container_name: sbc-tipbot-chain
   #   image: blockcore/node-multi:1.0.31
-  #   command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+  #   command: ["--chain=SBC", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
   #   restart: unless-stopped
   #   stop_grace_period: 15m
   #   volumes:
