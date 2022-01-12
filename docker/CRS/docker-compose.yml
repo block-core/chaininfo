@@ -10,7 +10,7 @@ services:
 
   explorer:
     container_name: crs-explorer
-    image: blockcore/explorer:0.1.12
+    image: blockcore/explorer:0.1.13
     environment:
       VIRTUAL_HOST: crs.explorer.blockcore.net
       VIRTUAL_PORT: 9911

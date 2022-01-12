@@ -22,7 +22,7 @@ services:
 
   explorer:
     container_name: btc-explorer
-    image: blockcore/explorer:0.1.12
+    image: blockcore/explorer:0.1.13
     environment:
       VIRTUAL_HOST: btc.explorer.blockcore.net
       VIRTUAL_PORT: 9911
