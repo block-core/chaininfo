@@ -102,7 +102,7 @@ services:
 
   indexer:
     container_name: city-indexer
-    image: blockcore/indexer:0.1.20
+    image: blockcore/indexer:0.1.21
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -129,7 +129,7 @@ services:
 
   mongo:
     container_name: city-mongo
-    image: mongo:3.6.18
+    image: mongo:5.0.5
     command: "--wiredTigerCacheSizeGB 4.5"
     mem_limit: 4500m
     restart: unless-stopped
@@ -140,7 +140,7 @@ services:
 
   tipbot:
     container_name: city-tipbot
-    image: blockcore/tipbot:0.0.3
+    image: blockcore/tipbot:0.0.7
     env_file:
       - tipbot.env
     command: ["--chain=CITY"]
