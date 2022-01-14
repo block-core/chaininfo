@@ -34,7 +34,7 @@ services:
 
   indexer:
     container_name: btc-indexer
-    image: blockcore/indexer:0.1.20
+    image: blockcore/indexer:0.1.21
     environment:
       VIRTUAL_HOST: btc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
