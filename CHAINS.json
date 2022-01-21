@@ -60,6 +60,11 @@
       "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
    },
    {
+      "name": "Stratis (Testnet)",
+      "symbol": "TSTRAX",
+      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
+   },
+   {
       "name": "XDS",
       "symbol": "XDS",
       "icon": "https://chains.blockcore.net/assets/XDS/icon.png",
