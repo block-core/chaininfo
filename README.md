@@ -168,6 +168,7 @@ sudo docker network connect serf_default proxy
 sudo docker network connect crs_default proxy
 sudo docker network connect rsc_default proxy
 sudo docker network connect sbc_default proxy
+sudo docker network connect tstrax_default proxy
 ```
 
 If you host the paperwallet, you'll also need:
