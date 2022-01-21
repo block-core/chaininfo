@@ -259,7 +259,7 @@ Set the "mem_limit" option in the docker-compose (v2.x) file and specifically fo
 ```
   mongo:
     container_name: xlr-mongo
-    image: mongo:3.6.18
+    image: mongo:5.0.5
     command: "--wiredTigerCacheSizeGB 0.25"
     mem_limit: 250m
 ```

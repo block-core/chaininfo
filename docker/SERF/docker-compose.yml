@@ -53,7 +53,7 @@ services:
 
   mongo:
     container_name: serf-mongo
-    image: mongo:3.6.18
+    image: mongo:5.0.5
     command: "--wiredTigerCacheSizeGB 1.5"
     mem_limit: 1500m
     restart: unless-stopped
