@@ -18,7 +18,7 @@
     "APIPort": 37220
   },
   "Indexer": {
-    "StoreRawTransactions": false,
+    "StoreRawTransactions": true,
     "MaxItemsInQueue": 1000,
     "SyncInterval": 2
   },
