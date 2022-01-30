@@ -26,7 +26,7 @@ services:
 
   indexer:
     container_name: x1-indexer
-    image: blockcore/indexer:0.1.21
+    image: blockcore/indexer:0.1.22
     environment:
       VIRTUAL_HOST: x1.indexer.blockcore.net
       VIRTUAL_PORT: 9910
