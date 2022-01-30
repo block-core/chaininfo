@@ -10,9 +10,6 @@ services:
 
   indexer:
     container_name: xlr-indexer
-    networks:
-      indexer:
-        ipv4_address: 172.16.13.10
     image: blockcore/indexer:0.1.22
     environment:
       VIRTUAL_HOST: xlr.indexer.blockcore.net
