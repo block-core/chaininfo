@@ -71,11 +71,6 @@
       "filter": true
    },
    {
-      "name": "X1",
-      "symbol": "X1",
-      "icon": "https://chains.blockcore.net/assets/X1/icon.png"
-   },
-   {
       "name": "X42",
       "symbol": "X42",
       "icon": "https://chains.blockcore.net/assets/X42/icon.png",
