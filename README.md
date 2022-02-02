@@ -327,6 +327,21 @@ Ensure you configure your daemon.json to keep log files in check:
 https://docs.docker.com/config/containers/logging/json-file/
 
 
+## 10 largest files
+
+```
+# Available space:
+df -h
+```
+
+```
+du -a /var | sort -n -r | head -n 10
+```
+
+```
+find . -type f -printf '%s %p\n'| sort -nr | head -10
+```
+
 # mssql tipbot database restarts
 
 The mssql container can get into trouble with the lock file.

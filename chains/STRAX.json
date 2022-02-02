@@ -3,7 +3,7 @@
     "Name": "Stratis",
     "Symbol": "STRAX",
     "Description": "Decentralize the enterprise",
-    "Url": "https://stratisplatform.com/",
+    "Url": "https://www.stratisplatform.com/",
     "Logo": "https://chains.blockcore.net/assets/STRAX/logo.png",
     "Icon": "https://chains.blockcore.net/assets/STRAX/icon.png",
     "Color": "#1382c6"
@@ -46,8 +46,11 @@
   },
   "Insight": {
     "Rewards": [
-      
-    ],
+      {
+         "Height": 0,
+         "Reward": 9
+      }
+   ],
     "Wallets": [
        {
           "Name": "Burnt",
@@ -80,7 +83,7 @@
       "Links": [
         {
           "icon": "fas fa-link",
-          "url": "https://stratisplatform.com/"
+          "url": "https://www.stratisplatform.com/"
         },
         {
           "icon": "fab fa-github",
