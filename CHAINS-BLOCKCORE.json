@@ -1,0 +1,84 @@
+[
+   {
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "icon": "https://chains.blockcore.net/assets/BTC/icon.png"
+   },
+   {
+      "name": "Cirrus",
+      "symbol": "CRS",
+      "icon": "https://chains.blockcore.net/assets/CRS/icon.png"
+   },
+   {
+      "name": "City Chain",
+      "symbol": "CITY",
+      "icon": "https://chains.blockcore.net/assets/CITY/icon.png"
+   },
+   {
+      "name": "HomeCoin",
+      "symbol": "HOME",
+      "icon": "https://chains.blockcore.net/assets/HOME/icon.png"
+   },
+   {
+      "name": "Impleum",
+      "symbol": "IMPLX",
+      "icon": "https://chains.blockcore.net/assets/IMPLX/icon.png"
+   },
+   {
+      "name": "OpenExO",
+      "symbol": "EXOS",
+      "icon": "https://chains.blockcore.net/assets/EXOS/icon.png"
+   },
+   {
+      "name": "Royal",
+      "symbol": "RSC",
+      "icon": "https://chains.blockcore.net/assets/RSC/icon.png"
+   },
+   {
+      "name": "Rutanio",
+      "symbol": "RUTA",
+      "icon": "https://chains.blockcore.net/assets/RUTA/icon.png"
+   },
+   {
+      "name": "Senior",
+      "symbol": "SBC",
+      "icon": "https://chains.blockcore.net/assets/SBC/icon.png"
+   },
+   {
+      "name": "SERF",
+      "symbol": "SERF",
+      "icon": "https://chains.blockcore.net/assets/SERF/icon.png"
+   },
+   {
+      "name": "Solaris",
+      "symbol": "XLR",
+      "icon": "https://chains.blockcore.net/assets/XLR/icon.png"
+   },
+   {
+      "name": "Stratis",
+      "symbol": "STRAX",
+      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
+   },
+   {
+      "name": "Stratis-test",
+      "symbol": "TSTRAX",
+      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
+   },
+   {
+      "name": "XDS",
+      "symbol": "XDS",
+      "icon": "https://chains.blockcore.net/assets/XDS/icon.png",
+      "filter": true
+   },
+   {
+      "name": "X42",
+      "symbol": "X42",
+      "icon": "https://chains.blockcore.net/assets/X42/icon.png",
+      "filter": true
+   },
+   {
+      "name": "xRhodium",
+      "symbol": "XRC",
+      "icon": "https://chains.blockcore.net/assets/XRC/icon.png"
+   }
+]
