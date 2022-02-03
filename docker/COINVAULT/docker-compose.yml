@@ -3,13 +3,13 @@ version: "2.4"
 services:
 
   explorer:
-    container_name: blockcore-explorer
+    container_name: coinvault-explorer
     image: blockcore/explorer:0.1.17
     environment:
-      VIRTUAL_HOST: explorer.blockcore.net
+      VIRTUAL_HOST: explorer.coinvault.io
       VIRTUAL_PORT: 9911
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: explorer.blockcore.net
+      LETSENCRYPT_HOST: explorer.coinvault.io
       LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=BLOCKCORE"]
+    command: ["--chain=COINVAULT"]
     restart: unless-stopped
