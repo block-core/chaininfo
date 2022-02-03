@@ -45,10 +45,10 @@
      "WebUrl": "https://www.coingecko.com/en/coins/cirrus",
      "ApiUrl": "https://api.coingecko.com/api/v3/coins/cirrus/tickers",
      "PricePath": "tickers.0.last",
-     "PricePathBTC": "tickers.0.last",
-     "PricePathUSD": "tickers.0.converted_last.usd",
+     "PricePathBTC": "tickers.0.converted_last.btc",
+     "PricePathUSD": "tickers.0.last",
      "PercentagePath": "",
-     "IsBitcoinPrice": true
+     "IsBitcoinPrice": false
   },
   "Setup": {
     "Title": "Cirrus Explorer",
