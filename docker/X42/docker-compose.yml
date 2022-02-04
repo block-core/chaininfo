@@ -54,8 +54,8 @@ services:
   mongo:
     container_name: x42-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 1.5"
-    mem_limit: 1500m
+    command: "--wiredTigerCacheSizeGB 3.0"
+    mem_limit: 3000m
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
