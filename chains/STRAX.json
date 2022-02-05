@@ -71,9 +71,9 @@
     "Ticker": {
       "WebUrl": "https://www.coingecko.com/en/coins/stratis",
       "ApiUrl": "https://api.coingecko.com/api/v3/coins/stratis/tickers",
-      "PricePath": "tickers.5.last",
-      "PricePathBTC": "tickers.5.last",
-      "PricePathUSD": "tickers.5.converted_last.usd",
+      "PricePath": "tickers.4.last",
+      "PricePathBTC": "tickers.4.last",
+      "PricePathUSD": "tickers.4.converted_last.usd",
       "PercentagePath": "",
       "IsBitcoinPrice": true
     },
