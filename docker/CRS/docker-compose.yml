@@ -38,8 +38,8 @@ services:
   mongo:
     container_name: crs-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 8.0"
-    mem_limit: 8000m
+    command: "--wiredTigerCacheSizeGB 15.0"
+    mem_limit: 15000m
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
