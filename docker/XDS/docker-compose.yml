@@ -22,6 +22,7 @@ services:
       LETSENCRYPT_HOST: xds.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
+      Logging__LogLevel__Default: Debug
     command: ["--chain=XDS"]
     restart: unless-stopped
     depends_on:

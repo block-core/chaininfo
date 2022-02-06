@@ -22,6 +22,7 @@ services:
       LETSENCRYPT_HOST: xrc.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
+      Logging__LogLevel__Default: Debug
     command: ["--chain=XRC"]
     restart: unless-stopped
     depends_on:
