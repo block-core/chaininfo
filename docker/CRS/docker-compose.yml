@@ -8,18 +8,6 @@ volumes:
   
 services:
 
-  explorer:
-    container_name: crs-explorer
-    image: blockcore/explorer:0.1.14
-    environment:
-      VIRTUAL_HOST: crs.explorer.blockcore.net
-      VIRTUAL_PORT: 9911
-      VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: crs.explorer.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=CRS"]
-    restart: unless-stopped
-
   indexer:
     container_name: crs-indexer
     image: blockcore/indexer-crs:0.1.22
