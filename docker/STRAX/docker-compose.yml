@@ -43,7 +43,7 @@ services:
   mongo:
     container_name: strax-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 15.0"
+    # command: "--wiredTigerCacheSizeGB 15.0"
     mem_limit: 15000m
     restart: unless-stopped
     stop_grace_period: 5m
