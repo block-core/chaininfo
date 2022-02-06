@@ -4,7 +4,7 @@ services:
 
   explorer:
     container_name: coinvault-explorer
-    image: blockcore/explorer:0.1.19
+    image: blockcore/explorer:0.1.20
     environment:
       VIRTUAL_HOST: explorer.coinvault.io
       VIRTUAL_PORT: 9911

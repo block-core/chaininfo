@@ -12,18 +12,6 @@ volumes:
 
 services:
 
-  explorer:
-    container_name: xds-explorer
-    image: blockcore/explorer:0.1.14
-    environment:
-      VIRTUAL_HOST: xds.explorer.blockcore.net
-      VIRTUAL_PORT: 9911
-      VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: xds.explorer.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=XDS"]
-    restart: unless-stopped
-
   indexer:
     container_name: xds-indexer
     image: blockcore/indexer:0.1.22
