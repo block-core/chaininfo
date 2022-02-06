@@ -42,7 +42,6 @@ services:
   mongo:
     container_name: tstrax-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 5.0"
     mem_limit: 5000m
     restart: unless-stopped
     stop_grace_period: 5m
