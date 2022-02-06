@@ -168,6 +168,7 @@ sudo docker network connect crs_default proxy
 sudo docker network connect rsc_default proxy
 sudo docker network connect sbc_default proxy
 sudo docker network connect tstrax_default proxy
+sudo docker network connect strax_default proxy
 sudo docker network connect coinvault_default proxy
 ```
 
