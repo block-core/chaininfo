@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: serf-indexer
-    image: blockcore/indexer:0.1.22
+    image: blockcore/indexer:0.1.23
     environment:
       VIRTUAL_HOST: serf.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -30,7 +30,7 @@ services:
 
   chain:
     container_name: serf-chain
-    image: blockcore/node-multi:1.1.34
+    image: blockcore/node-multi:1.1.35
     command: ["--chain=SERF", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15113", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -63,7 +63,7 @@ services:
     
   tipbot-chain:
     container_name: serf-tipbot-chain
-    image: blockcore/node-multi:1.1.34
+    image: blockcore/node-multi:1.1.35
     command: ["--chain=SERF", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15113", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
