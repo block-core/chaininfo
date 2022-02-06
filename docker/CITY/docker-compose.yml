@@ -79,7 +79,6 @@ services:
   bwsmongo:
     container_name: city-bws-mongo
     image: mongo:3.6.18
-    command: "--wiredTigerCacheSizeGB 3.5"
     mem_limit: 3500m
     restart: unless-stopped
     stop_grace_period: 5m
@@ -130,7 +129,6 @@ services:
   mongo:
     container_name: city-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 4.5"
     mem_limit: 4500m
     restart: unless-stopped
     stop_grace_period: 5m

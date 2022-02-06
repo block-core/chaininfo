@@ -255,13 +255,12 @@ sudo docker info
 
 3. Limit a Container's Memory Access
 
-Set the "mem_limit" option in the docker-compose (v2.x) file and specifically for MongoDB, specify the wiredTigerCacheSizeGB argument.
+Set the "mem_limit" option in the docker-compose (v2.x) file and specifically for MongoDB.
 
 ```
   mongo:
     container_name: xlr-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 0.25"
     mem_limit: 250m
 ```
 
