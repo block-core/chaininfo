@@ -12,6 +12,11 @@
       "coin": "city-coin"
    },
    {
+      "name": "Cybits",
+      "symbol": "CY",
+      "icon": "https://chains.blockcore.net/assets/CYBITS/icon.png"
+   },
+   {
       "name": "HomeCoin",
       "symbol": "HOME",
       "icon": "https://chains.blockcore.net/assets/HOME/icon.png"
