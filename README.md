@@ -161,7 +161,6 @@ sudo docker network connect x42_default proxy
 sudo docker network connect xds_default proxy
 sudo docker network connect xlr_default proxy
 sudo docker network connect implx_default proxy
-sudo docker network connect x1_default proxy
 sudo docker network connect xrc_default proxy
 sudo docker network connect home_default proxy
 sudo docker network connect serf_default proxy
@@ -169,6 +168,9 @@ sudo docker network connect crs_default proxy
 sudo docker network connect rsc_default proxy
 sudo docker network connect sbc_default proxy
 sudo docker network connect tstrax_default proxy
+sudo docker network connect strax_default proxy
+sudo docker network connect coinvault_default proxy
+sudo docker network connect cybits_default proxy
 ```
 
 If you host the paperwallet, you'll also need:
@@ -254,13 +256,12 @@ sudo docker info
 
 3. Limit a Container's Memory Access
 
-Set the "mem_limit" option in the docker-compose (v2.x) file and specifically for MongoDB, specify the wiredTigerCacheSizeGB argument.
+Set the "mem_limit" option in the docker-compose (v2.x) file and specifically for MongoDB.
 
 ```
   mongo:
     container_name: xlr-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 0.25"
     mem_limit: 250m
 ```
 
@@ -327,6 +328,21 @@ Ensure you configure your daemon.json to keep log files in check:
 
 https://docs.docker.com/config/containers/logging/json-file/
 
+
+## 10 largest files
+
+```
+# Available space:
+df -h
+```
+
+```
+du -a /var | sort -n -r | head -n 10
+```
+
+```
+find . -type f -printf '%s %p\n'| sort -nr | head -10
+```
 
 # mssql tipbot database restarts
 

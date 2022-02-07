@@ -12,21 +12,9 @@ volumes:
 
 services:
 
-  explorer:
-    container_name: tstrax-explorer
-    image: blockcore/explorer:0.1.13
-    environment:
-      VIRTUAL_HOST: tstrax.explorer.blockcore.net
-      VIRTUAL_PORT: 9911
-      VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: tstrax.explorer.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=TSTRAX"]
-    restart: unless-stopped
-
   indexer:
     container_name: tstrax-indexer
-    image: blockcore/indexer:0.1.21
+    image: blockcore/indexer:0.1.23
     environment:
       VIRTUAL_HOST: tstrax.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -34,6 +22,7 @@ services:
       LETSENCRYPT_HOST: tstrax.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
+      Logging__LogLevel__Default: Debug
     command: ["--chain=TSTRAX"]
     restart: unless-stopped
     depends_on:
@@ -42,7 +31,7 @@ services:
 
   chain:
     container_name: tstrax-chain
-    image: blockcore/node-multi:1.1.33
+    image: blockcore/node-multi:1.1.35
     command: ["--chain=STRAX", "-testnet=1", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:27103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -54,8 +43,7 @@ services:
   mongo:
     container_name: tstrax-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 1.5"
-    mem_limit: 1500m
+    mem_limit: 5000m
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
@@ -75,7 +63,7 @@ services:
     
   # tipbot-chain:
   #   container_name: tstrax-tipbot-chain
-  #   image: blockcore/node-multi:1.1.33
+  #   image: blockcore/node-multi:1.1.35
   #   command: ["--chain=STRAX", "-testnet=1", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:17103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
   #   restart: unless-stopped
   #   stop_grace_period: 15m

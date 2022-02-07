@@ -2,46 +2,46 @@ version: "2.4"
 
 volumes:
   database:
-    name: sbc-db
+    name: cybits-db
   blockchain:
-    name: sbc-data
+    name: cybits-data
   tipbot-blockchain:
-    name: sbc-tipbot-data
+    name: cybits-tipbot-data
   tipbot-database:
-    name: sbc-tipbot-db
+    name: cybits-tipbot-db
 
 services:
 
   indexer:
-    container_name: sbc-indexer
+    container_name: cybits-indexer
     image: blockcore/indexer:0.1.23
     environment:
-      VIRTUAL_HOST: sbc.indexer.blockcore.net
+      VIRTUAL_HOST: cybits.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: sbc.indexer.blockcore.net
+      LETSENCRYPT_HOST: cybits.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
       Logging__LogLevel__Default: Debug
-    command: ["--chain=SBC"]
+    command: ["--chain=CYBITS"]
     restart: unless-stopped
     depends_on:
         - mongo
         - chain
 
   chain:
-    container_name: sbc-chain
+    container_name: cybits-chain
     image: blockcore/node-multi:1.1.35
-    command: ["--chain=SBC", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["--chain=CYBITS", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:17773", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 15006:15006 # Make this a public node.
+      - 17771:17771 # Make this a public node.
 
   mongo:
-    container_name: sbc-mongo
+    container_name: cybits-mongo
     image: mongo:5.0.5
     mem_limit: 1500m
     restart: unless-stopped
@@ -51,27 +51,27 @@ services:
       - database:/data/configdb
 
   # tipbot:
-  #   container_name: sbc-tipbot
+  #   container_name: cybits-tipbot
   #   image: blockcore/tipbot:0.0.7
   #   env_file:
   #     - tipbot.env
-  #   command: ["--chain=SBC"]
+  #   command: ["--chain=CYBITS"]
   #   restart: unless-stopped
   #   depends_on:
   #       - tipbot-database
   #       - tipbot-chain
     
   # tipbot-chain:
-  #   container_name: sbc-tipbot-chain
+  #   container_name: cybits-tipbot-chain
   #   image: blockcore/node-multi:1.1.35
-  #   command: ["--chain=SBC", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+  #   command: ["--chain=CYBITS", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:17773", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
   #   restart: unless-stopped
   #   stop_grace_period: 15m
   #   volumes:
   #     - tipbot-blockchain:/root/.blockcore
 
   # tipbot-database:
-  #   container_name: sbc-tipbot-db
+  #   container_name: cybits-tipbot-db
   #   image: mcr.microsoft.com/mssql/server:2019-latest
   #   env_file:
   #     - tipbot.env

@@ -1,21 +1,21 @@
 {
   "Chain": {
-    "Name": "Cirrus",
-    "Symbol": "CRS",
+    "Name": "Cirrus (Testnet)",
+    "Symbol": "TCRS",
     "Description": "Cirrus - a Stratis sidechain scaling protocol",
     "Url": "https://stratisplatform.com/",
     "Logo": "https://chains.blockcore.net/assets/CRS/logo.png",
     "Icon": "https://chains.blockcore.net/assets/CRS/icon.png",
     "Color": "#3bb0ba"
- },
+  },
   "Network": {
     "NetworkConsensusFactoryType": "Blockcore.Indexer.Cirrus.SmartContractConsensusFactory, Blockcore.Indexer.Cirrus",
-    "NetworkPubkeyAddressPrefix": 28,
-    "NetworkScriptAddressPrefix": 88,
-    "NetworkWitnessPrefix": "CRS",
-    "P2PPort": 16179,
-    "RPCPort": 16175,
-    "APIPort": 37223
+    "NetworkPubkeyAddressPrefix": 0,
+    "NetworkScriptAddressPrefix": 5,
+    "NetworkWitnessPrefix": "TCRS",
+    "P2PPort": 26179,
+    "RPCPort": 26175,
+    "APIPort": 38223
   },
   "Indexer": {
     "StoreRawTransactions": true
@@ -34,16 +34,16 @@
  },
  "Explorer": {
   "Indexer": {
-   "ApiUrl": "https://crs.indexer.blockcore.net/api",
-   "DocUrl": "https://crs.indexer.blockcore.net/docs"
+   "ApiUrl": "https://tcrs.indexer.blockcore.net/api",
+   "DocUrl": "https://tcrs.indexer.blockcore.net/docs"
   },
   "Currency": {
      "ApiUrl": "https://api.coincap.io/v2/rates",
      "AutoConvert": false
   },
   "Ticker": {
-     "WebUrl": "https://www.coingecko.com/en/coins/cirrus",
-     "ApiUrl": "https://api.coingecko.com/api/v3/coins/cirrus/tickers",
+     "WebUrl": "",
+     "ApiUrl": "",
      "PricePath": "tickers.0.last",
      "PricePathBTC": "tickers.0.converted_last.btc",
      "PricePathUSD": "tickers.0.last",
@@ -51,23 +51,23 @@
      "IsBitcoinPrice": false
   },
   "Setup": {
-    "Title": "Cirrus Explorer",
+    "Title": "Cirrus Testnet Explorer",
     "Footer": "Stratis Sidechain Network",
     "Links": [
-       {
-          "icon": "fas fa-link",
-          "url": "https://stratisplatform.com/"
-       },
-       {
-          "icon": "fab fa-github",
-          "url": "https://github.com/stratisproject"
-       },
-       {
-          "icon": "fab fa-discord",
-          "url": "https://discordapp.com/invite/9tDyfZs"
-       }
+      {
+        "icon": "fas fa-link",
+        "url": "https://stratisplatform.com/"
+      },
+      {
+        "icon": "fab fa-github",
+        "url": "https://github.com/stratisproject"
+      },
+      {
+        "icon": "fab fa-discord",
+        "url": "https://discordapp.com/invite/9tDyfZs"
+      }
     ]
- },
+  },
     "Features": {
       "POSWeight": false
     }

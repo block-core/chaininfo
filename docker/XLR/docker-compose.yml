@@ -10,16 +10,15 @@ services:
 
   indexer:
     container_name: xlr-indexer
-    networks:
-      indexer:
-        ipv4_address: 172.16.13.10
-    image: blockcore/indexer:0.1.21
+    image: blockcore/indexer:0.1.23
     environment:
       VIRTUAL_HOST: xlr.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: xlr.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: https://*:9910
+      Logging__LogLevel__Default: Debug
     command: ["--chain=XLR"]
     restart: unless-stopped
     depends_on:
@@ -28,12 +27,10 @@ services:
 
   chain:
     container_name: xlr-chain
-    image: blockcore/node-xlr:1.0.29
-    command: ["-server=1", "-addnode=80.211.88.141", "-txindex=1", "-rpcallowip=172.16.13.10", "-rpcbind=xlr-chain", "-apiuri=http://0.0.0.0:62008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    image: blockcore/node-multi:1.1.35
+    command: ["--chain=XLR", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-whitelist=172.27.0.1", "-whitelist=172.27.0.2", "-whitelist=172.27.0.3", "-whitelist=172.27.0.4", "-whitelist=172.27.0.5", "-whitelist=172.27.0.6", "-whitelist=172.27.0.7", "-whitelist=172.27.0.8", "-whitelist=172.27.0.9", "-whitelist=172.27.0.10", "-whitelist=172.27.0.11", "-whitelist=172.27.0.12", "-whitelist=172.27.0.13", "-whitelist=172.27.0.14", "-whitelist=172.27.0.15", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:62008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
-    networks:
-      - indexer
     volumes:
       - blockchain:/root/.blockcore
     ports:
@@ -42,19 +39,9 @@ services:
   mongo:
     container_name: xlr-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 1"
     mem_limit: 1000m
     restart: unless-stopped
     stop_grace_period: 5m
-    networks:
-      - indexer
     volumes:
       - database:/data/db
       - database:/data/configdb
-
-networks:
-  indexer:
-    name: xlr-network
-    ipam:
-      config:
-        - subnet: 172.16.13.0/28

@@ -12,21 +12,9 @@ volumes:
 
 services:
 
-  explorer:
-    container_name: x42-explorer
-    image: blockcore/explorer:0.1.13
-    environment:
-      VIRTUAL_HOST: x42.explorer.blockcore.net
-      VIRTUAL_PORT: 9911
-      VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: x42.explorer.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
-    command: ["--chain=X42"]
-    restart: unless-stopped
-
   indexer:
     container_name: x42-indexer
-    image: blockcore/indexer:0.1.21
+    image: blockcore/indexer:0.1.23
     environment:
       VIRTUAL_HOST: x42.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -34,6 +22,7 @@ services:
       LETSENCRYPT_HOST: x42.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://*:9910
+      Logging__LogLevel__Default: Debug
     command: ["--chain=X42"]
     restart: unless-stopped
     depends_on:
@@ -42,8 +31,8 @@ services:
 
   chain:
     container_name: x42-chain
-    image: blockcore/node-x42:1.0.29
-    command: ["-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    image: blockcore/node-multi:1.1.35
+    command: ["--chain=X42", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
@@ -54,8 +43,7 @@ services:
   mongo:
     container_name: x42-mongo
     image: mongo:5.0.5
-    command: "--wiredTigerCacheSizeGB 1.5"
-    mem_limit: 1500m
+    mem_limit: 3000m
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
@@ -75,8 +63,8 @@ services:
     
   tipbot-chain:
     container_name: x42-tipbot-chain
-    image: blockcore/node-x42:1.0.29
-    command: ["-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    image: blockcore/node-multi:1.1.35
+    command: ["--chain=X42", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:

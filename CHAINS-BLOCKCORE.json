@@ -1,18 +1,20 @@
 [
    {
-      "name": "Bitcoin",
-      "symbol": "BTC",
-      "icon": "https://chains.blockcore.net/assets/BTC/icon.png"
-   },
-   {
       "name": "Cirrus",
       "symbol": "CRS",
-      "icon": "https://chains.blockcore.net/assets/CRS/icon.png"
+      "icon": "https://chains.blockcore.net/assets/CRS/icon.png",
+      "coin": "cirrus"
    },
    {
       "name": "City Chain",
       "symbol": "CITY",
-      "icon": "https://chains.blockcore.net/assets/CITY/icon.png"
+      "icon": "https://chains.blockcore.net/assets/CITY/icon.png",
+      "coin": "city-coin"
+   },
+   {
+      "name": "Cybits",
+      "symbol": "CYBITS",
+      "icon": "https://chains.blockcore.net/assets/CYBITS/icon.png"
    },
    {
       "name": "HomeCoin",
@@ -22,7 +24,8 @@
    {
       "name": "Impleum",
       "symbol": "IMPLX",
-      "icon": "https://chains.blockcore.net/assets/IMPLX/icon.png"
+      "icon": "https://chains.blockcore.net/assets/IMPLX/icon.png",
+      "coin": "impleum"
    },
    {
       "name": "OpenExO",
@@ -52,12 +55,14 @@
    {
       "name": "Solaris",
       "symbol": "XLR",
-      "icon": "https://chains.blockcore.net/assets/XLR/icon.png"
+      "icon": "https://chains.blockcore.net/assets/XLR/icon.png",
+      "coin": "solaris"
    },
    {
       "name": "Stratis",
       "symbol": "STRAX",
-      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
+      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png",
+      "coin": "stratis"
    },
    {
       "name": "Stratis-test",
@@ -74,11 +79,13 @@
       "name": "X42",
       "symbol": "X42",
       "icon": "https://chains.blockcore.net/assets/X42/icon.png",
-      "filter": true
+      "filter": true,
+      "coin": "x42-protocol"
    },
    {
       "name": "xRhodium",
       "symbol": "XRC",
-      "icon": "https://chains.blockcore.net/assets/XRC/icon.png"
+      "icon": "https://chains.blockcore.net/assets/XRC/icon.png",
+      "coin": "bitcoin-rhodium"
    }
 ]

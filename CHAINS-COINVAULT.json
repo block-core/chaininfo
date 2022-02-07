@@ -1,0 +1,19 @@
+[
+   {
+      "name": "Cirrus",
+      "symbol": "CRS",
+      "icon": "https://chains.blockcore.net/assets/CRS/icon.png",
+      "coin": "cirrus"
+   },
+   {
+      "name": "Stratis",
+      "symbol": "STRAX",
+      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png",
+      "coin": "stratis"
+   },
+   {
+      "name": "Stratis-test",
+      "symbol": "TSTRAX",
+      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
+   }
+]

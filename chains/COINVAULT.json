@@ -1,0 +1,69 @@
+{
+  "Chain": {
+    "Name": "CoinVault",
+    "Symbol": "COINVAULT",
+    "Description": "CoinVault is a Non-Custodial HD wallet in your browser for Coins, Tokens, Identities, NFTs and more.",
+    "Url": "https://www.coinvault.io/",
+    "Logo": "https://chains.blockcore.net/assets/COINVAULT/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/COINVAULT/icon.png",
+    "IconFilter": true
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkPubkeyAddressPrefix": 0,
+    "NetworkScriptAddressPrefix": 0,
+    "NetworkWitnessPrefix": "",
+    "P2PPort": 0,
+    "RPCPort": 0,
+    "APIPort": 0
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": ""
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": true
+    },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "CoinVault Explorer",
+      "Footer": "CoinVault is a Non-Custodial HD wallet in your browser for Coins, Tokens, Identities, NFTs and more.",
+      "Links": [
+        {
+          "icon": "fab fa-github",
+          "url": "https://www.github.com/coinvault/"
+        },
+        {
+          "icon": "fas fa-link",
+          "url": "https://www.coinvault.io/"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://www.blockcore.net/discord"
+        },
+        {
+          "icon": "fab fa-twitter",
+          "url": "https://twitter.com/coinvault_io"
+        }
+      ]
+    },
+    "Features": {
+      "Ticker": true,
+      "Explorer": true,
+      "Network": true,
+      "API": true,
+      "About": true,
+      "POSWeight": false
+    }
+  }
+}
