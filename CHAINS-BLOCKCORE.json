@@ -1,10 +1,5 @@
 [
    {
-      "name": "Bitcoin",
-      "symbol": "BTC",
-      "icon": "https://chains.blockcore.net/assets/BTC/icon.png"
-   },
-   {
       "name": "Cirrus",
       "symbol": "CRS",
       "icon": "https://chains.blockcore.net/assets/CRS/icon.png",
