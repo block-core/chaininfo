@@ -170,6 +170,7 @@ sudo docker network connect sbc_default proxy
 sudo docker network connect tstrax_default proxy
 sudo docker network connect strax_default proxy
 sudo docker network connect coinvault_default proxy
+sudo docker network connect cybits_default proxy
 ```
 
 If you host the paperwallet, you'll also need:
