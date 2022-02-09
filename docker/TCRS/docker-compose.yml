@@ -34,7 +34,7 @@ services:
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 16179:16179 # Make this a public node.
+      - 26179:26179 # Make this a public node.
 
   mongo:
     container_name: tcrs-mongo
