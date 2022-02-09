@@ -12,7 +12,12 @@
       "coin": "stratis"
    },
    {
-      "name": "Stratis-test",
+      "name": "CirrusTest",
+      "symbol": "TCRS",
+      "icon": "https://chains.blockcore.net/assets/CRS/icon.png"
+   },
+   {
+      "name": "StratisTest",
       "symbol": "TSTRAX",
       "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
    }

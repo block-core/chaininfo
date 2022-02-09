@@ -6,6 +6,11 @@
       "coin": "cirrus"
    },
    {
+      "name": "CirrusTest",
+      "symbol": "TCRS",
+      "icon": "https://chains.blockcore.net/assets/CRS/icon.png"
+   },
+   {
       "name": "City Chain",
       "symbol": "CITY",
       "icon": "https://chains.blockcore.net/assets/CITY/icon.png",
@@ -65,7 +70,7 @@
       "coin": "stratis"
    },
    {
-      "name": "Stratis-test",
+      "name": "StratisTest",
       "symbol": "TSTRAX",
       "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
    },
