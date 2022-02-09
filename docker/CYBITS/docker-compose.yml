@@ -41,7 +41,7 @@ services:
       - 17771:17771 # Make this a public node.
 
   mongo:
-    container_name: cybits-mongo
+    container_name: cy-mongo
     image: mongo:5.0.5
     mem_limit: 1500m
     restart: unless-stopped
