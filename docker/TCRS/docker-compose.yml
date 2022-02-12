@@ -10,7 +10,7 @@ services:
 
   indexer:
     container_name: tcrs-indexer
-    image: blockcore/indexer-crs:0.1.22
+    image: blockcore/indexer-crs:0.1.26
     environment:
       VIRTUAL_HOST: tcrs.indexer.blockcore.net
       VIRTUAL_PORT: 9910
