@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: ruta-indexer
-    image: blockcore/indexer:0.1.24
+    image: blockcore/indexer:0.1.25
     environment:
       VIRTUAL_HOST: ruta.indexer.blockcore.net
       VIRTUAL_PORT: 9910

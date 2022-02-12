@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: cy-indexer
-    image: blockcore/indexer:0.1.24
+    image: blockcore/indexer:0.1.25
     environment:
       VIRTUAL_HOST: cybits.indexer.blockcore.net
       VIRTUAL_PORT: 9910
