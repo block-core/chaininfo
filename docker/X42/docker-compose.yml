@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: x42-indexer
-    image: blockcore/indexer:0.1.25
+    image: blockcore/indexer:0.1.26
     environment:
       VIRTUAL_HOST: x42.indexer.blockcore.net
       VIRTUAL_PORT: 9910
