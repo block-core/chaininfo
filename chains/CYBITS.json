@@ -60,6 +60,7 @@
          "Links": []
       },
       "Features": {
+         "Ticker": false,
          "POSWeight": false
       }
    }
