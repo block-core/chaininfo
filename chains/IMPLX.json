@@ -95,6 +95,7 @@
       ]
     },
     "Features": {
+      "Ticker": true,
       "POSWeight": false
     }
   }
