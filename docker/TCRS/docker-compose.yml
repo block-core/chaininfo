@@ -10,7 +10,7 @@ services:
 
   indexer:
     container_name: tcrs-indexer
-    image: blockcore/indexer-crs:0.1.22
+    image: blockcore/indexer-crs:0.2.27
     environment:
       VIRTUAL_HOST: tcrs.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -27,14 +27,14 @@ services:
 
   chain:
     container_name: tcrs-chain
-    image: blockcore/node-crs:1.1.34
+    image: blockcore/node-crs:1.1.36
     command: ["-server=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37223", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-testnet"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 16179:16179 # Make this a public node.
+      - 26179:26179 # Make this a public node.
 
   mongo:
     container_name: tcrs-mongo
