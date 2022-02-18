@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: home-indexer
-    image: blockcore/indexer:0.2.27
+    image: blockcore/indexer:0.2.28
     environment:
       VIRTUAL_HOST: homecoin.indexer.blockcore.net
       VIRTUAL_PORT: 9910

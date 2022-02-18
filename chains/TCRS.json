@@ -10,8 +10,8 @@
   },
   "Network": {
     "NetworkConsensusFactoryType": "Blockcore.Indexer.Cirrus.SmartContractConsensusFactory, Blockcore.Indexer.Cirrus",
-    "NetworkPubkeyAddressPrefix": 0,
-    "NetworkScriptAddressPrefix": 5,
+    "NetworkPubkeyAddressPrefix": 127,
+    "NetworkScriptAddressPrefix": 137,
     "NetworkWitnessPrefix": "TCRS",
     "P2PPort": 26179,
     "RPCPort": 26175,
