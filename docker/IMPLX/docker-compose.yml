@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: implx-indexer
-    image: blockcore/indexer:0.2.28
+    image: blockcore/indexer:0.2.29
     environment:
       VIRTUAL_HOST: implx.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -31,7 +31,7 @@ services:
 
   chain:
     container_name: implx-chain
-    image: blockcore/node-multi:1.1.36
+    image: blockcore/node-multi:1.1.38
     command: ["--chain=IMPLX", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:18103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -63,7 +63,7 @@ services:
     
   tipbot-chain:
     container_name: implx-tipbot-chain
-    image: blockcore/node-multi:1.1.36
+    image: blockcore/node-multi:1.1.38
     command: ["--chain=IMPLX", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:18103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
