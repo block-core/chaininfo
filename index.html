@@ -17,19 +17,57 @@
     <meta property="og:image" content="https://www.blockcore.net/assets/thumbnail.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-
     <style>
-        html {
-            font-size: 22px;
-            color: #2e2e2e;
-            font-family: "Raleway", sans-serif;
+        :root {
+            --color-black: hsl(0, 0%, 10%);
+            --color-white: hsl(0, 0%, 100%);
+            --color-darken: hsl(0, 0%, 20%);
+            --color-teal-100: hsl(160, 85%, 87%);
+            --color-teal-200: hsl(162, 78%, 77%);
+            --color-teal-300: hsl(162, 72%, 65%);
+            --color-teal-400: hsl(162, 68%, 54%);
+            --color-teal-500: hsl(162, 73%, 46%);
+            --color-teal-600: hsl(162, 82%, 40%);
+            --color-teal-700: hsl(162, 87%, 35%);
+            --color-teal-800: hsl(162, 88%, 30%);
+            --color-teal-900: hsl(162, 88%, 26%);
+            --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 -4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        html,
-        body {
-            margin: 0;
+        *,
+        *::before,
+        *::after {
             padding: 0;
-            overflow-x: hidden;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+            list-style-type: none;
+            text-decoration: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        html {
+            font-size: 100%;
+            box-sizing: inherit;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--color-black);
+            background: var(--color-white);
+            color: #2e2e2e;
+            background-image: url('https://www.blockcore.net/assets/top-background.png');
+            background-repeat: repeat-x;
         }
 
         h1,
@@ -82,20 +120,7 @@
             max-width: 1024px;
         }
 
-        .footer {
-            background-color: #1f1f1f;
-            color: #969696;
 
-            background-image: url("https://www.blockcore.net/assets/footer-background.png");
-        }
-
-        .footer a {
-            color: white;
-        }
-
-        .footer a:hover {
-            color: #f3b623 !important;
-        }
 
         a {
             color: #2e2e2e;
@@ -205,10 +230,6 @@
             color: white;
         }
 
-        ul {
-            list-style-type: square;
-        }
-
         .sponsor-widget a {
             display: -webkit-box;
             display: flex;
@@ -250,17 +271,6 @@
             flex-grow: 2;
             padding-top: 80px;
             padding-right: 40px;
-        }
-
-        .navbar {
-            display: -webkit-box;
-            display: flex;
-            color: #2e2e2e;
-
-            background-image: url('https://www.blockcore.net/assets/top-background.png');
-            background-repeat: repeat-x;
-            border-top: 19px solid #2e2e2e;
-            height: 366px;
         }
 
         .nav-link {
@@ -331,6 +341,14 @@
         }
 
         @media only screen and (max-width: 60em) {
+            footer {
+                padding-bottom: 50px !important;
+            }
+
+            .navbar {
+                box-shadow: var(--shadow-medium);
+            }
+
             .nav-item {
                 display: block;
                 float: left;
@@ -372,6 +390,13 @@
         }
 
         @media only screen and (max-width: 22em) {
+            footer {
+                padding-bottom: 50px !important;
+            }
+
+            .navbar {
+                box-shadow: var(--shadow-medium);
+            }
 
             .navbar-logo {
                 width: 80px;
@@ -417,46 +442,354 @@
                 padding-right: 40px;
             }
         }
+
+        a,
+        button {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            text-decoration: none;
+        }
+
+
+        video {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 75rem;
+            height: auto;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .brand {
+            font-family: inherit;
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: #1f1f1f;
+            text-transform: uppercase;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 4rem;
+            margin: 0 auto;
+            background: var(--color-white);
+        }
+
+        .menu {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            display: grid;
+            align-content: center;
+            width: 100%;
+            height: 3.5rem;
+            padding: 0 1rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            background: var(--color-white);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .menu-list {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .menu-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            outline: none;
+            color: var(--color-black);
+        }
+
+        .menu-link.is-active {
+            position: relative;
+            color: var(--color-teal-800);
+            transition: all 0.35s ease;
+        }
+
+        .menu-icon {
+            font-size: 1.35rem;
+            line-height: 1;
+            color: inherit;
+        }
+
+        .menu-name {
+            display: none;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.25;
+            visibility: hidden;
+            text-transform: capitalize;
+        }
+
+        @media only screen and (min-width: 360px) {
+            .menu-name {
+                display: block;
+                visibility: visible;
+            }
+
+        }
+
+        @media only screen and (min-width: 576px) {
+            .menu-list {
+                justify-content: center;
+                -moz-column-gap: 3rem;
+                column-gap: 3rem;
+            }
+
+        }
+
+        @media only screen and (min-width: 768px) {
+            .header {
+                background: var(--color-white);
+                box-shadow: var(--shadow-medium);
+                transition: all 0.35s ease-in-out;
+            }
+
+            .menu {
+                position: relative;
+                top: 0;
+                right: 0;
+                width: auto;
+                height: auto;
+                background: none;
+                box-shadow: none;
+            }
+
+            .menu-link.is-active::before {
+                position: absolute;
+                content: "";
+                left: 0;
+                bottom: 0;
+                width: 2rem;
+                height: 2px;
+                border: none;
+                outline: none;
+                background: var(--color-teal-800);
+            }
+
+            .menu-link:hover {
+                color: var(--color-teal-800);
+                transition: all 0.35s ease;
+            }
+
+            .menu-icon {
+                display: none;
+                visibility: hidden;
+            }
+
+            .menu-name {
+                font-size: 1rem;
+                font-weight: 500;
+                line-height: 1.5;
+                margin-bottom: 0.2rem;
+            }
+        }
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 60px 0 0 0;
+            /* min-height: 100vh;*/
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .list ul li {
+            text-indent: 1cm;
+        }
+
+        .contact-area {
+            border-bottom: 1px solid #353C46;
+        }
+
+        .contact-content p {
+            margin: 30px 0 60px;
+            position: relative;
+        }
+
+        .contact-content p::after {
+            background: #353C46;
+            bottom: -30px;
+            content: "";
+            height: 1px;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%);
+            width: 80%;
+        }
+
+        .contact-content h6 {
+            color: #8b9199;
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .contact-content span {
+            color: #353c47;
+            margin: 0 10px;
+        }
+
+        .contact-social {
+            margin-top: 30px;
+        }
+
+        .contact-social>ul {
+            display: inline-flex;
+        }
+
+        .contact-social ul li a {
+            border: 3px solid #8b9199;
+            color: #fff;
+            display: inline-block;
+            height: 40px;
+            margin: 0 10px;
+            padding-top: 3px;
+            transition: all 0.4s ease 0s;
+            width: 40px;
+        }
+
+        .contact-social ul li a:hover {
+            border: 1px solid #FAB702;
+            color: #FAB702;
+        }
+
+        .contact-content img {
+            max-width: 210px;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .mt-100 {
+            margin-top: 100px;
+        }
+
+        .mb-30 {
+            margin-bottom: 30px;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .footer {
+            background-color: #1f1f1f;
+            color: #fff;
+            font-size: 20px;
+            background-image: url("https://www.blockcore.net/assets/footer-background.png");
+        }
+
+
+        footer p {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer img {
+            width: 24px;
+        }
     </style>
 </head>
 
 <body>
 
-    <body>
-        <app-nav-menu>
-            <header>
-                <nav class="navbar">
-                    <a class="navbar-brand" href="/">
-                        <img class="navbar-logo"
-                            src="https://www.blockcore.net/assets/blockcore-small.png"></a>
-                    <ul class="navbar-nav">
-                        <h1 class="title1">Blockcore /// Chains</h1>
+    <body class="top-page">
+
+        <header class="header" id="header">
+            <nav class="navbar container">
+                <a href="./index.html" class="brand">Blockcore Chains</a>
+                <div class="menu" id="menu">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a href="/" class="menu-link is-active">
+                                <i class="menu-icon fas fa-home"></i>
+                                <span class="menu-name">Home</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="https://www.blockcore.net" class="menu-link">
+                                <i class="menu-icon fas fa-cube"></i>
+                                <span class="menu-name">Blockcore</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="https://explorer.blockcore.net" class="menu-link">
+                                <i class="menu-icon fas fa-search"></i>
+                                <span class="menu-name">Explorer</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="menu-icon fab fa-github"></i>
+                                <span class="menu-name">GitHub</span>
+                            </a>
+                        </li>
                     </ul>
-                </nav>
-            </header>
-        </app-nav-menu>
-        <div class="content">
+                </div>
+            </nav>
+        </header>
+
+        <div class="container mt-100 mb-30 list">
             <h2 class="title2">
                 Setup and Configurations
             </h2>
-            <p>
+            <p class="text-justify">
                 This web site keeps a list of setup and configurations for the platform tooling on Blockcore.
             </p>
-            <p>
+            <p class="text-justify">
                 Files available here are for more than Blockcore based blockchains, it is configuration for other
                 chains that our tools support. For example it is possible to use the Blockcore Indexer and our
                 Blockcore Explorer to index and view Bitcoin blocks and transaction history.
             </p>
-            <p>
+            <p class="text-justify">
                 The Blockcore team is not responsible for the accuracy and correctness of setup files on this site.
                 Individual chain owners is responsible for keeping their setup up-to-date.
             </p>
-            <p>
+            <p class="text-justify">
                 You can add your own awesome blockchain by forking our GitHub repo and provide a pull request for
                 review and approval. Projects that are unresponsive and incompatible with our tooling, risk being
                 removed.
             </p>
-            <p>We reserve the right to remove any of the configurations, without warning.</p>
+            <p class="text-justify">We reserve the right to remove any of the configurations, without warning.</p>
             <p>
                 <br>
                 <a class="link" href="https://github.com/block-core/chaininfo">Source Code</a>
@@ -479,7 +812,7 @@
                 <li><a href="chains/CITY.json">chains/CITY.json</a></li>
                 <li><a href="docker/CITY/docker-compose.yml">docker/CITY/docker-compose.yml</a></li>
             </ul>
-            
+
             <h3>Cybits</h3>
 
             <ul>
@@ -580,21 +913,55 @@
             </ul>
 
         </div>
-        <div class="footer">
-            <div class="grid-container-footer">
-                <div class="footer-left">
-                    <p> Blockcore is an open source project started by a group of blockchain developers and
-                        engineers to realize a fully integrated platform for building custom blockchains. </p>
-                </div>
-                <div class="footer-right">
-                    <p class="icon-links"><a href="https://www.github.com/block-core/"><i
-                                class="fab fa-github"></i></a><a href="https://www.blockcore.net/discord"><i
-                                class="fab fa-discord"></i></a></p>
+        <section class="contact-area footer" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="contact-content text-center">
+                            <a href="#"><img width="80"
+                                    src="https://www.blockcore.net/assets/blockcore-light-256x256.png" alt="logo"></a>
+                            <p>Blockcore is an open source project started by a group of blockchain developers and
+                                engineers to realize a fully integrated platform for building custom blockchains.</p>
+                            <div class="hr"></div>
+                            <div class="contact-social">
+                                <ul>
+                                    <li><a class="hover-target" href="https://www.blockcore.net/discord"><i
+                                                class="fab fa-discord"></i></a></li>
+                                    <li><a class="hover-target" href="https://www.github.com/block-core"><i
+                                                class="fab fa-github"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hr"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </body>
 
+            <footer>
+                <p>Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> - All Rights Reserved.
+                </p>
+            </footer>
+        </section>
+
+
+
+
+
+    </body>
+    <script>
+        const menuLinks = document.querySelectorAll(".menu-link");
+
+        menuLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                menuLinks.forEach((link) => {
+                    link.classList.remove("is-active");
+                });
+                link.classList.add("is-active");
+            });
+        });
+
+    </script>
 </body>
 
 </html>
