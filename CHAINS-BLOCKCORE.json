@@ -2,7 +2,8 @@
    {
       "name": "Bitcoin",
       "symbol": "BTC",
-      "icon": "https://chains.blockcore.net/assets/BTC/icon.png"
+      "icon": "https://chains.blockcore.net/assets/BTC/icon.png",
+      "coin": "bitcoin"
    },
    {
       "name": "Cirrus",
