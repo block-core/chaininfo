@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: implx-indexer
-    image: blockcore/indexer:0.2.29
+    image: blockcore/indexer:0.2.31
     environment:
       VIRTUAL_HOST: implx.indexer.blockcore.net
       VIRTUAL_PORT: 9910
