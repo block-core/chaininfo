@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: strax-indexer
-    image: blockcore/indexer:0.2.29
+    image: blockcore/indexer:0.2.31
     environment:
       VIRTUAL_HOST: strax.indexer.blockcore.net
       VIRTUAL_PORT: 9910

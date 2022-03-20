@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: exos-indexer
-    image: blockcore/indexer:0.2.29
+    image: blockcore/indexer:0.2.31
     environment:
       VIRTUAL_HOST: exos.indexer.blockcore.net
       VIRTUAL_PORT: 9910
