@@ -28,7 +28,7 @@ services:
   chain:
     container_name: tcrs-chain
     image: blockcore/node-crs:1.1.38
-    command: ["-server=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37223", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-testnet"]
+    command: ["-server=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:38223", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-testnet"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
