@@ -35,16 +35,7 @@
  "Explorer": {
   "Indexer": {
    "ApiUrl": "https://tcrs.indexer.blockcore.net/api",
-   "DocUrl": "https://tcrs.indexer.blockcore.net/docs",
-   "MongoBatchSize": 1000000,
-   "MongoBatchCount" : 1000,
-   "ParallelRequestsToTransactionRpc": 5,
-   "DetailedTrace": 0,
-   "MaxItemsInQueue": 5,
-   "SyncInterval": 5,
-   "NumberOfPullerTasksForIBD" : 1,
-   "MaxItemsInBlockingCollection" : 100,
-   "AverageInterval": 10
+   "DocUrl": "https://tcrs.indexer.blockcore.net/docs"
   },
   "Currency": {
      "ApiUrl": "https://api.coincap.io/v2/rates",
