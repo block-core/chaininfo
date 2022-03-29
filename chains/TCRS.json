@@ -70,7 +70,8 @@
   },
     "Features": {
       "Ticker": false,
-      "POSWeight": false
+      "POSWeight": false,      
+      "SmartContract": false
     }
   }
 }
