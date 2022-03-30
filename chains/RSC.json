@@ -6,7 +6,7 @@
       "Url": "",
       "Logo": "https://chains.blockcore.net/assets/RSC/logo.png",
       "Icon": "https://chains.blockcore.net/assets/RSC/icon.png",
-      "Color": "#FF0000"
+      "Color": "#FEBB2B"
    },
    "Network": {
       "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
@@ -62,7 +62,18 @@
          "Title": "Royal Sports City Blockchain Explorer",
          "Footer": "Royal Sports City",
          "Links": [
-           
+            {
+               "icon": "fas fa-link",
+               "url": "https://royalsportscity.com"
+            },
+            {
+               "icon": "fab fa-github",
+               "url": "https://github.com/royalsportscity"
+            },
+            {
+               "icon": "fab fa-discord",
+               "url": "https://discord.gg/CrMvZVAR"
+            }
          ]
       },
       "Features": {
