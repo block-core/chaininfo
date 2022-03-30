@@ -13,7 +13,7 @@
       "NetworkType": "Blockcore.Networks.SeniorBlockCoin.Networks.SeniorBlockCoinMain, Blockcore.Networks.SeniorBlockCoin",
       "NetworkPubkeyAddressPrefix": 63,
       "NetworkScriptAddressPrefix": 125,
-      "NetworkWitnessPrefix": "CRS",
+      "NetworkWitnessPrefix": "SBC",
       "P2PPort": 15006,
       "RPCPort": 15007,
       "APIPort": 15008
