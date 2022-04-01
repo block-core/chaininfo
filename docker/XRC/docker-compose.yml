@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: xrc-indexer
-    image: blockcore/indexer:0.2.31
+    image: blockcore/indexer:0.2.32
     environment:
       VIRTUAL_HOST: xrc.indexer.blockcore.net
       VIRTUAL_PORT: 9910

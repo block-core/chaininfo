@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: rsc-indexer
-    image: blockcore/indexer:0.2.31
+    image: blockcore/indexer:0.2.32
     environment:
       VIRTUAL_HOST: rsc.indexer.blockcore.net
       VIRTUAL_PORT: 9910

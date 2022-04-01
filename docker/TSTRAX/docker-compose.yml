@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: tstrax-indexer
-    image: blockcore/indexer:0.2.31
+    image: blockcore/indexer:0.2.32
     environment:
       VIRTUAL_HOST: tstrax.indexer.blockcore.net
       VIRTUAL_PORT: 9910
