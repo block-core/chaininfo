@@ -1,0 +1,63 @@
+version: '3.8'
+services:
+  nginx-proxy:
+    image: nginx:1.21.6
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - certs:/etc/nginx/certs:ro
+      - ./custom_settings.conf:/etc/nginx/conf.d/custom_settings.conf:ro
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
+    restart: always
+    networks: 
+      - commonnetwork
+      
+  docker-gen:
+    image: jwilder/docker-gen:0.8.4
+    command: -notify-sighup nginx-proxy -watch /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
+    container_name: nginx-proxy-gen
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
+      - certs:/etc/nginx/certs:ro
+      - ./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.docker_gen"
+    restart: always
+    networks: 
+      - commonnetwork
+  
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion:2.2.0
+    container_name: nginx-proxy-le
+    depends_on:
+      - nginx-proxy
+      - docker-gen
+    volumes:
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - certs:/etc/nginx/certs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+#    environment:
+#      ACME_CA_URI: https://acme-staging-v02.api.letsencrypt.org/directory #Set to staging for testing
+    restart: always
+    networks: 
+      - commonnetwork
+networks:
+  commonnetwork:
+    external: false
+    name: commonnetwork
+volumes:
+  conf:
+  vhost:
+  html:
+  certs:
