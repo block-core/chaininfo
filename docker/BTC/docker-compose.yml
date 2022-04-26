@@ -53,7 +53,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 2048M
+              memory: 6144M
     healthcheck:
       test: curl --fail http://localhost:37220/api/Node/status || exit 1
       interval: 10s

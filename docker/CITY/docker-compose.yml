@@ -187,7 +187,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 2048M
+              memory: 6144M
     healthcheck:
       test: curl --fail http://localhost:4335/api/Node/status || exit 1
       interval: 10s
@@ -258,7 +258,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 2048M
+              memory: 6144M
     healthcheck:
       test: curl --fail http://localhost:4335/api/Node/status || exit 1
       interval: 10s
