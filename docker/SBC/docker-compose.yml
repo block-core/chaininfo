@@ -18,7 +18,7 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.200
+              cpus: '0.200'
               memory: 256M
     environment:
       VIRTUAL_HOST: sbc.indexer.blockcore.net
@@ -38,7 +38,7 @@ services:
         condition: service_healthy
     networks:
       - sbcnetwork
-      - commonnetwork
+      - proxy
 
   chain:
     container_name: sbc-chain
@@ -46,7 +46,7 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.200
+              cpus: '0.200'
               memory: 256M
     healthcheck:
       test: curl --fail http://localhost:15008/api/Node/status || exit 1
@@ -64,14 +64,14 @@ services:
       - 15006:15006 # Make this a public node.
     networks:
       - sbcnetwork
-      - commonnetwork
+      - proxy
   mongo:
     container_name: sbc-mongo
     image: mongo:5.0.5
     deploy:
         resources:
             limits:
-              cpus: 0.200
+              cpus: '0.200'
               memory: 512M
 
     healthcheck:
@@ -89,15 +89,15 @@ services:
       - database:/data/configdb
     networks:
       - sbcnetwork
-      - commonnetwork
+      - proxy
 
 networks:
   sbcnetwork:
     external: false
     name: sbcnetwork
-  commonnetwork:
+  proxy:
     external: true
-    name: commonnetwork
+    name: proxy
 
   # tipbot:
   #   container_name: sbc-tipbot

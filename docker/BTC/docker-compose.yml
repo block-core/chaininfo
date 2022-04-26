@@ -19,22 +19,21 @@ version: "2.4"
 #       device: /disk1/prometheus-data
 
 services:
-
   indexer:
     container_name: btc-indexer
     image: blockcore/indexer:0.2.32
     deploy:
         resources:
             limits:
-              cpus: 0.200
+              cpus: '0.200'
               memory: 256M
     environment:
       VIRTUAL_HOST: btc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: btc.indexer.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
+      #LETSENCRYPT_HOST: btc.indexer.blockcore.net
+      #LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:9910
     command: ["--chain=BTC"]
     restart: unless-stopped
@@ -45,7 +44,7 @@ services:
         condition: service_healthy
     networks:
       - btcnetwork
-      - commonnetwork
+      - proxy
 
   chain:
     container_name: btc-chain
@@ -53,15 +52,15 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.200
-              memory: 6000M
+              cpus: '0.200'
+              memory: 2048M
     healthcheck:
       test: curl --fail http://localhost:37220/api/Node/status || exit 1
       interval: 10s
       retries: 5
       start_period: 5s
       timeout: 10s
-	command: ["--chain=BTC", "-server=1", "-txindex=1", "-dbtype=rocksdb", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-assumedvalid=00000000000000000004bac129769598d1fad2b42859e625729661a32b9c3e71"]
+    command: ["--chain=BTC", "-server=1", "-txindex=1", "-dbtype=rocksdb", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-assumedvalid=00000000000000000004bac129769598d1fad2b42859e625729661a32b9c3e71"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
@@ -70,15 +69,15 @@ services:
       - 8333:8333 # Make this a public node.
     networks:
       - btcnetwork
-      - commonnetwork
+      - proxy
   mongo:
     container_name: btc-mongo
     image: mongo:5.0.5
     deploy:
         resources:
             limits:
-              cpus: 0.200
-              memory: 5000M
+              cpus: '0.200'
+              memory: 512M
 
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
@@ -94,15 +93,15 @@ services:
       - /mnt/storage/blockcore/btc/db:/data/configdb
     networks:
       - btcnetwork
-      - commonnetwork
+      - proxy
 
 networks:
   btcnetwork:
     external: false
     name: btcnetwork
-  commonnetwork:
+  proxy:
     external: true
-    name: commonnetwork
+    name: proxy
 
   # tipbot:
   #   container_name: strat-tipbot

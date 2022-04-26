@@ -9,127 +9,127 @@ volumes:
     name: city-tipbot-data
   tipbot-database:
     name: city-tipbot-db
-  bws-database:
-    name: city-bws-db
+#  bws-database:
+#    name: city-bws-db
 
 services:
 
-  bwsnode:
-    container_name: city-bws-node
-    image: blockcore-bws-city
-    command: ["node"]
-    deploy:
-        resources:
-            limits:
-              cpus: 0.200
-              memory: 256M
-    environment:
-      VIRTUAL_HOST: city.api.blockcore.net
-      VIRTUAL_PORT: 3000
-      VIRTUAL_PROTO: http
-      VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: city.api.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
-      DB_HOST: city-bws-mongo
-    restart: unless-stopped
-    depends_on:
-      bwsmongo:
-        condition: service_healthy
-      chain:
-        condition: service_healthy
-    ports:
-      #- 8100:8100
-      - 3000:3000
-    env_file:
-      - bws.env
-    networks:
-      - citynetwork
-      - commonnetwork
-  bwsapi:
-    # build: .
-    tty: true
-    container_name: city-bws-api
-    image: blockcore-bws-city
-    command: ["bws:start"]
-    deploy:
-        resources:
-            limits:
-              cpus: 0.200
-              memory: 256M
-    environment:
-      VIRTUAL_HOST: city.bws.blockcore.net
-      VIRTUAL_PORT: 3232
-      VIRTUAL_PROTO: http
-      VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: city.bws.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
-      DB_HOST: city-bws-mongo
-    restart: unless-stopped
-    depends_on:
-      bwsmongo:
-        condition: service_healthy
-      chain:
-        condition: service_healthy
-    ports:
-      - 3232:3232
-    env_file:
-      - bws.env
-    networks:
-      - citynetwork
-      - commonnetwork
+  # bwsnode:
+  #   container_name: city-bws-node
+  #   image: blockcore-bws-city
+  #   command: ["node"]
+  #   deploy:
+  #       resources:
+  #           limits:
+  #             cpus: '0.200'
+  #             memory: 256M
+  #   environment:
+  #     VIRTUAL_HOST: city.api.blockcore.net
+  #     VIRTUAL_PORT: 3000
+  #     VIRTUAL_PROTO: http
+  #     VIRTUAL_NETWORK: proxy
+  #     LETSENCRYPT_HOST: city.api.blockcore.net
+  #     LETSENCRYPT_EMAIL: admin@blockcore.net
+  #     DB_HOST: city-bws-mongo
+  #   restart: unless-stopped
+  #   depends_on:
+  #     bwsmongo:
+  #       condition: service_healthy
+  #     chain:
+  #       condition: service_healthy
+  #   ports:
+  #     #- 8100:8100
+  #     - 3000:3000
+  #   env_file:
+  #     - bws.env
+  #   networks:
+  #     - citynetwork
+  #     - proxy
+  # bwsapi:
+  #   # build: .
+  #   tty: true
+  #   container_name: city-bws-api
+  #   image: blockcore-bws-city
+  #   command: ["bws:start"]
+  #   deploy:
+  #       resources:
+  #           limits:
+  #             cpus: '0.200'
+  #             memory: 256M
+  #   environment:
+  #     VIRTUAL_HOST: city.bws.blockcore.net
+  #     VIRTUAL_PORT: 3232
+  #     VIRTUAL_PROTO: http
+  #     VIRTUAL_NETWORK: proxy
+  #     LETSENCRYPT_HOST: city.bws.blockcore.net
+  #     LETSENCRYPT_EMAIL: admin@blockcore.net
+  #     DB_HOST: city-bws-mongo
+  #   restart: unless-stopped
+  #   depends_on:
+  #     bwsmongo:
+  #       condition: service_healthy
+  #     chain:
+  #       condition: service_healthy
+  #   ports:
+  #     - 3232:3232
+  #   env_file:
+  #     - bws.env
+  #   networks:
+  #     - citynetwork
+  #     - proxy
 
-  bwsinsight:
-    container_name: city-bws-insight
-    image: blockcore-bws-city
-    command: ["insight:prod"]
-    deploy:
-        resources:
-            limits:
-              cpus: 0.200
-              memory: 256M
-    environment:
-      VIRTUAL_HOST: city.insight.blockcore.net
-      VIRTUAL_PORT: 8200
-      VIRTUAL_PROTO: http
-      VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: city.insight.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
-      DB_HOST: city-bws-mongo
-    restart: unless-stopped
-    depends_on:
-      bwsmongo:
-        condition: service_healthy
-    ports:
-      - 8200:8200
-    env_file:
-      - bws.env
-    networks:
-      - citynetwork
-      - commonnetwork
+  # bwsinsight:
+  #   container_name: city-bws-insight
+  #   image: blockcore-bws-city
+  #   command: ["insight:prod"]
+  #   deploy:
+  #       resources:
+  #           limits:
+  #             cpus: '0.200'
+  #             memory: 256M
+  #   environment:
+  #     VIRTUAL_HOST: city.insight.blockcore.net
+  #     VIRTUAL_PORT: 8200
+  #     VIRTUAL_PROTO: http
+  #     VIRTUAL_NETWORK: proxy
+  #     LETSENCRYPT_HOST: city.insight.blockcore.net
+  #     LETSENCRYPT_EMAIL: admin@blockcore.net
+  #     DB_HOST: city-bws-mongo
+  #   restart: unless-stopped
+  #   depends_on:
+  #     bwsmongo:
+  #       condition: service_healthy
+  #   ports:
+  #     - 8200:8200
+  #   env_file:
+  #     - bws.env
+  #   networks:
+  #     - citynetwork
+  #     - proxy
 
-  bwsmongo:
-    container_name: city-bws-mongo
-    image: mongo:3.6.18
-    mem_limit: 3500m
-    restart: unless-stopped
-    stop_grace_period: 5m
-    volumes:
-      - bws-database:/data/db
-      - bws-database:/data/configdb
-    deploy:
-        resources:
-            limits:
-              cpus: 0.200
-              memory: 4500M
-    healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
-      interval: 10s
-      timeout: 10s
-      retries: 5
-      start_period: 40s
-    networks:
-      - citynetwork
-      - commonnetwork
+  # bwsmongo:
+  #   container_name: city-bws-mongo
+  #   image: mongo:3.6.18
+  #   mem_limit: 3500m
+  #   restart: unless-stopped
+  #   stop_grace_period: 5m
+  #   volumes:
+  #     - bws-database:/data/db
+  #     - bws-database:/data/configdb
+  #   deploy:
+  #       resources:
+  #           limits:
+  #             cpus: '0.200'
+  #             memory: 4500M
+  #   healthcheck:
+  #     test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 5
+  #     start_period: 40s
+  #   networks:
+  #     - citynetwork
+  #     - proxy
 
   explorer:
     container_name: city-explorer
@@ -137,20 +137,20 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.200
+              cpus: '0.200'
               memory: 256M
     environment:
       VIRTUAL_HOST: city.explorer.blockcore.net,explorer.city-chain.org
       VIRTUAL_PORT: 9911
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: city.explorer.blockcore.net,explorer.city-chain.org
-      LETSENCRYPT_EMAIL: admin@blockcore.net
+#      LETSENCRYPT_HOST: city.explorer.blockcore.net,explorer.city-chain.org
+#      LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=CITY"]
     restart: unless-stopped
     networks:
       - citynetwork
-      - commonnetwork
+      - proxy
 
   indexer:
     container_name: city-indexer
@@ -158,15 +158,15 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.200
+              cpus: '0.200'
               memory: 256M
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: city.indexer.blockcore.net
-      LETSENCRYPT_EMAIL: admin@blockcore.net
+#      LETSENCRYPT_HOST: city.indexer.blockcore.net
+#      LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:9910
       Logging__LogLevel__Default: Debug
     command: ["--chain=CITY"]
@@ -178,7 +178,7 @@ services:
         condition: service_healthy
     networks:
       - citynetwork
-      - commonnetwork
+      - proxy
 
   chain:
     container_name: city-chain
@@ -186,8 +186,8 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.200
-              memory: 256M
+              cpus: '0.200'
+              memory: 2048M
     healthcheck:
       test: curl --fail http://localhost:4335/api/Node/status || exit 1
       interval: 10s
@@ -204,14 +204,14 @@ services:
       - 4333:4333 # Make this a public node.
     networks:
       - citynetwork
-      - commonnetwork
+      - proxy
   mongo:
     container_name: city-mongo
     image: mongo:5.0.5
     deploy:
         resources:
             limits:
-              cpus: 0.200
+              cpus: '0.200'
               memory: 4500M
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
@@ -226,7 +226,7 @@ services:
       - database:/data/configdb
     networks:
       - citynetwork
-      - commonnetwork
+      - proxy
 
   tipbot:
     container_name: city-tipbot
@@ -237,7 +237,7 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.200
+              cpus: '0.200'
               memory: 256M
     restart: unless-stopped
     depends_on:
@@ -257,8 +257,8 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.200
-              memory: 256M
+              cpus: '0.200'
+              memory: 2048M
     healthcheck:
       test: curl --fail http://localhost:4335/api/Node/status || exit 1
       interval: 10s
@@ -280,7 +280,7 @@ services:
     deploy:
         resources:
             limits:
-              cpus: 0.500
+              cpus: '0.500'
               memory: 2048M
     restart: unless-stopped
     volumes:
@@ -294,6 +294,6 @@ networks:
   citynetwork:
     external: false
     name: citynetwork
-  commonnetwork:
+  proxy:
     external: true
-    name: commonnetwork
+    name: proxy
