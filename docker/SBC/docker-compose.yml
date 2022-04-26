@@ -19,7 +19,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 256M
+              memory: 1024M
     environment:
       VIRTUAL_HOST: sbc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -47,7 +47,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 256M
+              memory: 6144M
     healthcheck:
       test: curl --fail http://localhost:15008/api/Node/status || exit 1
       interval: 10s
@@ -72,7 +72,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 512M
+              memory: 2048M
 
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
@@ -81,7 +81,6 @@ services:
       retries: 5
       start_period: 40s
 
-    mem_limit: 512m
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:

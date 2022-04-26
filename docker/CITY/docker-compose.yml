@@ -55,7 +55,7 @@ services:
   #       resources:
   #           limits:
   #             cpus: '0.200'
-  #             memory: 256M
+  #             memory: 2048M
   #   environment:
   #     VIRTUAL_HOST: city.bws.blockcore.net
   #     VIRTUAL_PORT: 3232
@@ -110,7 +110,6 @@ services:
   # bwsmongo:
   #   container_name: city-bws-mongo
   #   image: mongo:3.6.18
-  #   mem_limit: 3500m
   #   restart: unless-stopped
   #   stop_grace_period: 5m
   #   volumes:
@@ -120,7 +119,7 @@ services:
   #       resources:
   #           limits:
   #             cpus: '0.200'
-  #             memory: 4500M
+  #             memory: 2048M
   #   healthcheck:
   #     test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
   #     interval: 10s
@@ -159,7 +158,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 256M
+              memory: 1024M
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -212,7 +211,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 4500M
+              memory: 2048M
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
@@ -238,7 +237,7 @@ services:
         resources:
             limits:
               cpus: '0.200'
-              memory: 256M
+              memory: 1024M
     restart: unless-stopped
     depends_on:
       tipbot-database:
