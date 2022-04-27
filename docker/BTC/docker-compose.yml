@@ -69,7 +69,7 @@ services:
       - 8333:8333 # Make this a public node.
     networks:
       - btcnetwork
-      - proxy
+
   mongo:
     container_name: btc-mongo
     image: mongo:5.0.5
@@ -93,8 +93,7 @@ services:
       - /mnt/storage/blockcore/btc/db:/data/configdb
     networks:
       - btcnetwork
-      - proxy
-
+      
 networks:
   btcnetwork:
     external: false

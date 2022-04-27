@@ -203,7 +203,7 @@ services:
       - 4333:4333 # Make this a public node.
     networks:
       - citynetwork
-      - proxy
+
   mongo:
     container_name: city-mongo
     image: mongo:5.0.5
@@ -225,7 +225,6 @@ services:
       - database:/data/configdb
     networks:
       - citynetwork
-      - proxy
 
   tipbot:
     container_name: city-tipbot
