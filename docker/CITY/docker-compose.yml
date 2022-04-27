@@ -143,8 +143,8 @@ services:
       VIRTUAL_PORT: 9911
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-#      LETSENCRYPT_HOST: city.explorer.blockcore.net,explorer.city-chain.org
-#      LETSENCRYPT_EMAIL: admin@blockcore.net
+      LETSENCRYPT_HOST: city.explorer.blockcore.net,explorer.city-chain.org
+      LETSENCRYPT_EMAIL: admin@blockcore.net
     command: ["--chain=CITY"]
     restart: unless-stopped
     networks:
@@ -164,8 +164,8 @@ services:
       VIRTUAL_PORT: 9910
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-#      LETSENCRYPT_HOST: city.indexer.blockcore.net
-#      LETSENCRYPT_EMAIL: admin@blockcore.net
+      LETSENCRYPT_HOST: city.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:9910
       Logging__LogLevel__Default: Debug
     command: ["--chain=CITY"]
