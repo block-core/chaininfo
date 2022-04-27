@@ -78,7 +78,6 @@ services:
       timeout: 10s
       retries: 5
       start_period: 40s
-    mem_limit: 3000m
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:

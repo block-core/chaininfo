@@ -257,13 +257,12 @@ sudo docker info
 
 3. Limit a Container's Memory Access
 
-Set the "mem_limit" option in the docker-compose (v2.x) file and specifically for MongoDB.
+Set the `deploy.resources.limits` options in the docker-compose (v2.x) file and specifically for all the services.
 
 ```
   mongo:
     container_name: xlr-mongo
     image: mongo:5.0.5
-    mem_limit: 250m
 ```
 
 4. Verify
