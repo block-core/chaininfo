@@ -16,10 +16,10 @@ services:
     container_name: home-indexer
     image: blockcore/indexer:0.2.32
     deploy:
-        resources:
-            limits:
-              cpus: '0.200'
-              memory: 1024M
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     environment:
       VIRTUAL_HOST: homecoin.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -45,10 +45,10 @@ services:
     container_name: home-chain
     image: blockcore/node-multi:1.1.39
     deploy:
-        resources:
-            limits:
-              cpus: '0.200'
-              memory: 6144M
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
     healthcheck:
       test: curl --fail http://localhost:33333/api/Node/status || exit 1
       interval: 10s
@@ -69,10 +69,10 @@ services:
     container_name: home-mongo
     image: mongo:5.0.5
     deploy:
-        resources:
-            limits:
-              cpus: '0.200'
-              memory: 2048M
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 2048M
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
@@ -92,10 +92,10 @@ services:
     container_name: home-tipbot
     image: blockcore/tipbot:0.0.3
     deploy:
-        resources:
-            limits:
-              cpus: '0.200'
-              memory: 1024M
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     env_file:
       - tipbot.env
     command: ["--chain=HOME"]
@@ -112,10 +112,10 @@ services:
     container_name: home-tipbot-chain
     image: blockcore/node-multi:1.1.39
     deploy:
-        resources:
-            limits:
-              cpus: '0.200'
-              memory: 6144M
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
     healthcheck:
       test: curl --fail http://localhost:33333/api/Node/status || exit 1
       interval: 10s
@@ -134,10 +134,10 @@ services:
     container_name: home-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
     deploy:
-        resources:
-            limits:
-              cpus: '0.500'
-              memory: 2048M
+      resources:
+          limits:
+            cpus: '0.500'
+            memory: 2048M
     env_file:
       - tipbot.env
     environment:

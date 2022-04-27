@@ -15,23 +15,44 @@ services:
   indexer:
     container_name: ruta-indexer
     image: blockcore/indexer:0.2.32
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     environment:
       VIRTUAL_HOST: ruta.indexer.blockcore.net
       VIRTUAL_PORT: 9910
+      VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: ruta.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-      ASPNETCORE_URLS: https://*:9910
+      ASPNETCORE_URLS: https://+:9910
       Logging__LogLevel__Default: Debug
     command: ["--chain=RUTA"]
     restart: unless-stopped
     depends_on:
-        - mongo
-        - chain
-
+      mongo:
+        condition: service_healthy
+      chain:
+        condition: service_healthy
+    networks:
+      - rutanetwork
+      - proxy
   chain:
     container_name: ruta-chain
     image: blockcore/node-multi:1.1.39
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
+    healthcheck:
+      test: curl --fail http://localhost:39220/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
     command: ["--chain=RUTA", "-server=1", "-txindex=1", "-iprangefiltering=0", "-addnode=54.90.11.207", "-addnode=3.20.153.206", "-addnode=54.176.156.144", "-addnode=44.225.107.115", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -39,40 +60,81 @@ services:
       - blockchain:/root/.blockcore
     ports:
       - 6782:6782 # Make this a public node.
+    networks:
+      - rutanetwork
 
   mongo:
     container_name: ruta-mongo
     image: mongo:5.0.5
-    mem_limit: 1500m
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 2048M
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
       - database:/data/db
       - database:/data/configdb
+    networks:
+      - rutanetwork
 
   tipbot:
     container_name: ruta-tipbot
     image: blockcore/tipbot:0.0.3
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     env_file:
       - tipbot.env
     command: ["--chain=RUTA"]
     restart: unless-stopped
     depends_on:
-        - tipbot-database
-        - tipbot-chain
-    
+      tipbot-database:
+        condition: service_started
+      tipbot-chain:
+        condition: service_healthy
+    networks:
+      - rutanetwork
+
   tipbot-chain:
     container_name: ruta-tipbot-chain
     image: blockcore/node-multi:1.1.39
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
+    healthcheck:
+      test: curl --fail http://localhost:39220/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
     command: ["--chain=RUTA", "-server=1", "-txindex=0", "-iprangefiltering=0", "-addnode=54.90.11.207", "-addnode=3.20.153.206", "-addnode=54.176.156.144", "-addnode=44.225.107.115", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - tipbot-blockchain:/root/.blockcore
+    networks:
+      - rutanetwork
 
   tipbot-database:
     container_name: ruta-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
+    deploy:
+      resources:
+          limits:
+            cpus: '0.500'
+            memory: 2048M
     env_file:
       - tipbot.env
     environment:
@@ -80,3 +142,12 @@ services:
     restart: unless-stopped
     volumes:
       - tipbot-database:/var/opt/mssql
+    networks:
+      - rutanetwork
+networks:
+  rutanetwork:
+    external: false
+    name: rutanetwork
+  proxy:
+    external: true
+    name: proxy

@@ -6,10 +6,10 @@ services:
     container_name: blockcore-paperwallet
     image: nginx
     deploy:
-        resources:
-            limits:
-              cpus: '0.200'
-              memory: 256M
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 256M
     environment:
       VIRTUAL_HOST: paperwallet.blockcore.net
       VIRTUAL_PORT: 80

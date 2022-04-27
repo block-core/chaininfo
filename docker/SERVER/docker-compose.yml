@@ -5,10 +5,10 @@ services:
     image: nginxproxy/nginx-proxy
     container_name: proxy
     deploy:
-        resources:
-            limits:
-              cpus: '0.200'
-              memory: 256M
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 256M
     ports:
       - "80:80"
       - "443:443"
@@ -28,10 +28,10 @@ services:
     image: nginxproxy/acme-companion:2.2.1
     container_name: letsencrypt
     deploy:
-        resources:
-            limits:
-              cpus: '0.100'
-              memory: 128M
+      resources:
+          limits:
+            cpus: '0.100'
+            memory: 128M
     volumes_from:
       - proxy
     volumes:
