@@ -5,11 +5,28 @@ services:
   explorer:
     container_name: coinvault-explorer
     image: blockcore/explorer:0.2.24
+    deploy:
+        resources:
+            limits:
+              cpus: '0.200'
+              memory: 256M
     environment:
       VIRTUAL_HOST: explorer.coinvault.io
       VIRTUAL_PORT: 9911
       VIRTUAL_NETWORK: proxy
+      VIRTUAL_PROTO: http
       LETSENCRYPT_HOST: explorer.coinvault.io
       LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: http://+:9910
     command: ["--chain=COINVAULT"]
     restart: unless-stopped
+    networks:
+      - proxy
+      - coinvaultnetwork
+networks:
+  coinvaultnetwork:
+    external: false
+    name: coinvaultnetwork
+  proxy:
+    external: true
+    name: proxy
