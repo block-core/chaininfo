@@ -330,6 +330,46 @@ Ensure you configure your daemon.json to keep log files in check:
 https://docs.docker.com/config/containers/logging/json-file/
 
 
+## System Wide Configuration
+Configure ```/etc/docker/``` on Linux hosts or ```C:\ProgramData\docker\config\``` on Windows Servers.
+
+```
+{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3" 
+  }
+}
+```
+For the new configuration to take effect:
+
+* Stop all Containers
+* Restart the docker daemon
+* Recreate the containers 
+
+
+## Container Specific Configuration
+
+Modify the file ```docker\<CHAIN>\docker-compose.yml``` and include the ```logging``` section as per example:
+```
+ chain:
+    container_name: btc-chain
+    mem_limit: 6000m
+    image: blockcore/node-multi:1.1.39
+    logging:
+        driver: "json-file"
+        options:
+            max-file: 5
+            max-size: 10m
+    .
+    .
+    .
+```
+Options:
+* ``` max-size ``` - The maximum size of the log before it is rolled. A positive integer plus a modifier representing the unit of measure (k, m, or g)
+* ``` max-file ``` - The maximum number of log files that can be present. If rolling the logs creates excess files, the oldest file is removed. Only effective when max-size is also set. A positive integer
+
 ## 10 largest files
 
 ```
