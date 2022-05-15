@@ -15,23 +15,45 @@ services:
   indexer:
     container_name: strax-indexer
     image: blockcore/indexer:0.2.32
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     environment:
       VIRTUAL_HOST: strax.indexer.blockcore.net
       VIRTUAL_PORT: 9910
+      VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: strax.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-      ASPNETCORE_URLS: https://*:9910
+      ASPNETCORE_URLS: https://+:9910
       Logging__LogLevel__Default: Debug
     command: ["--chain=STRAX"]
     restart: unless-stopped
     depends_on:
-        - mongo
-        - chain
+      mongo:
+        condition: service_healthy
+      chain:
+        condition: service_healthy
+    networks:
+      - straxnetwork
+      - proxy
 
   chain:
     container_name: strax-chain
     image: blockcore/node-multi:1.1.39
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
+    healthcheck:
+      test: curl --fail http://localhost:17103/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
     command: ["--chain=STRAX", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:17103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -39,40 +61,81 @@ services:
       - blockchain:/root/.blockcore
     ports:
       - 17105:17105 # Make this a public node.
+    networks:
+      - straxnetwork
 
   mongo:
     container_name: strax-mongo
     image: mongo:5.0.5
-    mem_limit: 15000m
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 2048M
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
       - database:/data/db
       - database:/data/configdb
+    networks:
+      - straxnetwork
 
   tipbot:
     container_name: strax-tipbot
     image: blockcore/tipbot:0.0.7
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     env_file:
       - tipbot.env
     command: ["--chain=STRAX"]
     restart: unless-stopped
     depends_on:
-        - tipbot-database
-        - tipbot-chain
-    
+      tipbot-database:
+        condition: service_started
+      tipbot-chain:
+        condition: service_healthy
+    networks:
+      - straxnetwork
+
   tipbot-chain:
     container_name: strax-tipbot-chain
     image: blockcore/node-multi:1.1.39
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
+    healthcheck:
+      test: curl --fail http://localhost:17103/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
     command: ["--chain=STRAX", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:17103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - tipbot-blockchain:/root/.blockcore
+    networks:
+      - straxnetwork
 
   tipbot-database:
     container_name: strax-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
+    deploy:
+      resources:
+          limits:
+            cpus: '0.500'
+            memory: 2048M
     env_file:
       - tipbot.env
     environment:
@@ -80,3 +143,12 @@ services:
     restart: unless-stopped
     volumes:
       - tipbot-database:/var/opt/mssql
+    networks:
+      - straxnetwork
+networks:
+  straxnetwork:
+    external: false
+    name: straxnetwork
+  proxy:
+    external: true
+    name: proxy

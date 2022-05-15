@@ -2,8 +2,13 @@ version: '2'
 
 services:
   proxy:
-    image: jwilder/nginx-proxy:0.8.0
+    image: nginxproxy/nginx-proxy
     container_name: proxy
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 256M
     ports:
       - "80:80"
       - "443:443"
@@ -15,20 +20,32 @@ services:
       - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx.conf:/etc/nginx/conf.d/blockcore.conf:ro
-    network_mode: bridge
     restart: unless-stopped
+    networks: 
+      - proxy
 
   letsencrypt:
-    image: jrcs/letsencrypt-nginx-proxy-companion:v1.13.1
+    image: nginxproxy/acme-companion:2.2.1
     container_name: letsencrypt
+    deploy:
+      resources:
+          limits:
+            cpus: '0.100'
+            memory: 128M
     volumes_from:
       - proxy
     volumes:
       - certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    network_mode: bridge
     restart: unless-stopped
-
+    networks: 
+      - proxy
+      
+networks:
+  proxy:
+    external: false
+    name: proxy
+    
 volumes:
   conf:
   vhost:
