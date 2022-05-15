@@ -15,11 +15,8 @@ services:
   indexer:
     container_name: strax-indexer
     image: blockcore/indexer:0.2.32
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 1024M
+    mem_limit: 1024m
+    cpus: 0.200
     environment:
       VIRTUAL_HOST: strax.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -43,11 +40,8 @@ services:
   chain:
     container_name: strax-chain
     image: blockcore/node-multi:1.1.39
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 6144M
+    mem_limit: 6144m
+    cpus: 0.200
     healthcheck:
       test: curl --fail http://localhost:17103/api/Node/status || exit 1
       interval: 10s
@@ -67,11 +61,8 @@ services:
   mongo:
     container_name: strax-mongo
     image: mongo:5.0.5
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 2048M
+    mem_limit: 2048m
+    cpus: 0.200
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
@@ -89,11 +80,8 @@ services:
   tipbot:
     container_name: strax-tipbot
     image: blockcore/tipbot:0.0.7
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 1024M
+    mem_limit: 1024m
+    cpus: 0.200
     env_file:
       - tipbot.env
     command: ["--chain=STRAX"]
@@ -109,11 +97,8 @@ services:
   tipbot-chain:
     container_name: strax-tipbot-chain
     image: blockcore/node-multi:1.1.39
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 6144M
+    mem_limit: 6144m
+    cpus: 0.200
     healthcheck:
       test: curl --fail http://localhost:17103/api/Node/status || exit 1
       interval: 10s
@@ -131,11 +116,8 @@ services:
   tipbot-database:
     container_name: strax-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
-    deploy:
-      resources:
-          limits:
-            cpus: '0.500'
-            memory: 2048M
+    mem_limit: 2048m
+    cpus: 0.500
     env_file:
       - tipbot.env
     environment:
