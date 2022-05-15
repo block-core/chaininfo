@@ -15,11 +15,8 @@ services:
   indexer:
     container_name: xrc-indexer
     image: blockcore/indexer:0.2.32
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 1024M
+    mem_limit: 1024m
+    cpus: 0.200
     environment:
       VIRTUAL_HOST: xrc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -41,11 +38,8 @@ services:
   chain:
     container_name: xrc-chain
     image: blockcore/node-multi:1.1.41
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 6144M
+    mem_limit: 2048m
+    cpus: 0.200
     healthcheck:
       test: curl --fail http://localhost:37221/api/Node/status || exit 1
       interval: 10s
@@ -65,11 +59,8 @@ services:
   mongo:
     container_name: xrc-mongo
     image: mongo:5.0.5
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 2048M
+    mem_limit: 2048m
+    cpus: 0.200
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
@@ -87,11 +78,8 @@ services:
   tipbot:
     container_name: xrc-tipbot
     image: blockcore/tipbot:0.0.3
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 1024M
+    mem_limit: 1024m
+    cpus: 0.200
     env_file:
       - tipbot.env
     command: ["--chain=XRC"]
@@ -105,11 +93,8 @@ services:
   tipbot-chain:
     container_name: xrc-tipbot-chain
     image: blockcore/node-multi:1.1.41
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 6144M
+    mem_limit: 2048m
+    cpus: 0.200
     healthcheck:
       test: curl --fail http://localhost:37221/api/Node/status || exit 1
       interval: 10s
@@ -127,11 +112,8 @@ services:
   tipbot-database:
     container_name: xrc-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
-    deploy:
-      resources:
-          limits:
-            cpus: '0.500'
-            memory: 2048M
+    mem_limit: 2048m
+    cpus: 0.500
     env_file:
       - tipbot.env
     environment:

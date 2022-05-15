@@ -133,11 +133,8 @@ services:
   explorer:
     container_name: city-explorer
     image: blockcore/explorer:0.2.24
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 256M
+    mem_limit: 256m
+    cpus: 0.200
     environment:
       VIRTUAL_HOST: city.explorer.blockcore.net,explorer.city-chain.org
       VIRTUAL_PORT: 9911
@@ -154,11 +151,8 @@ services:
   indexer:
     container_name: city-indexer
     image: blockcore/indexer:0.2.32
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 1024M
+    mem_limit: 1024m
+    cpus: 0.200
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -182,11 +176,8 @@ services:
   chain:
     container_name: city-chain
     image: blockcore/node-multi:1.1.39
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 6144M
+    mem_limit: 6144m
+    cpus: 0.200
     healthcheck:
       test: curl --fail http://localhost:4335/api/Node/status || exit 1
       interval: 10s
@@ -206,11 +197,8 @@ services:
   mongo:
     container_name: city-mongo
     image: mongo:5.0.5
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 2048M
+    mem_limit: 2048m
+    cpus: 0.200
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
@@ -228,11 +216,8 @@ services:
   tipbot:
     container_name: city-tipbot
     image: blockcore/tipbot:0.0.7
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 1024M
+    mem_limit: 1024m
+    cpus: 0.200
     env_file:
       - tipbot.env
     command: ["--chain=CITY"]
@@ -248,11 +233,8 @@ services:
   tipbot-chain:
     container_name: city-tipbot-chain
     image: blockcore/node-multi:1.1.39
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 6144M
+    mem_limit: 6144m
+    cpus: 0.200
     healthcheck:
       test: curl --fail http://localhost:4335/api/Node/status || exit 1
       interval: 10s
@@ -270,11 +252,8 @@ services:
   tipbot-database:
     container_name: city-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
-    deploy:
-      resources:
-          limits:
-            cpus: '0.500'
-            memory: 2048M
+    mem_limit: 2048m
+    cpus: 0.500
     env_file:
       - tipbot.env
     environment:

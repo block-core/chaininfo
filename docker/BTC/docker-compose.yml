@@ -22,11 +22,8 @@ services:
   indexer:
     container_name: btc-indexer
     image: blockcore/indexer:0.2.32
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 1024M
+    mem_limit: 1024m
+    cpus: 0.200
     environment:
       VIRTUAL_HOST: btc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -49,11 +46,8 @@ services:
   chain:
     container_name: btc-chain
     image: blockcore/node-multi:1.1.39
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 10240M
+    mem_limit: 10240m
+    cpus: 0.200
     healthcheck:
       test: curl --fail http://localhost:37220/api/Node/status || exit 1
       interval: 10s
@@ -73,11 +67,8 @@ services:
   mongo:
     container_name: btc-mongo
     image: mongo:5.0.5
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 2048M
+    mem_limit: 2048m
+    cpus: 0.200
 
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
