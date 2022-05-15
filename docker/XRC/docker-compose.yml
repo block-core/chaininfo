@@ -40,7 +40,7 @@ services:
 
   chain:
     container_name: xrc-chain
-    image: blockcore/node-multi:1.1.39
+    image: blockcore/node-multi:1.1.41
     deploy:
       resources:
           limits:
@@ -104,7 +104,7 @@ services:
 
   tipbot-chain:
     container_name: xrc-tipbot-chain
-    image: blockcore/node-multi:1.1.39
+    image: blockcore/node-multi:1.1.41
     deploy:
       resources:
           limits:
