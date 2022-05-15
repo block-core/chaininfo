@@ -54,7 +54,7 @@ services:
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
-      - blockchain:/root/.blockcore
+      - blockchain:/root/.StratisNode
     ports:
       - 16179:16179 # Make this a public node.
     networks:
