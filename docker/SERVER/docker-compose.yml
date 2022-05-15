@@ -1,14 +1,11 @@
-version: '2'
+version: "2.4"
 
 services:
   proxy:
     image: nginxproxy/nginx-proxy
     container_name: proxy
-    deploy:
-      resources:
-          limits:
-            cpus: '0.200'
-            memory: 256M
+    mem_limit: 256m
+    cpus: 0.200
     ports:
       - "80:80"
       - "443:443"
@@ -27,11 +24,8 @@ services:
   letsencrypt:
     image: nginxproxy/acme-companion:2.2.1
     container_name: letsencrypt
-    deploy:
-      resources:
-          limits:
-            cpus: '0.100'
-            memory: 128M
+    mem_limit: 128m
+    cpus: 0.100
     volumes_from:
       - proxy
     volumes:
