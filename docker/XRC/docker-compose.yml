@@ -15,23 +15,43 @@ services:
   indexer:
     container_name: xrc-indexer
     image: blockcore/indexer:0.2.32
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     environment:
       VIRTUAL_HOST: xrc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
+      VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: xrc.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-      ASPNETCORE_URLS: https://*:9910
+      ASPNETCORE_URLS: https://+:9910
       Logging__LogLevel__Default: Debug
     command: ["--chain=XRC"]
     restart: unless-stopped
     depends_on:
         - mongo
         - chain
+    networks:
+      - xrcnetwork
+      - proxy
 
   chain:
     container_name: xrc-chain
     image: blockcore/node-multi:1.1.39
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
+    healthcheck:
+      test: curl --fail http://localhost:37221/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
     command: ["--chain=XRC", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37221", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -39,20 +59,39 @@ services:
       - blockchain:/root/.blockcore
     ports:
       - 37270:37270 # Make this a public node.
+    networks:
+      - xrcnetwork
 
   mongo:
     container_name: xrc-mongo
     image: mongo:5.0.5
-    mem_limit: 1500m
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 2048M
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
       - database:/data/db
       - database:/data/configdb
+    networks:
+      - xrcnetwork
 
   tipbot:
     container_name: xrc-tipbot
     image: blockcore/tipbot:0.0.3
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     env_file:
       - tipbot.env
     command: ["--chain=XRC"]
@@ -60,19 +99,39 @@ services:
     depends_on:
         - tipbot-database
         - tipbot-chain
-    
+    networks:
+      - xrcnetwork
+
   tipbot-chain:
     container_name: xrc-tipbot-chain
     image: blockcore/node-multi:1.1.39
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
+    healthcheck:
+      test: curl --fail http://localhost:37221/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
     command: ["--chain=XRC", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37221", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - tipbot-blockchain:/root/.blockcore
+    networks:
+      - xrcnetwork
 
   tipbot-database:
     container_name: xrc-tipbot-db
     image: mcr.microsoft.com/mssql/server:2019-latest
+    deploy:
+      resources:
+          limits:
+            cpus: '0.500'
+            memory: 2048M
     env_file:
       - tipbot.env
     environment:
@@ -80,3 +139,12 @@ services:
     restart: unless-stopped
     volumes:
       - tipbot-database:/var/opt/mssql
+    networks:
+      - xrcnetwork
+networks:
+  xrcnetwork:
+    external: false
+    name: xrcnetwork
+  proxy:
+    external: true
+    name: proxy

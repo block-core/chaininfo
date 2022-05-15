@@ -11,23 +11,45 @@ services:
   indexer:
     container_name: xlr-indexer
     image: blockcore/indexer:0.2.32
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 1024M
     environment:
       VIRTUAL_HOST: xlr.indexer.blockcore.net
       VIRTUAL_PORT: 9910
+      VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: xlr.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-      ASPNETCORE_URLS: https://*:9910
+      ASPNETCORE_URLS: https://+:9910
       Logging__LogLevel__Default: Debug
     command: ["--chain=XLR"]
     restart: unless-stopped
     depends_on:
-        - mongo
-        - chain
+      mongo:
+        condition: service_healthy
+      chain:
+        condition: service_healthy
+    networks:
+      - xlrnetwork
+      - proxy
 
   chain:
     container_name: xlr-chain
     image: blockcore/node-multi:1.1.39
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 6144M
+    healthcheck:
+      test: curl --fail http://localhost:62008/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
     command: ["--chain=XLR", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-whitelist=172.27.0.1", "-whitelist=172.27.0.2", "-whitelist=172.27.0.3", "-whitelist=172.27.0.4", "-whitelist=172.27.0.5", "-whitelist=172.27.0.6", "-whitelist=172.27.0.7", "-whitelist=172.27.0.8", "-whitelist=172.27.0.9", "-whitelist=172.27.0.10", "-whitelist=172.27.0.11", "-whitelist=172.27.0.12", "-whitelist=172.27.0.13", "-whitelist=172.27.0.14", "-whitelist=172.27.0.15", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:62008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
@@ -35,13 +57,34 @@ services:
       - blockchain:/root/.blockcore
     ports:
       - 60008:60008
+    networks:
+      - xlrnetwork
 
   mongo:
     container_name: xlr-mongo
     image: mongo:5.0.5
-    mem_limit: 1000m
+    deploy:
+      resources:
+          limits:
+            cpus: '0.200'
+            memory: 2048M
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
     restart: unless-stopped
     stop_grace_period: 5m
     volumes:
       - database:/data/db
       - database:/data/configdb
+    networks:
+      - xlrnetwork
+networks:
+  xlrnetwork:
+    external: false
+    name: xlrnetwork
+  proxy:
+    external: true
+    name: proxy
