@@ -16,7 +16,7 @@ services:
     container_name: tstrax-indexer
     image: blockcore/indexer:0.2.33
     mem_limit: 1024m
-    cpus: 0.200
+    cpus: 1.00
     environment:
       VIRTUAL_HOST: tstrax.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -41,7 +41,7 @@ services:
     container_name: tstrax-chain
     image: blockcore/node-multi:1.1.41
     mem_limit: 6144m
-    cpus: 0.200
+    cpus: 1.00
     healthcheck:
       test: curl --fail http://localhost:27103/api/Node/status || exit 1
       interval: 10s
@@ -62,7 +62,7 @@ services:
     container_name: tstrax-mongo
     image: mongo:5.0.5
     mem_limit: 2048m
-    cpus: 0.200
+    cpus: 1.00
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
