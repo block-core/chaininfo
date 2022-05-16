@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: tstrax-indexer
-    image: blockcore/indexer:0.2.32
+    image: blockcore/indexer:0.2.33
     mem_limit: 1024m
     cpus: 0.200
     environment:
@@ -39,7 +39,7 @@ services:
 
   chain:
     container_name: tstrax-chain
-    image: blockcore/node-multi:1.1.39
+    image: blockcore/node-multi:1.1.41
     mem_limit: 6144m
     cpus: 0.200
     healthcheck:
@@ -87,7 +87,7 @@ networks:
 
   # tipbot:
   #   container_name: tstrax-tipbot
-  #   image: blockcore/tipbot:0.0.3
+  #   image: blockcore/tipbot:0.1.8
   #   deploy:
   #     resources:
   #         limits:
@@ -107,7 +107,7 @@ networks:
     
   # tipbot-chain:
   #   container_name: tstrax-tipbot-chain
-  #   image: blockcore/node-multi:1.1.39
+  #   image: blockcore/node-multi:1.1.41
   #   deploy:
   #     resources:
   #         limits:

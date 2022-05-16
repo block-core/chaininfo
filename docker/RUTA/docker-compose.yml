@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: ruta-indexer
-    image: blockcore/indexer:0.2.32
+    image: blockcore/indexer:0.2.33
     mem_limit: 1024m
     cpus: 0.200
     environment:
@@ -38,7 +38,7 @@ services:
       - proxy
   chain:
     container_name: ruta-chain
-    image: blockcore/node-multi:1.1.39
+    image: blockcore/node-multi:1.1.41
     mem_limit: 3072m
     cpus: 0.200
     healthcheck:
@@ -78,7 +78,7 @@ services:
 
   tipbot:
     container_name: ruta-tipbot
-    image: blockcore/tipbot:0.0.3
+    image: blockcore/tipbot:0.1.8
     mem_limit: 1024m
     cpus: 0.200
     env_file:
@@ -95,7 +95,7 @@ services:
 
   tipbot-chain:
     container_name: ruta-tipbot-chain
-    image: blockcore/node-multi:1.1.39
+    image: blockcore/node-multi:1.1.41
     mem_limit: 3072m
     cpus: 0.200
     healthcheck:
