@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: xrc-indexer
-    image: blockcore/indexer:0.2.32
+    image: blockcore/indexer:0.2.33
     mem_limit: 1024m
     cpus: 0.200
     environment:
@@ -77,7 +77,7 @@ services:
 
   tipbot:
     container_name: xrc-tipbot
-    image: blockcore/tipbot:0.0.3
+    image: blockcore/tipbot:0.1.8
     mem_limit: 1024m
     cpus: 0.200
     env_file:

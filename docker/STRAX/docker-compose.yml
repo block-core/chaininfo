@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: strax-indexer
-    image: blockcore/indexer:0.2.32
+    image: blockcore/indexer:0.2.33
     mem_limit: 1024m
     cpus: 0.200
     environment:
@@ -39,7 +39,7 @@ services:
 
   chain:
     container_name: strax-chain
-    image: blockcore/node-multi:1.1.39
+    image: blockcore/node-multi:1.1.41
     mem_limit: 6144m
     cpus: 0.200
     healthcheck:
@@ -79,7 +79,7 @@ services:
 
   tipbot:
     container_name: strax-tipbot
-    image: blockcore/tipbot:0.0.7
+    image: blockcore/tipbot:0.1.8
     mem_limit: 1024m
     cpus: 0.200
     env_file:
@@ -96,7 +96,7 @@ services:
 
   tipbot-chain:
     container_name: strax-tipbot-chain
-    image: blockcore/node-multi:1.1.39
+    image: blockcore/node-multi:1.1.41
     mem_limit: 6144m
     cpus: 0.200
     healthcheck:

@@ -21,7 +21,7 @@ version: "2.4"
 services:
   indexer:
     container_name: btc-indexer
-    image: blockcore/indexer:0.2.32
+    image: blockcore/indexer:0.2.33
     mem_limit: 1024m
     cpus: 0.200
     environment:
@@ -45,7 +45,7 @@ services:
 
   chain:
     container_name: btc-chain
-    image: blockcore/node-multi:1.1.39
+    image: blockcore/node-multi:1.1.41
     mem_limit: 10240m
     cpus: 0.200
     healthcheck:
@@ -95,7 +95,7 @@ networks:
 
   # tipbot:
   #   container_name: strat-tipbot
-  #   image: blockcore/tipbot:0.0.3
+  #   image: blockcore/tipbot:0.1.8
   #   env_file:
   #     - tipbot.env
   #   command: ["--chain=STRAT"]
