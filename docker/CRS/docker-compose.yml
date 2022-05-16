@@ -12,7 +12,7 @@ services:
     container_name: crs-indexer
     image: blockcore/indexer-crs:0.2.32
     mem_limit: 1024m
-    cpus: 0.200
+    cpus: 2.00
     environment:
       VIRTUAL_HOST: crs.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -37,7 +37,7 @@ services:
     container_name: crs-chain
     image: blockcore/node-crs:1.1.41
     mem_limit: 6144m
-    cpus: 0.200
+    cpus: 2.00
     healthcheck:
       test: curl --fail http://localhost:37223/api/Node/status || exit 1
       interval: 10s
@@ -58,7 +58,7 @@ services:
     container_name: crs-mongo
     image: mongo:5.0.5
     mem_limit: 2048m
-    cpus: 0.200
+    cpus: 2.00
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
