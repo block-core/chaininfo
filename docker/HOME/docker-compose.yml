@@ -78,22 +78,22 @@ services:
     networks:
       - homecoinnetwork
 
-  tipbot:
-    container_name: home-tipbot
-    image: blockcore/tipbot:0.1.8
-    mem_limit: 1024m
-    cpus: 0.200
-    env_file:
-      - tipbot.env
-    command: ["--chain=HOME"]
-    restart: unless-stopped
-    depends_on:
-      tipbot-database:
-        condition: service_started
-      tipbot-chain:
-        condition: service_healthy
-    networks:
-      - homecoinnetwork
+  # tipbot:
+  #   container_name: home-tipbot
+  #   image: blockcore/tipbot:0.1.8
+  #   mem_limit: 1024m
+  #   cpus: 0.200
+  #   env_file:
+  #     - tipbot.env
+  #   command: ["--chain=HOME"]
+  #   restart: unless-stopped
+  #   depends_on:
+  #     tipbot-database:
+  #       condition: service_started
+  #     tipbot-chain:
+  #       condition: service_healthy
+  #   networks:
+  #     - homecoinnetwork
 
   tipbot-chain:
     container_name: home-tipbot-chain

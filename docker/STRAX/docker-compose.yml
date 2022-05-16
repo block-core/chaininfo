@@ -77,22 +77,22 @@ services:
     networks:
       - straxnetwork
 
-  tipbot:
-    container_name: strax-tipbot
-    image: blockcore/tipbot:0.1.8
-    mem_limit: 1024m
-    cpus: 0.200
-    env_file:
-      - tipbot.env
-    command: ["--chain=STRAX"]
-    restart: unless-stopped
-    depends_on:
-      tipbot-database:
-        condition: service_started
-      tipbot-chain:
-        condition: service_healthy
-    networks:
-      - straxnetwork
+  # tipbot:
+  #   container_name: strax-tipbot
+  #   image: blockcore/tipbot:0.1.8
+  #   mem_limit: 1024m
+  #   cpus: 0.200
+  #   env_file:
+  #     - tipbot.env
+  #   command: ["--chain=STRAX"]
+  #   restart: unless-stopped
+  #   depends_on:
+  #     tipbot-database:
+  #       condition: service_started
+  #     tipbot-chain:
+  #       condition: service_healthy
+  #   networks:
+  #     - straxnetwork
 
   tipbot-chain:
     container_name: strax-tipbot-chain
