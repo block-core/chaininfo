@@ -87,16 +87,8 @@ All supported chains should be located within the "docker" folder. Navigate to e
 Here is how you can run both indexer and explorer at the same time:
 
 ```sh
-sudo docker-compose -f indexer.yml -f explorer.yml up -d
+sudo docker-compose up -d
 ``` 
-
-Due to the way custom network is setup for the node and indexer, you need to connect the proxy with the custom networks. You do this, after you have run/started the individual proxies:
-
-```sh
-sudo docker network connect city-network blockcore-proxy
-sudo docker network connect city_default_ blockcore-proxy
-```
-
 
 ### Local Image Dependency (Optional)
 
