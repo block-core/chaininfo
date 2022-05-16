@@ -48,7 +48,7 @@ services:
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
-      - blockchain:/root/.StratisNode
+      - blockchain:/root/.stratisnode
     ports:
       - 26179:26179 # Make this a public node.
     networks:
