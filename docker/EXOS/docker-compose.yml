@@ -77,22 +77,22 @@ services:
     networks:
       - exosnetwork
 
-  tipbot:
-    container_name: exos-tipbot
-    image: blockcore/tipbot:0.1.8
-    mem_limit: 1024m
-    cpus: 0.200
-    env_file:
-      - tipbot.env
-    command: ["--chain=EXOS"]
-    restart: unless-stopped
-    depends_on:
-      tipbot-database:
-        condition: service_started
-      tipbot-chain:
-        condition: service_healthy
-    networks:
-      - exosnetwork
+  # tipbot:
+  #   container_name: exos-tipbot
+  #   image: blockcore/tipbot:0.1.8
+  #   mem_limit: 1024m
+  #   cpus: 0.200
+  #   env_file:
+  #     - tipbot.env
+  #   command: ["--chain=EXOS"]
+  #   restart: unless-stopped
+  #   depends_on:
+  #     tipbot-database:
+  #       condition: service_started
+  #     tipbot-chain:
+  #       condition: service_healthy
+  #   networks:
+  #     - exosnetwork
 
   tipbot-chain:
     container_name: exos-tipbot-chain

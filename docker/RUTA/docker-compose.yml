@@ -76,22 +76,22 @@ services:
     networks:
       - rutanetwork
 
-  tipbot:
-    container_name: ruta-tipbot
-    image: blockcore/tipbot:0.1.8
-    mem_limit: 1024m
-    cpus: 0.200
-    env_file:
-      - tipbot.env
-    command: ["--chain=RUTA"]
-    restart: unless-stopped
-    depends_on:
-      tipbot-database:
-        condition: service_started
-      tipbot-chain:
-        condition: service_healthy
-    networks:
-      - rutanetwork
+  # tipbot:
+  #   container_name: ruta-tipbot
+  #   image: blockcore/tipbot:0.1.8
+  #   mem_limit: 1024m
+  #   cpus: 0.200
+  #   env_file:
+  #     - tipbot.env
+  #   command: ["--chain=RUTA"]
+  #   restart: unless-stopped
+  #   depends_on:
+  #     tipbot-database:
+  #       condition: service_started
+  #     tipbot-chain:
+  #       condition: service_healthy
+  #   networks:
+  #     - rutanetwork
 
   tipbot-chain:
     container_name: ruta-tipbot-chain

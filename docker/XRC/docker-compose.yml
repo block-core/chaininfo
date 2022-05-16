@@ -75,20 +75,20 @@ services:
     networks:
       - xrcnetwork
 
-  tipbot:
-    container_name: xrc-tipbot
-    image: blockcore/tipbot:0.1.8
-    mem_limit: 1024m
-    cpus: 0.200
-    env_file:
-      - tipbot.env
-    command: ["--chain=XRC"]
-    restart: unless-stopped
-    depends_on:
-        - tipbot-database
-        - tipbot-chain
-    networks:
-      - xrcnetwork
+  # tipbot:
+  #   container_name: xrc-tipbot
+  #   image: blockcore/tipbot:0.1.8
+  #   mem_limit: 1024m
+  #   cpus: 0.200
+  #   env_file:
+  #     - tipbot.env
+  #   command: ["--chain=XRC"]
+  #   restart: unless-stopped
+  #   depends_on:
+  #       - tipbot-database
+  #       - tipbot-chain
+  #   networks:
+  #     - xrcnetwork
 
   tipbot-chain:
     container_name: xrc-tipbot-chain

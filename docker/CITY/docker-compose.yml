@@ -213,22 +213,22 @@ services:
     networks:
       - citynetwork
 
-  tipbot:
-    container_name: city-tipbot
-    image: blockcore/tipbot:0.1.8
-    mem_limit: 1024m
-    cpus: 0.200
-    env_file:
-      - tipbot.env
-    command: ["--chain=CITY"]
-    restart: unless-stopped
-    depends_on:
-      tipbot-database:
-        condition: service_started
-      tipbot-chain:
-        condition: service_healthy
-    networks:
-      - citynetwork
+  # tipbot:
+  #   container_name: city-tipbot
+  #   image: blockcore/tipbot:0.1.8
+  #   mem_limit: 1024m
+  #   cpus: 0.200
+  #   env_file:
+  #     - tipbot.env
+  #   command: ["--chain=CITY"]
+  #   restart: unless-stopped
+  #   depends_on:
+  #     tipbot-database:
+  #       condition: service_started
+  #     tipbot-chain:
+  #       condition: service_healthy
+  #   networks:
+  #     - citynetwork
 
   tipbot-chain:
     container_name: city-tipbot-chain
@@ -261,8 +261,6 @@ services:
     restart: unless-stopped
     volumes:
       - tipbot-database:/var/opt/mssql
-#    ports:
-#      - 1433:1433
     networks:
       - citynetwork
 
