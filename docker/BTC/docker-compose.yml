@@ -54,7 +54,7 @@ services:
       retries: 5
       start_period: 5s
       timeout: 10s
-    command: ["--chain=BTC", "-server=1", "-txindex=1", "-dbtype=rocksdb", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-assumedvalid=00000000000000000004bac129769598d1fad2b42859e625729661a32b9c3e71"]
+    command: ["--chain=BTC", "-server=1", "-txindex=1", "-dbtype=rocksdb", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:37220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword", "-assumedvalid=00000000000000000004bac129769598d1fad2b42859e625729661a32b9c3e71"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
