@@ -4,8 +4,8 @@ services:
   proxy:
     image: nginxproxy/nginx-proxy
     container_name: proxy
-    mem_limit: 1024m
-    cpus: 0.500
+    # mem_limit: 1024m
+    # cpus: 0.500
     ports:
       - "80:80"
       - "443:443"
@@ -24,8 +24,8 @@ services:
   letsencrypt:
     image: nginxproxy/acme-companion:2.2.1
     container_name: letsencrypt
-    mem_limit: 1024m
-    cpus: 0.200
+    # mem_limit: 1024m
+    # cpus: 0.200
     volumes_from:
       - proxy
     volumes:
