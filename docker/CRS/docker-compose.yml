@@ -11,7 +11,7 @@ services:
   indexer:
     container_name: crs-indexer
     image: blockcore/indexer-crs:0.2.32
-    mem_limit: 1024m
+    mem_limit: 2048m
     cpus: 2.50
     environment:
       VIRTUAL_HOST: crs.indexer.blockcore.net
