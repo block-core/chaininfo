@@ -15,7 +15,7 @@ services:
   indexer:
     container_name: strax-indexer
     image: blockcore/indexer:0.2.33
-    mem_limit: 1024m
+    mem_limit: 2048m
     cpus: 2.50
     environment:
       VIRTUAL_HOST: strax.indexer.blockcore.net
