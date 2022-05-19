@@ -16,4 +16,4 @@ unzip $INSTANCE-$VERSION.zip -d ./www
 
 echo "Unpack completed, starting docker container to serve..."
 
-sudo docker-compose up -d -p "BLOCKCOREWALLET"
+sudo docker-compose -p "BLOCKCOREWALLET" up -d
