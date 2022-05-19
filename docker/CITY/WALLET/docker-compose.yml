@@ -1,7 +1,7 @@
 version: "2.4"
 
 services:
-  citywallet:
+  wallet:
     container_name: city-wallet
     image: nginx
     mem_limit: 256m
