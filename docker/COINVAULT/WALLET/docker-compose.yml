@@ -2,16 +2,16 @@ version: "2.4"
 
 services:
   explorer:
-    container_name: blockcore-wallet
+    container_name: coinvault-wallet
     image: nginx
     mem_limit: 256m
     cpus: 0.200
     environment:
-      VIRTUAL_HOST: wallet.blockcore.net
+      VIRTUAL_HOST: wallet.coinvault.io
       VIRTUAL_PORT: 80
       VIRTUAL_NETWORK: proxy
       VIRTUAL_PROTO: http
-      LETSENCRYPT_HOST: wallet.blockcore.net
+      LETSENCRYPT_HOST: wallet.coinvault.io
       LETSENCRYPT_EMAIL: admin@blockcore.net
     restart: unless-stopped
     volumes:
