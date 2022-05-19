@@ -1,7 +1,7 @@
 version: "2.4"
 
 services:
-  explorer:
+  blockcorewallet:
     container_name: blockcore-wallet
     image: nginx
     mem_limit: 256m
