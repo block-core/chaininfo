@@ -115,6 +115,16 @@ Additionally you would need to modify the startup parameters for the explorer to
 sudo docker system prune -a
 ```
 
+## Hosting Web Wallet
+
+The wallet can run in multiple different modes, one of them is web (Progressive Web App, PWA). There are security and privacy risks by allowing users to run their wallet directly in the web browser.
+
+The hosted web wallet will attempt to enforce users to run as installed PWA, instead of directly in browser. This can potentially increase security.
+
+```sh
+cd docker/BLOCKCORE/WALLET
+sudo sh ./wallet.sh 0.0.28
+```
 
 ## Debugging network issues
 
