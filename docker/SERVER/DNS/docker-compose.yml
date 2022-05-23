@@ -1,0 +1,19 @@
+version: "2.4"
+
+services:
+  
+
+  blockcore-dns:
+    image: blockcore/dns:0.0.3
+    container_name: blockcore-dns
+    command: [
+              "--Dns:IntervalMin=1", # -> how often to check the agents are online
+              "--Dns:DnsttlMinutes=20", # -> DNS TTL value
+              "--Dns:Identities:0=did:is:ABCa00574cc3821ae3d5f367696692e1b20ea25e70565e6fa6a07e7f74d266aa39", # -> example of did auth pub key
+              "--Dns:Identities:1=did:is:abca00574cc3821ae3d5f367696692e1b20ea25e70565e6fa6a07e7f74d266aa39" 
+             ]
+    restart: unless-stopped
+    ports:
+      - "7010:7010"
+      - "53:53/udp"
+

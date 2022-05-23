@@ -1,0 +1,33 @@
+version: "2.4"
+
+services:
+  
+
+  blockcore-dns-agent:
+    image: blockcore/dns:0.0.3
+    container_name: blockcore-dns-agent
+    command: [ "--agent",  # -> run in agent mode
+              "--DnsAgent:IntervalMin=1", # -> how often to update the dns server
+              "--DnsAgent:Secret=94589a0260a63b57a1a51ac5e06b8213b5d88503f67502f3324b926cb9e367e3", # -> example of secret did key
+            
+              "--DnsAgent:Hosts:0:DnsHost=ns.coinvault.io:7010", # -> a host to register a domain with
+              "--DnsAgent:Hosts:0:Domain=btc.indexer.coinvault.io", # -> a host to register a domain with
+              "--DnsAgent:Hosts:0:Port=9910", # -> the port the domain is running under
+              "--DnsAgent:Hosts:0:Symbol=BTC", # -> chain symbol
+              "--DnsAgent:Hosts:0:Service=Indexer", # -> service type
+
+              "--DnsAgent:Hosts:1:DnsHost=ns.coinvault.io:7010", 
+              "--DnsAgent:Hosts:1:Domain=strax.indexer.coinvault.io", 
+              "--DnsAgent:Hosts:1:Port=9920",
+              "--DnsAgent:Hosts:1:Symbol=STRAX",
+              "--DnsAgent:Hosts:1:Service=Indexer",
+
+              "--DnsAgent:Hosts:2:DnsHost=46.101.34.107:7010", 
+              "--DnsAgent:Hosts:2:Domain=crs.indexer.coinvault.io", 
+              "--DnsAgent:Hosts:2:Port=9930", 
+              "--DnsAgent:Hosts:2:Symbol=CRS", 
+              "--DnsAgent:Hosts:2:Service=Indexer",
+             ]
+    restart: unless-stopped
+  
+
