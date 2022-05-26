@@ -2,18 +2,27 @@ version: "2.4"
 
 services:
   
-
   blockcore-dns:
-    image: blockcore/dns:0.0.3
     container_name: blockcore-dns
-    command: [
-              "--Dns:IntervalMin=1", # -> how often to check the agents are online
-              "--Dns:DnsttlMinutes=20", # -> DNS TTL value
-              "--Dns:Identities:0=did:is:ABCa00574cc3821ae3d5f367696692e1b20ea25e70565e6fa6a07e7f74d266aa39", # -> example of did auth pub key
-              "--Dns:Identities:1=did:is:abca00574cc3821ae3d5f367696692e1b20ea25e70565e6fa6a07e7f74d266aa39" 
-             ]
+    image: blockcore/dns:0.0.3
+    mem_limit: 1024m
+    cpus: 0.200
+    environment:
+      VIRTUAL_HOST: ns.coinvault.io
+      VIRTUAL_PORT: 7010
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: ns.coinvault.io
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: https://+:7010
+      Logging__LogLevel__Default: Debug
     restart: unless-stopped
     ports:
       - "7010:7010"
       - "53:53/udp"
-
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
+    name: proxy
