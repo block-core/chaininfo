@@ -8,11 +8,11 @@ services:
     mem_limit: 1024m
     cpus: 0.200
     environment:
-      VIRTUAL_HOST: ns.coinvault.io
+      VIRTUAL_HOST: ns.blockcore.net
       VIRTUAL_PORT: 7010
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: ns.coinvault.io
+      LETSENCRYPT_HOST: ns.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://+:7010
       Logging__LogLevel__Default: Debug
