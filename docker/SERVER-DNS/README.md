@@ -79,15 +79,54 @@ This will recreate the containers with the new identities
 
 ## Deploy a dns agent
 
+Before deployning an agent we need to generate a DID
+
 ### Generating a DID (Decentralized Identifier)
 
 ```sh
 docker run --rm blockcore/dns:0.0.3 --did
 ```
 
-This will result in a secret and a DID keep those for later
+This will result in a secret and a DID, for exmaple:
 
 ```
 Secret key add to config 6e371a4ff7abc88d961014e02c3e6f35cd645f6ea8ba78aa8129e54cb0e5e78f
 Public identity did:is:02e55470d8898dbb7869575552c3b5f3a4a6bb8cbc14b75831249a50a33eeb2625
 ```
+
+Give the public identity DID to any dns server you wish to register and get dns services with
+
+#### Download the files 
+
+Navigate to `docker/SERVER-DNS/DNS-AGENT/` and download
+
+- .env.sample
+- docker-compose.yml
+
+Modify the file `.env.sample` (if you rename it then also rename it in the `docker-compose.yml`)   
+
+Set the Secret generated earlier as following `DnsAgent__Secret=6e371a4ff7abc88d961014e02c3e6f35cd645f6ea8ba78aa8129e54cb0e5e78f`
+
+Next for each service you are running (i.e indexer, vault etc..) that needs to register with a DNS add an to the group of entries as bellow, for each group increment the `__0__` (for the next group use `__1__` etc...)
+
+Set your service domain and the DNS server host accordingly (don't forget to set the port correctly if running more then one service)
+
+```
+DnsAgent__Hosts__0__DnsHost=http://ns.blockcore.net:7010
+DnsAgent__Hosts__0__Domain=btc.indexer.blockcore.net
+DnsAgent__Hosts__0__Port=9910
+DnsAgent__Hosts__0__Symbol=BTC
+DnsAgent__Hosts__0__Service=Indexer
+```
+
+Now run the dns agent
+```sh
+sudo docker-compose up -d
+``` 
+
+#### Using the DNS server to resolve domains
+
+A Blockcore DNS server will be able to resolve domain names to the ip address where your service are running (i.e indexer, vault), if the ip address changes frequently (dynamicly allocated) the DNS agent will notify the dns servers of such changes to your ip address.  
+
+To use a Blockcore DNS server to resolve ip address  
+Point the subdomain (i.e btc.indexer.blockcore.net) to resolve as an NS record and provide the domain of a Blockore DNS server
