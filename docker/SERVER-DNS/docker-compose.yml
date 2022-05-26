@@ -4,7 +4,7 @@ services:
   
   blockcore-dns:
     container_name: blockcore-dns
-    image: blockcore/dns:0.0.4
+    image: blockcore/dns:0.0.5
     mem_limit: 1024m
     cpus: 0.200
     env_file:
