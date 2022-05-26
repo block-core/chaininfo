@@ -7,5 +7,7 @@ services:
     image: blockcore/dns:0.0.3
     mem_limit: 1024m
     cpus: 0.200
+    env_file:
+      - .env.sample
     command: [ "--agent" ]  # -> run in agent mode
     restart: unless-stopped
