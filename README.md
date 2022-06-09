@@ -90,6 +90,13 @@ Here is how you can run both indexer and explorer at the same time:
 sudo docker-compose up -d
 ``` 
 
+### Running a DNS agent
+
+Running a dns agent will allow your indexer to be discovered by explorers and wallets  
+
+Follow the isntructions here to deploy a dns agent  
+https://github.com/block-core/chaininfo/tree/master/docker/SERVER-DNS#deploy-a-dns-agent
+
 ### Local Image Dependency (Optional)
 
 Normally your locally running Explorer, will attempt to request your Indexer, using public traffic. It will read the JSON configuration file hosted on chains.blockcore.net and forward traffic through your router. You can manually override this with the following instructions:
@@ -198,6 +205,13 @@ To run multichain explorer, navigate to the BLOCKCORE folder and run:
 sudo docker-compose -f explorer.yml up -d
 sudo docker network connect blockcore_default proxy
 ```
+
+## Hosting a DNS server
+
+A DNS server will allow you to expose indexers to the world     
+
+To host a DNS server follow the instrucitons in the DNS server folder  
+https://github.com/block-core/chaininfo/tree/master/docker/SERVER-DNS
 
 
 ## Additional docker information.
