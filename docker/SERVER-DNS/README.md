@@ -29,20 +29,8 @@ https://github.com/block-core/blockcore-dns#open-port-53-linux
 
 #### Deploy Reverse Proxy
 
-Follow the instructions here
+Follow the instructions here  
 https://github.com/block-core/chaininfo#reverse-proxy-route-dns-to-containers
-
-In the **reverese proxy** env file configure the following headers, this is in order to correctly resolve the remote ip of a caller
-```
-client_max_body_size 100m;
-proxy_headers_hash_max_size 1024;
-proxy_headers_hash_bucket_size 128;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-proxy_set_header X-Forwarded-Proto $proxy_x_forwarded_proto;
-proxy_set_header X-Forwarded-Ssl $proxy_x_forwarded_ssl;
-proxy_set_header X-Forwarded-Port $proxy_x_forwarded_port;
-```
 
 Start the nginx revers proxy container
 
