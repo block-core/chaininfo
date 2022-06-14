@@ -4,7 +4,7 @@ services:
 
   blockcore-dns-agent:
     container_name: blockcore-dns-agent
-    image: blockcore/dns:0.0.11
+    image: blockcore/dns:0.0.12
     mem_limit: 1024m
     cpus: 0.200
     env_file:
