@@ -45,7 +45,7 @@ services:
 
   chain:
     container_name: btc-chain
-    image: blockcore/node-multi:1.1.41
+    image: blockcore/node-multi:1.1.45
     mem_limit: 10240m
     cpus: 0.200
     healthcheck:
