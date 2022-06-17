@@ -39,7 +39,7 @@ services:
 
   chain:
     container_name: xds-chain
-    image: blockcore/node-multi:1.1.45
+    image: blockcore/node-multi:1.1.46
     mem_limit: 2048m
     cpus: 0.200
     healthcheck:
@@ -96,7 +96,7 @@ services:
 
   tipbot-chain:
     container_name: xds-tipbot-chain
-    image: blockcore/node-multi:1.1.45
+    image: blockcore/node-multi:1.1.46
     mem_limit: 2048m
     cpus: 0.200
     healthcheck:
