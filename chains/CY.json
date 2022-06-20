@@ -1,0 +1,67 @@
+{
+   "Chain": {
+      "Name": "CYBITS",
+      "Symbol": "CY",
+      "Description": "",
+      "Url": "",
+      "Logo": "https://chains.blockcore.net/assets/CYBITS/logo.png",
+      "Icon": "https://chains.blockcore.net/assets/CYBITS/icon.png",
+      "Color": "#F45923"
+   },
+   "Network": {
+      "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+      "NetworkType": "Blockcore.Networks.Cybits.CybitsMain, Blockcore.Networks.Cybits",
+      "NetworkPubkeyAddressPrefix": 28,
+      "NetworkScriptAddressPrefix": 87,
+      "NetworkWitnessPrefix": "CY",
+      "P2PPort": 17771,
+      "RPCPort": 17772,
+      "APIPort": 17773
+   },
+   "Indexer": {
+      "StoreRawTransactions": true
+   },
+   "Insight": {
+      "Rewards": [
+         {
+            "Height": 0,
+            "Reward": 1500
+         }
+      ],
+      "Wallets": [
+         {
+            "Name": "Burnt",
+            "Type": "Burn",
+            "Address": []
+         }
+      ]
+   },
+   "Explorer": {
+      "Indexer": {
+         "ApiUrl": "https://cybits.indexer.blockcore.net/api",
+         "DocUrl": "https://cybits.indexer.blockcore.net/docs"
+      },
+      "Currency": {
+         "ApiUrl": "",
+         "AutoConvert": false
+      },
+      "Ticker": {
+         "WebUrl": "",
+         "ApiUrl": "",
+         "PricePath": "tickers.0.last",
+         "PricePathBTC": "tickers.0.last",
+         "PricePathUSD": "tickers.0.converted_last.usd",
+         "PercentagePath": "",
+         "IsBitcoinPrice": true
+      },
+      "Setup": {
+         "Title": "Cybits",
+         "Footer": "Cybits",
+         "Links": []
+      },
+      "Features": {
+         "Ticker": false,
+         "POSWeight": false
+      }
+   }
+}
