@@ -39,7 +39,7 @@ services:
 
   chain:
     container_name: rsc-chain
-    image: blockcore/node-multi:1.1.46
+    image: blockcore/node-multi:1.1.47
     mem_limit: 3072m
     cpus: 0.200
     healthcheck:
@@ -90,7 +90,7 @@ services:
     
   # tipbot-chain:
   #   container_name: rsc-tipbot-chain
-  #   image: blockcore/node-multi:1.1.46
+  #   image: blockcore/node-multi:1.1.47
   #   command: ["--chain=RSC", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15008", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
   #   restart: unless-stopped
   #   stop_grace_period: 15m
