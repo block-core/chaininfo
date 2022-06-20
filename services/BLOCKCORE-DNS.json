@@ -1,0 +1,8 @@
+[
+    {
+        "dns-server": "https://ns.coinvault.io" 
+    },
+    {
+        "dns-server": "https://ns.seniorblockchain.io" 
+    }
+]
