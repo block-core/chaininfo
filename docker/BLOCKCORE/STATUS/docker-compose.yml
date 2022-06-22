@@ -1,0 +1,27 @@
+version: "2.4"
+
+services:
+  
+  blockcore-status:
+    container_name: blockcore-status
+    image: blockcore/status:1.0.1
+    mem_limit: 1024m
+    cpus: 0.200
+    environment:
+      VIRTUAL_HOST: status.blockcore.net
+      VIRTUAL_PORT: 3002
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: status.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: http://+:3002
+      Logging__LogLevel__Default: Debug
+    restart: unless-stopped
+    ports:
+      - "3002:3002"
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
+    name: proxy
