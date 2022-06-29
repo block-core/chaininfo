@@ -18,11 +18,11 @@ services:
     mem_limit: 1024m
     cpus: 0.200
     environment:
-      VIRTUAL_HOST: cybits.indexer.blockcore.net
+      VIRTUAL_HOST: cy.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: cybits.indexer.blockcore.net
+      LETSENCRYPT_HOST: cy.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://+:9910
       Logging__LogLevel__Default: Debug
