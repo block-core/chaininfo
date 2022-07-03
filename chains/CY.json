@@ -38,8 +38,8 @@
    },
    "Explorer": {
       "Indexer": {
-         "ApiUrl": "https://cybits.indexer.blockcore.net/api",
-         "DocUrl": "https://cybits.indexer.blockcore.net/docs"
+         "ApiUrl": "https://cy.indexer.blockcore.net/api",
+         "DocUrl": "https://cy.indexer.blockcore.net/docs"
       },
       "Currency": {
          "ApiUrl": "",
