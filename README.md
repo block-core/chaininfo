@@ -130,7 +130,7 @@ The hosted web wallet will attempt to enforce users to run as installed PWA, ins
 
 ```sh
 cd docker/BLOCKCORE/WALLET
-sudo sh ./wallet.sh 0.0.28
+sudo sh ./wallet.sh 0.0.42
 # Restart the container which probably has not changed if run before, but needs a restart
 # after files has been replaced.
 sudo docker restart blockcore-wallet

@@ -150,7 +150,7 @@ services:
 
   indexer:
     container_name: city-indexer
-    image: blockcore/indexer:0.2.33
+    image: blockcore/indexer:0.2.35
     mem_limit: 1024m
     cpus: 0.200
     environment:
