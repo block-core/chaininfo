@@ -4,15 +4,15 @@ Domain Name System Server that utilizes Decentralized Identifiers (DIDs) for upd
 
 ## Getting started
 
-This is a guide on how to setup blockcore dns.   
-To read more head on to the repo https://github.com/block-core/blockcore-dns
+This is a guide on how to setup Blockcore DNS.   
+Source: https://github.com/block-core/blockcore-dns
 
 This instructions assume docker is used with the blockcore docker compose files (but it can also be run on a window)
 
-## Deploy a dns server
+## Deploy a DNS server
 
 We recommend using a public node with a static ip address.  
-For example Digital Ocean have $5 vms which will be greate for a blockcore-dns server
+For example Digital Ocean have $5 VPS which will be greate for a blockcore-dns server
 
 #### Download the files 
 
