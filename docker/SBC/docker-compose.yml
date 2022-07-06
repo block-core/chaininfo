@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: sbc-indexer
-    image: blockcore/indexer:0.2.35
+    image: blockcore/indexer:0.2.37
     mem_limit: 1024m
     cpus: 0.200
     environment:
