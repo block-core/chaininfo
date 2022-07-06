@@ -40,7 +40,7 @@ Next you also need docker-compose. Make sure you run the installation like expla
 https://docs.docker.com/compose/install/
 
 ```sh
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/2.6.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 Then apply executable permissoins:
