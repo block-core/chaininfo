@@ -105,7 +105,9 @@ This will recreate the containers with the new identities.
 
 ## Deploy a DNS Agent
 
-Before deployning an agent we need to generate a DID.
+Before deploying an agent we need to generate a DID.
+
+Find latest version of the docker image: https://hub.docker.com/repository/docker/blockcore/dns
 
 ### Generating a DID (Decentralized Identifier)
 
