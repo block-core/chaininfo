@@ -55,15 +55,35 @@ Modify the domain entry for `VIRTUAL_HOST` and `LETSENCRYPT_HOST` and `LETSENCRY
 
 Modify the file `.env.sample` to add identities of agents that are allowed to register dns data
 
+### Port 53 already in use
+
+It is likely that port 53 is already in use with errors such as `udp4 0.0.0.0:53: bind: address already in use
+`.   
+Run these commands to mitigate the problem:
+
+```sh
+nano /etc/systemd/resolved.conf
+
+# Set parameters like this:
+DNS=1.1.1.1
+DNSStubListener=no
+
+# Create a link
+ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+# Restart the server
+reboot
+```
+
 ## Get a sub domain
 
 The DNS server will be used by the blockcore software and for securty it's best to have it behind a secure connection  
 Either purchas a dommain or reuse one you already have
 
 Our convention is to put DNS servers behind a subdomin under the letter `ns` e.g "ns.blockcore.net"  
-Point your sub domain to the ip address of your publiuc server
+Point your sub domain to the ip address of your public server
 
-Update the `docker-compose.yml` with your subdomain in the following entries
+Update the `docker-compose.yml` with your subdomain in the following entries:
 
 ```yml
     environment:
@@ -72,7 +92,7 @@ Update the `docker-compose.yml` with your subdomain in the following entries
       LETSENCRYPT_EMAIL: admin@blockcore.net
 ```
 
-#### To add more identities 
+### To add more identities 
 
 Add (or remove) any new identity to the `.env.sample` file (or change any config value)  
 Then run again the command:
@@ -90,7 +110,7 @@ Before deployning an agent we need to generate a DID.
 ### Generating a DID (Decentralized Identifier)
 
 ```sh
-docker run --rm blockcore/dns:0.0.3 --did
+docker run --rm blockcore/dns:latest --did
 ```
 
 This will result in a secret and a DID, for exmaple:
