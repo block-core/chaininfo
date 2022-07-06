@@ -1,40 +1,61 @@
 # Blockcore DNS
 
-Domain Name System Server that utilizes Decentralized Identifiers (DIDs) for updates.  
+Domain Name System Server that utilizes Decentralized Identifiers (DIDs) for updates.
 
 ## Getting started
 
 This is a guide on how to setup Blockcore DNS.   
 Source: https://github.com/block-core/blockcore-dns
 
-This instructions assume docker is used with the blockcore docker compose files (but it can also be run on a window)
+This instructions assume docker is used with the blockcore docker compose files (but it can also be run on a window). You also need to make sure that [docker-compose](https://github.com/block-core/chaininfo#host-a-blockcore-infrastructure-server) is installed.
 
 ## Deploy a DNS server
 
 We recommend using a public node with a static ip address.  
-For example Digital Ocean have $5 VPS which will be greate for a blockcore-dns server
+For example Digital Ocean have $5 VPS which will be great for a blockcore-dns server
 
-#### Download the files 
+## Setup instructions
 
-- .env.sample
-- docker-compose.yml
+Follow these instructions to fully setup your own Blockcore DNS Server:
 
-Modify the file `.env.sample` to add identities of agents that are allowed to register dns data  
-(you may rename it but then also rename it in the `docker-compose.yml`)
+### Open firewall ports on your server
 
-#### Open port 53
+TCP port 80 and 443. This is required for TLS (certificate) requests.   
+TCP and UDP port 53. This is used for DNS lookup requests.
 
-On linux by default port 53 is used by the system for dns resolution to make sure port 53 is available see this guide  
-https://github.com/block-core/blockcore-dns#open-port-53-linux
+See instructions: https://github.com/block-core/blockcore-dns#open-port-53-linux
 
-#### Deploy Reverse Proxy
+### Shell commands
 
-Follow the instructions here  
-https://github.com/block-core/chaininfo#reverse-proxy-route-dns-to-containers
+Connect to your server using SSH, and run the following commands:
 
-Start the nginx revers proxy container
+```sh
+git clone https://github.com/block-core/chaininfo.git
+cd chaininfo/docker/SERVER/
+# Runs the nginx reverse proxy and letsencrypt agent for TLS certificates
+sudo docker-compose up -d
+cd ..
+cd SERVER-DNS
+# Open file and edit the settings.
+nano .env.sample
+# Open file and edit the settings, see info below
+nano docker-compose.yml
+# Start the Blockcore DNS Server, see info below
+sudo docker-compose up -d
+```
 
-#### Get a sub domain
+To verify the DNS server is running navigate to your subdomain  
+For example https://ns.blockcore.net/docs/index.html
+
+### docker-compose.yml
+
+Modify the domain entry for `VIRTUAL_HOST` and `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
+
+### .env.sample
+
+Modify the file `.env.sample` to add identities of agents that are allowed to register dns data
+
+## Get a sub domain
 
 The DNS server will be used by the blockcore software and for securty it's best to have it behind a secure connection  
 Either purchas a dommain or reuse one you already have
@@ -51,35 +72,20 @@ Update the `docker-compose.yml` with your subdomain in the following entries
       LETSENCRYPT_EMAIL: admin@blockcore.net
 ```
 
-#### Start the dns server
-Next step is to start the DNS server
-
-```sh
-sudo docker-compose up -d
-``` 
-
-To observe the logs 
-```sh
-sudo docker-compose logs -f --tail=100
-``` 
-
-To verify the DNS server is running navigate to your subdomain  
-For exmaple https://ns.blockcore.net/docs/index.html
-
 #### To add more identities 
 
 Add (or remove) any new identity to the `.env.sample` file (or change any config value)  
-Then run again the command
+Then run again the command:
 
 ```sh
 sudo docker-compose up -d
 ``` 
 
-This will recreate the containers with the new identities
+This will recreate the containers with the new identities.
 
-## Deploy a dns agent
+## Deploy a DNS Agent
 
-Before deployning an agent we need to generate a DID
+Before deployning an agent we need to generate a DID.
 
 ### Generating a DID (Decentralized Identifier)
 
@@ -96,7 +102,7 @@ Public identity did:is:02e55470d8898dbb7869575552c3b5f3a4a6bb8cbc14b75831249a50a
 
 Give the public identity DID to any dns server you wish to register and get dns services from  
 
-#### Download the files 
+### Download the files 
 
 Navigate to `docker/SERVER-DNS/DNS-AGENT/` and download
 
