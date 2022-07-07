@@ -40,8 +40,6 @@ cd SERVER-DNS
 nano .env.sample
 # Open file and edit the settings, see info below
 nano docker-compose.yml
-# Start the Blockcore DNS Server, see info below
-sudo docker-compose up -d
 ```
 
 To verify the DNS server is running navigate to your subdomain  
@@ -54,6 +52,13 @@ Modify the domain entry for `VIRTUAL_HOST` and `LETSENCRYPT_HOST` and `LETSENCRY
 ### .env.sample
 
 Modify the file `.env.sample` to add identities of agents that are allowed to register dns data
+
+### Run the DNS Server
+
+```sh
+# Start the Blockcore DNS Server
+sudo docker-compose up -d
+```
 
 ### Port 53 already in use
 
@@ -115,23 +120,26 @@ Find latest version of the docker image: https://hub.docker.com/repository/docke
 docker run --rm blockcore/dns:latest --did
 ```
 
-This will result in a secret and a DID, for exmaple:
+This will result in a secret and a DID, for example:
 
 ```
 Secret key add to config 6e371a4ff7abc88d961014e02c3e6f35cd645f6ea8ba78aa8129e54cb0e5e78f
 Public identity did:is:02e55470d8898dbb7869575552c3b5f3a4a6bb8cbc14b75831249a50a33eeb2625
 ```
 
-Give the public identity DID to any dns server you wish to register and get dns services from  
+Give the public identity DID to any dns server you wish to register and get dns services from.
 
 ### Download the files 
 
-Navigate to `docker/SERVER-DNS/DNS-AGENT/` and download
+```sh
+cd docker/SERVER-DNS-AGENT/
+# Open file and edit the settings.
+nano .env.sample
+# Open file and edit the settings, see info below
+nano docker-compose.yml
+```
 
-- .env.sample
-- docker-compose.yml
-
-Modify the file `.env.sample` (if you rename it then also rename it in the `docker-compose.yml`)   
+## .env.sample
 
 Set the Secret generated earlier as following `DnsAgent__Secret=6e371a4ff7abc88d961014e02c3e6f35cd645f6ea8ba78aa8129e54cb0e5e78f`
 
@@ -153,10 +161,20 @@ DnsAgent__Hosts__1__Symbol=CITY
 DnsAgent__Hosts__1__Service=Indexer
 ```
 
-Now run the dns agent
+Now run the dns agent:
+
 ```sh
+# Start the Blockcore DNS Agent
 sudo docker-compose up -d
-``` 
+```
+
+### Invalid public IP address
+
+If the DNS Agent is not able to resolve the correct public IP, you can modify the `.env.sample` file and restart the container. Add the following line to the file:
+
+```
+DnsAgent__IpDiscoveryUrl=https://icanhazip.com/
+```
 
 #### Using the DNS server to resolve domains
 
