@@ -168,6 +168,14 @@ Now run the dns agent:
 sudo docker-compose up -d
 ```
 
+### Invalid public IP address
+
+If the DNS Agent is not able to resolve the correct public IP, you can modify the `.env.sample` file and restart the container. Add the following line to the file:
+
+```
+DnsAgent__IpDiscoveryUrl=https://icanhazip.com/
+```
+
 #### Using the DNS server to resolve domains
 
 A Blockcore DNS server will be able to resolve domain names to the ip address where your services are running (i.e indexers, vault), if the ip address changes frequently (dynamicly allocated) the DNS agent will notify the dns servers of such changes to your ip address.  
