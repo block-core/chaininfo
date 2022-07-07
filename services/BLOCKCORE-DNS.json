@@ -1,5 +1,8 @@
 [
     {
+        "dns-server": "https://ns.blockcore.net" 
+    },
+    {
         "dns-server": "https://ns.coinvault.io" 
     },
     {
