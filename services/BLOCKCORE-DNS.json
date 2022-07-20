@@ -1,11 +1,11 @@
 [
     {
-        "dns-server": "https://ns.blockcore.net" 
+        "dnsServer": "https://ns.blockcore.net" 
     },
     {
-        "dns-server": "https://ns.coinvault.io" 
+        "dnsServer": "https://ns.coinvault.io" 
     },
     {
-        "dns-server": "https://ns.seniorblockchain.io" 
+        "dnsServer": "https://ns.seniorblockchain.io" 
     }
 ]
