@@ -132,7 +132,7 @@ services:
 
   explorer:
     container_name: city-explorer
-    image: blockcore/explorer:0.2.26
+    image: blockcore/explorer:0.2.27
     mem_limit: 256m
     cpus: 0.200
     environment:
