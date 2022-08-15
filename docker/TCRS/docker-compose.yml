@@ -35,7 +35,7 @@ services:
 
   chain:
     container_name: tcrs-chain
-    image: blockcore/node-crs:1.1.47
+    image: blockcore/node-crs:1.1.48
     mem_limit: 6144m
     cpus: 1.00
     healthcheck:
