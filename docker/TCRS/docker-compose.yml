@@ -10,7 +10,7 @@ services:
 
   indexer:
     container_name: tcrs-indexer
-    image: blockcore/indexer-crs:0.2.37
+    image: blockcore/indexer-crs:0.2.38
     mem_limit: 1024m
     cpus: 1.00
     environment:
@@ -35,7 +35,7 @@ services:
 
   chain:
     container_name: tcrs-chain
-    image: blockcore/node-crs:1.1.48
+    image: blockcore/node-crs:1.1.50
     mem_limit: 6144m
     cpus: 1.00
     healthcheck:

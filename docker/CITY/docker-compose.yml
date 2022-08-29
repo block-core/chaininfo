@@ -150,7 +150,7 @@ services:
 
   indexer:
     container_name: city-indexer
-    image: blockcore/indexer:0.2.37
+    image: blockcore/indexer:0.2.38
     mem_limit: 1024m
     cpus: 0.200
     environment:
@@ -175,7 +175,7 @@ services:
 
   chain:
     container_name: city-chain
-    image: blockcore/node-multi:1.1.47
+    image: blockcore/node-multi:1.1.50
     mem_limit: 6144m
     cpus: 0.200
     healthcheck:
@@ -232,7 +232,7 @@ services:
 
   tipbot-chain:
     container_name: city-tipbot-chain
-    image: blockcore/node-multi:1.1.47
+    image: blockcore/node-multi:1.1.50
     mem_limit: 6144m
     cpus: 0.200
     healthcheck:
