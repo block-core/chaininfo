@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: xrc-indexer
-    image: blockcore/indexer:0.2.37
+    image: blockcore/indexer:0.2.38
     mem_limit: 1024m
     cpus: 0.200
     environment:
@@ -37,7 +37,7 @@ services:
 
   chain:
     container_name: xrc-chain
-    image: blockcore/node-multi:1.1.47
+    image: blockcore/node-multi:1.1.50
     mem_limit: 2048m
     cpus: 0.200
     healthcheck:
@@ -92,7 +92,7 @@ services:
 
   tipbot-chain:
     container_name: xrc-tipbot-chain
-    image: blockcore/node-multi:1.1.47
+    image: blockcore/node-multi:1.1.50
     mem_limit: 2048m
     cpus: 0.200
     healthcheck:
