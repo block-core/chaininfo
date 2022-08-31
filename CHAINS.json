@@ -50,11 +50,6 @@
       "icon": "https://chains.blockcore.net/assets/SERF/icon.png"
    },
    {
-      "name": "Solaris",
-      "symbol": "XLR",
-      "icon": "https://chains.blockcore.net/assets/XLR/icon.png"
-   },
-   {
       "name": "Stratis",
       "symbol": "STRAX",
       "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
