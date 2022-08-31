@@ -65,12 +65,6 @@
       "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
    },
    {
-      "name": "XDS",
-      "symbol": "XDS",
-      "icon": "https://chains.blockcore.net/assets/XDS/icon.png",
-      "filter": true
-   },
-   {
       "name": "X42",
       "symbol": "X42",
       "icon": "https://chains.blockcore.net/assets/X42/icon.png",
