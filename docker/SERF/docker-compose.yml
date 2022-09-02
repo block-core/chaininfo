@@ -1,0 +1,136 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: serf-db
+  blockchain:
+    name: serf-data
+  tipbot-blockchain:
+    name: serf-tipbot-data
+  tipbot-database:
+    name: serf-tipbot-db
+
+services:
+
+  indexer:
+    container_name: serf-indexer
+    image: blockcore/indexer:0.2.38
+    mem_limit: 1024m
+    cpus: 0.200
+    environment:
+      VIRTUAL_HOST: serf.indexer.blockcore.net
+      VIRTUAL_PORT: 9910
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: serf.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: https://+:9910
+      Logging__LogLevel__Default: Debug
+    command: ["--chain=SERF"]
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+      chain:
+        condition: service_healthy
+    networks:
+      - serfnetwork
+      - proxy
+
+  chain:
+    container_name: serf-chain
+    image: blockcore/node-multi:1.1.50
+    mem_limit: 2048m
+    cpus: 0.200
+    healthcheck:
+      test: curl --fail http://localhost:15113/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
+    command: ["--chain=SERF", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15113", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: unless-stopped
+    stop_grace_period: 15m
+    volumes:
+      - blockchain:/root/.blockcore
+    ports:
+      - 15111:15111 # Make this a public node.
+    networks:
+      - serfnetwork
+
+  mongo:
+    container_name: serf-mongo
+    image: mongo:5.0.5
+    mem_limit: 2048m
+    cpus: 0.200
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
+    stop_grace_period: 5m
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+    networks:
+      - serfnetwork
+      
+  # tipbot:
+  #   container_name: serf-tipbot
+  #   image: blockcore/tipbot:0.1.8
+  #   mem_limit: 1024m
+  #   cpus: 0.200
+  #   env_file:
+  #     - tipbot.env
+  #   command: ["--chain=SERF"]
+  #   restart: unless-stopped
+  #   depends_on:
+  #     tipbot-database:
+  #       condition: service_started
+  #     tipbot-chain:
+  #       condition: service_healthy
+  #   networks:
+  #     - serfnetwork
+
+  tipbot-chain:
+    container_name: serf-tipbot-chain
+    image: blockcore/node-multi:1.1.50
+    mem_limit: 2048m
+    cpus: 0.200
+    healthcheck:
+      test: curl --fail http://localhost:15113/api/Node/status || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
+    command: ["--chain=SERF", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:15113", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    restart: unless-stopped
+    stop_grace_period: 15m
+    volumes:
+      - tipbot-blockchain:/root/.blockcore
+    networks:
+      - serfnetwork
+
+  tipbot-database:
+    container_name: serf-tipbot-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    mem_limit: 2048m
+    cpus: 0.500
+    env_file:
+      - tipbot.env
+    environment:
+      ACCEPT_EULA: "Y"
+    restart: unless-stopped
+    volumes:
+      - tipbot-database:/var/opt/mssql
+    networks:
+      - serfnetwork
+networks:
+  serfnetwork:
+    external: false
+    name: serfnetwork
+  proxy:
+    external: true
+    name: proxy

@@ -40,6 +40,11 @@
       "icon": "https://chains.blockcore.net/assets/SBC/icon.png"
    },
    {
+      "name": "SERF",
+      "symbol": "SERF",
+      "icon": "https://chains.blockcore.net/assets/SERF/icon.png"
+   },
+   {
       "name": "Stratis",
       "symbol": "STRAX",
       "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
