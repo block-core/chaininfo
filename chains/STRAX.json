@@ -98,16 +98,5 @@
     "Features": {
       "POSWeight": false
     }
-  },
-  "Sidechains": [
-      {
-        "Name": "Cirrus",
-        "Symbol": "CRS",
-        "TargetType": "sidechain",
-        "Peg":{
-          "Type":"Federation",
-          "Address":"yU2jNwiac7XF8rQvSk2bgibmwsNLkkhsHV"
-       }
-      }
-    ]
+  }
 }

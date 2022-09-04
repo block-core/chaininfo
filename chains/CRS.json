@@ -68,20 +68,9 @@
        }
     ]
  },
-    "Features": {
+   "Features": {
       "POSWeight": false,
       "SmartContract": false
     }
-  },
-  "Sidechains": [
-      {
-         "Name": "Stratis",
-         "Symbol": "STRAX",
-         "TargetType": "mainchain",
-         "Peg":{
-            "Type":"Federation",
-            "Address":"cYTNBJDbgjRgcKARAvi2UCSsDdyHkjUqJ2"
-         }
-      }
-    ]
+  }
 }
