@@ -68,7 +68,7 @@
        }
     ]
  },
-    "Features": {
+   "Features": {
       "POSWeight": false,
       "SmartContract": false
     }
