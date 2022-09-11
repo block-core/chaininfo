@@ -171,10 +171,8 @@ sudo docker network connect btc_default proxy
 sudo docker network connect strat_default proxy
 sudo docker network connect x42_default proxy
 sudo docker network connect xds_default proxy
-sudo docker network connect xlr_default proxy
 sudo docker network connect implx_default proxy
 sudo docker network connect xrc_default proxy
-sudo docker network connect home_default proxy
 sudo docker network connect serf_default proxy
 sudo docker network connect crs_default proxy
 sudo docker network connect tcrs_default proxy
@@ -223,12 +221,12 @@ sudo docker-compose down
 
 Look into the running container
 ```
-sudo docker exec -it xlr-chain /bin/bash
+sudo docker exec -it city-chain /bin/bash
 ```
 
 Data folders are located in:
 ```
-/root/.blockcore/xlr/
+/root/.blockcore/city/
 ```
 
 
@@ -280,7 +278,7 @@ Set the `deploy.resources.limits` options in the docker-compose (v2.x) file and 
 
 ```
   mongo:
-    container_name: xlr-mongo
+    container_name: city-mongo
     image: mongo:5.0.5
 ```
 
@@ -295,7 +293,7 @@ sudo docker stats
 Then you can verify that MongoDB starts up with the restritions by looking in the log:
 
 ```
-sudo docker logs -f xlr-mongo
+sudo docker logs -f city-mongo
 ```
 
 # Blockcore Wallet Service (BWS)
