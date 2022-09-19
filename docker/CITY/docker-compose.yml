@@ -134,7 +134,7 @@ services:
     container_name: city-explorer
     image: blockcore/explorer:0.2.27
     mem_limit: 256m
-    cpus: 0.200
+    cpus: 0.500
     environment:
       VIRTUAL_HOST: city.explorer.blockcore.net,explorer.city-chain.org
       VIRTUAL_PORT: 9911
@@ -151,8 +151,8 @@ services:
   indexer:
     container_name: city-indexer
     image: blockcore/indexer:0.2.38
-    mem_limit: 1024m
-    cpus: 0.200
+    mem_limit: 4096m
+    cpus: 2.000
     environment:
       VIRTUAL_HOST: city.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -177,7 +177,7 @@ services:
     container_name: city-chain
     image: blockcore/node-multi:1.1.50
     mem_limit: 6144m
-    cpus: 0.200
+    cpus: 1.500
     healthcheck:
       test: curl --fail http://localhost:4335/api/Node/status || exit 1
       interval: 10s
@@ -197,8 +197,8 @@ services:
   mongo:
     container_name: city-mongo
     image: mongo:5.0.5
-    mem_limit: 2048m
-    cpus: 0.200
+    mem_limit: 4096m
+    cpus: 2.000
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
