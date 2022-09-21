@@ -4,7 +4,7 @@ services:
 
   explorer:
     container_name: coinvault-explorer
-    image: blockcore/explorer:0.2.27
+    image: blockcore/explorer:0.2.28
     mem_limit: 256m
     cpus: 0.200
     environment:
