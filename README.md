@@ -281,7 +281,7 @@ Set the `deploy.resources.limits` options in the docker-compose (v2.x) file and 
 ```
   mongo:
     container_name: xlr-mongo
-    image: mongo:5.0.5
+    image: mongo:5.0.12
 ```
 
 4. Verify
