@@ -60,7 +60,7 @@ services:
 
   mongo:
     container_name: strax-mongo
-    image: mongo:5.0.5
+    image: mongo:5.0.12
     mem_limit: 2048m
     cpus: 2.00
     healthcheck:

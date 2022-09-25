@@ -60,7 +60,7 @@ services:
 
   mongo:
     container_name: implx-mongo
-    image: mongo:5.0.5
+    image: mongo:5.0.12
     mem_limit: 2048m
     cpus: 0.200
     healthcheck:
