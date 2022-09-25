@@ -15,8 +15,8 @@ services:
   indexer:
     container_name: x42-indexer
     image: blockcore/indexer:0.2.39
-    mem_limit: 1024m
-    cpus: 0.200
+    mem_limit: 2048m
+    cpus: 1.500
     environment:
       VIRTUAL_HOST: x42.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -41,7 +41,7 @@ services:
     container_name: x42-chain
     image: blockcore/node-multi:1.1.50
     mem_limit: 6144m
-    cpus: 0.200
+    cpus: 2.000
     healthcheck:
       test: curl --fail http://localhost:42220/api/Node/status || exit 1
       interval: 10s
@@ -61,8 +61,8 @@ services:
   mongo:
     container_name: x42-mongo
     image: mongo:5.0.12
-    mem_limit: 2048m
-    cpus: 0.200
+    mem_limit: 3072m
+    cpus: 1.500
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
@@ -76,6 +76,14 @@ services:
       - database:/data/configdb
     networks:
       - x42network
+
+networks:
+  x42network:
+    external: false
+    name: x42network
+  proxy:
+    external: true
+    name: proxy
 
   # tipbot:
   #   container_name: x42-tipbot
@@ -94,44 +102,36 @@ services:
   #   networks:
   #     - x42network
 
-  tipbot-chain:
-    container_name: x42-tipbot-chain
-    image: blockcore/node-multi:1.1.50
-    mem_limit: 6144m
-    cpus: 0.200
-    healthcheck:
-      test: curl --fail http://localhost:42220/api/Node/status || exit 1
-      interval: 10s
-      retries: 5
-      start_period: 5s
-      timeout: 10s
-    command: ["--chain=X42", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
-    restart: unless-stopped
-    stop_grace_period: 15m
-    volumes:
-      - tipbot-blockchain:/root/.blockcore
-    networks:
-      - x42network
+  # tipbot-chain:
+  #   container_name: x42-tipbot-chain
+  #   image: blockcore/node-multi:1.1.50
+  #   mem_limit: 6144m
+  #   cpus: 0.200
+  #   healthcheck:
+  #     test: curl --fail http://localhost:42220/api/Node/status || exit 1
+  #     interval: 10s
+  #     retries: 5
+  #     start_period: 5s
+  #     timeout: 10s
+  #   command: ["--chain=X42", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:42220", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+  #   restart: unless-stopped
+  #   stop_grace_period: 15m
+  #   volumes:
+  #     - tipbot-blockchain:/root/.blockcore
+  #   networks:
+  #     - x42network
 
-  tipbot-database:
-    container_name: x42-tipbot-db
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    mem_limit: 2048m
-    cpus: 0.500
-    env_file:
-      - tipbot.env
-    environment:
-      ACCEPT_EULA: "Y"
-    restart: unless-stopped
-    volumes:
-      - tipbot-database:/var/opt/mssql
-    networks:
-      - x42network
-
-networks:
-  x42network:
-    external: false
-    name: x42network
-  proxy:
-    external: true
-    name: proxy
+  # tipbot-database:
+  #   container_name: x42-tipbot-db
+  #   image: mcr.microsoft.com/mssql/server:2019-latest
+  #   mem_limit: 2048m
+  #   cpus: 0.500
+  #   env_file:
+  #     - tipbot.env
+  #   environment:
+  #     ACCEPT_EULA: "Y"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - tipbot-database:/var/opt/mssql
+  #   networks:
+  #     - x42network
