@@ -25,6 +25,11 @@
       "icon": "https://chains.blockcore.net/assets/IMPLX/icon.png"
    },
    {
+      "name": "Molie",
+      "symbol": "MOL",
+      "icon": "https://chains.blockcore.net/assets/MOL/icon.png"
+   },
+   {
       "name": "OpenExO",
       "symbol": "EXOS",
       "icon": "https://chains.blockcore.net/assets/EXOS/icon.png"

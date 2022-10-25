@@ -173,6 +173,7 @@ sudo docker network connect x42_default proxy
 sudo docker network connect xds_default proxy
 sudo docker network connect xlr_default proxy
 sudo docker network connect implx_default proxy
+sudo docker network connect mol_default proxy
 sudo docker network connect xrc_default proxy
 sudo docker network connect home_default proxy
 sudo docker network connect serf_default proxy
