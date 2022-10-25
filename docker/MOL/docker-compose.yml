@@ -2,31 +2,31 @@ version: "2.4"
 
 volumes:
   database:
-    name: implx-db
+    name: mol-db
   blockchain:
-    name: implx-data
+    name: mol-data
   tipbot-blockchain:
-    name: implx-tipbot-data
+    name: mol-tipbot-data
   tipbot-database:
-    name: implx-tipbot-db
+    name: mol-tipbot-db
 
 services:
 
   indexer:
-    container_name: implx-indexer
+    container_name: mol-indexer
     image: blockcore/indexer:0.2.39
     mem_limit: 2048m
     cpus: 1.500
     environment:
-      VIRTUAL_HOST: implx.indexer.blockcore.net
+      VIRTUAL_HOST: mol.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: implx.indexer.blockcore.net
+      LETSENCRYPT_HOST: mol.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: https://+:9910
       Logging__LogLevel__Default: Debug
-    command: ["--chain=IMPLX"]
+    command: ["--chain=MOL"]
     restart: unless-stopped
     depends_on:
       mongo:
@@ -34,29 +34,29 @@ services:
       chain:
         condition: service_healthy
     networks:
-      - implxnetwork
+      - molxnetwork
       - proxy
 
   chain:
-    container_name: implx-chain
+    container_name: mol-chain
     image: blockcore/node-multi:1.1.50
     mem_limit: 6144m
     cpus: 2.000
     healthcheck:
-      test: curl --fail http://localhost:18103/api/Node/status || exit 1
+      test: curl --fail http://localhost:22103/api/Node/status || exit 1
       interval: 10s
       retries: 5
       start_period: 5s
       timeout: 10s
-    command: ["--chain=IMPLX", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:18103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+    command: ["--chain=mol", "-server=1", "-txindex=1", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:22103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
     restart: unless-stopped
     stop_grace_period: 15m
     volumes:
       - blockchain:/root/.blockcore
     ports:
-      - 18105:18105 # Make this a public node.
+      - 22105:22105 # Make this a public node.
     networks:
-      - implxnetwork
+      - molnetwork
 
   mongo:
     container_name: implx-mongo
@@ -75,16 +75,16 @@ services:
       - database:/data/db
       - database:/data/configdb
     networks:
-      - implxnetwork
+      - molnetwork
 
   # tipbot:
-  #   container_name: implx-tipbot
+  #   container_name: mol-tipbot
   #   image: blockcore/tipbot:0.1.8
   #   mem_limit: 1024m
   #   cpus: 0.200
   #   env_file:
   #     - tipbot.env
-  #   command: ["--chain=IMPLX"]
+  #   command: ["--chain=MOL"]
   #   restart: unless-stopped
   #   depends_on:
   #     tipbot-database:
@@ -92,10 +92,10 @@ services:
   #     tipbot-chain:
   #       condition: service_healthy
   #   networks:
-  #     - implxnetwork
+  #     - molxnetwork
     
   # tipbot-chain:
-  #   container_name: implx-tipbot-chain
+  #   container_name: mol-tipbot-chain
   #   image: blockcore/node-multi:1.1.50
   #   mem_limit: 3072m
   #   cpus: 0.200
@@ -105,16 +105,16 @@ services:
   #     retries: 5
   #     start_period: 5s
   #     timeout: 10s
-  #   command: ["--chain=IMPLX", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:18103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+  #   command: ["--chain=MOL", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:18103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
   #   restart: unless-stopped
   #   stop_grace_period: 15m
   #   volumes:
   #     - tipbot-blockchain:/root/.blockcore
   #   networks:
-  #     - implxnetwork
+  #     - molnetwork
 
   # tipbot-database:
-  #   container_name: implx-tipbot-db
+  #   container_name: mol-tipbot-db
   #   image: mcr.microsoft.com/mssql/server:2019-latest
   #   mem_limit: 2048m
   #   cpus: 0.500
@@ -126,12 +126,12 @@ services:
   #   volumes:
   #     - tipbot-database:/var/opt/mssql
   #   networks:
-  #     - implxnetwork
+  #     - molxnetwork
 
 #networks:
-#  implxnetwork:
+#  molxnetwork:
 #    external: false
-#    name: implxnetwork
+#    name: molxnetwork
 #  proxy:
 #    external: true
 #    name: proxy
