@@ -1,0 +1,101 @@
+{
+  "Chain": {
+    "Name": "Molie",
+    "Symbol": "MOL",
+    "Description": "Multifunctional decentralized messenger",
+    "Url": "https://molie.chat/",
+    "Logo": "https://chains.blockcore.net/assets/MOL/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/MOL/icon.png",
+    "Color": "#ff00b8"
+  },
+  "TipBot": {
+    "Discord": {
+      "Enabled": true,
+      "SupportUsername": "sondreb",
+      "SupportDiscriminator": "5919"
+    },
+    "Twitch": {
+      "Enabled": false
+    },
+    "Twitter": {
+      "Enabled": false
+    },
+    "Reddit": {
+      "Enabled": false
+    },
+    "Ticker": "MOL",
+    "NetworkFee": "0.00100000",
+    "ApiUrl": "http://mol-tipbot-chain:22103/",
+    "UseSegwit": false,
+    "SupportUsername": "sondreb",
+    "SupportDiscriminator": "5919",
+    "BotOptionalPrefix": "tipbot-molie",
+    "MinConfirmationsForDeposit": 6
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.BlockInfo.PosConsensusFactory, Blockcore",
+    "NetworkType": "Blockcore.Networks.Molie.MolieMain, Blockcore.Networks.Molie",
+    "NetworkPubkeyAddressPrefix": 51,
+    "NetworkScriptAddressPrefix": 141,
+    "NetworkWitnessPrefix": "mol",
+    "P2PPort": 22105,
+    "RPCPort": 22104,
+    "APIPort": 22103
+  },
+  "Indexer": {
+    "StoreRawTransactions": true
+  },
+  "Insight": {
+    "Rewards": [
+      {
+        "Height": 0,
+        "Reward": 1
+     }
+    ],
+    "Wallets": [
+       {
+          "Name": "Burnt",
+          "Type": "Burn",
+          "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://mol.indexer.blockcore.net/api",
+      "DocUrl": "https://mol.indexer.blockcore.net/docs"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+    },
+    "Ticker": {
+      "WebUrl": "",
+      "ApiUrl": "",
+      "PricePath": "",
+      "PercentagePath": "",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "Molie Explorer",
+      "Footer": "Multifunctional decentralized messenger",
+      "Links": [
+        {
+          "icon": "fas fa-link",
+          "url": "https://molie.chat/"
+        },
+        {
+          "icon": "fab fa-github",
+          "url": "https://github.com/impleum"
+        },
+        {
+          "icon": "fab fa-discord",
+          "url": "https://discord.gg/FpcexxEdxf"
+        }
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}

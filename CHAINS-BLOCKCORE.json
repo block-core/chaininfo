@@ -34,6 +34,12 @@
       "coin": "impleum"
    },
    {
+      "name": "Molie",
+      "symbol": "MOL",
+      "icon": "https://chains.blockcore.net/assets/MOL/icon.png",
+      "coin": "molie"
+   },
+   {
       "name": "OpenExO",
       "symbol": "EXOS",
       "icon": "https://chains.blockcore.net/assets/EXOS/icon.png"
