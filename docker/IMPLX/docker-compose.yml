@@ -40,7 +40,7 @@ services:
   chain:
     container_name: implx-chain
     image: blockcore/node-multi:1.1.50
-    mem_limit: 6144m
+    mem_limit: 4096m
     cpus: 2.000
     healthcheck:
       test: curl --fail http://localhost:18103/api/Node/status || exit 1
@@ -61,7 +61,7 @@ services:
   mongo:
     container_name: implx-mongo
     image: mongo:5.0.12
-    mem_limit: 3072m
+    mem_limit: 2048m
     cpus: 1.500
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
@@ -77,61 +77,10 @@ services:
     networks:
       - implxnetwork
 
-  # tipbot:
-  #   container_name: implx-tipbot
-  #   image: blockcore/tipbot:0.1.8
-  #   mem_limit: 1024m
-  #   cpus: 0.200
-  #   env_file:
-  #     - tipbot.env
-  #   command: ["--chain=IMPLX"]
-  #   restart: unless-stopped
-  #   depends_on:
-  #     tipbot-database:
-  #       condition: service_started
-  #     tipbot-chain:
-  #       condition: service_healthy
-  #   networks:
-  #     - implxnetwork
-    
-  # tipbot-chain:
-  #   container_name: implx-tipbot-chain
-  #   image: blockcore/node-multi:1.1.50
-  #   mem_limit: 3072m
-  #   cpus: 0.200
-  #   healthcheck:
-  #     test: curl --fail http://localhost:18103/api/Node/status || exit 1
-  #     interval: 10s
-  #     retries: 5
-  #     start_period: 5s
-  #     timeout: 10s
-  #   command: ["--chain=IMPLX", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:18103", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
-  #   restart: unless-stopped
-  #   stop_grace_period: 15m
-  #   volumes:
-  #     - tipbot-blockchain:/root/.blockcore
-  #   networks:
-  #     - implxnetwork
-
-  # tipbot-database:
-  #   container_name: implx-tipbot-db
-  #   image: mcr.microsoft.com/mssql/server:2019-latest
-  #   mem_limit: 2048m
-  #   cpus: 0.500
-  #   env_file:
-  #     - tipbot.env
-  #   environment:
-  #     ACCEPT_EULA: "Y"
-  #   restart: unless-stopped
-  #   volumes:
-  #     - tipbot-database:/var/opt/mssql
-  #   networks:
-  #     - implxnetwork
-
-#networks:
-#  implxnetwork:
-#    external: false
-#    name: implxnetwork
-#  proxy:
-#    external: true
-#    name: proxy
+  networks:
+  implxnetwork:
+    external: false
+    name: implxnetwork
+  proxy:
+    external: true
+    name: proxy
