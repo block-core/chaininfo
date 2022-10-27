@@ -59,7 +59,7 @@ services:
       - molnetwork
 
   mongo:
-    container_name: implx-mongo
+    container_name: mol-mongo
     image: mongo:5.0.12
     mem_limit: 2048m
     cpus: 1.500
