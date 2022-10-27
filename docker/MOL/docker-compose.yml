@@ -34,7 +34,7 @@ services:
       chain:
         condition: service_healthy
     networks:
-      - molxnetwork
+      - molnetwork
       - proxy
 
   chain:
