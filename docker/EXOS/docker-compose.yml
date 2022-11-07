@@ -15,8 +15,8 @@ services:
   indexer:
     container_name: exos-indexer
     image: blockcore/indexer:0.2.39
-    mem_limit: 1024m
-    cpus: 0.200
+    mem_limit: 3072m
+    cpus: 1.000
     environment:
       VIRTUAL_HOST: exos.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -41,7 +41,7 @@ services:
     container_name: exos-chain
     image: blockcore/node-multi:1.1.50
     mem_limit: 6144m
-    cpus: 0.200
+    cpus: 1.000
     healthcheck:
       test: curl --fail http://localhost:39120/api/Node/status || exit 1
       interval: 10s
@@ -61,8 +61,8 @@ services:
   mongo:
     container_name: exos-mongo
     image: mongo:5.0.12
-    mem_limit: 2048m
-    cpus: 0.200
+    mem_limit: 3072m
+    cpus: 1.000
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
@@ -94,39 +94,39 @@ services:
   #   networks:
   #     - exosnetwork
 
-  tipbot-chain:
-    container_name: exos-tipbot-chain
-    image: blockcore/node-multi:1.1.50
-    mem_limit: 6144m
-    cpus: 0.200
-    healthcheck:
-      test: curl --fail http://localhost:39120/api/Node/status || exit 1
-      interval: 10s
-      retries: 5
-      start_period: 5s
-      timeout: 10s
-    command: ["--chain=EXOS", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
-    restart: unless-stopped
-    stop_grace_period: 15m
-    volumes:
-      - tipbot-blockchain:/root/.blockcore
-    networks:
-      - exosnetwork
+  # tipbot-chain:
+  #   container_name: exos-tipbot-chain
+  #   image: blockcore/node-multi:1.1.50
+  #   mem_limit: 6144m
+  #   cpus: 0.200
+  #   healthcheck:
+  #     test: curl --fail http://localhost:39120/api/Node/status || exit 1
+  #     interval: 10s
+  #     retries: 5
+  #     start_period: 5s
+  #     timeout: 10s
+  #   command: ["--chain=EXOS", "-server=1", "-txindex=0", "-iprangefiltering=0", "-rpcallowip=10.202.0.0/8", "-rpcallowip=10.201.0.0/8", "-rpcallowip=192.168.0.0/8", "-rpcallowip=172.0.0.0/8", "-rpcbind=0.0.0.0", "-apiuri=http://0.0.0.0:39120", "-rpcuser=rpcuser", "-rpcpassword=rpcpassword"]
+  #   restart: unless-stopped
+  #   stop_grace_period: 15m
+  #   volumes:
+  #     - tipbot-blockchain:/root/.blockcore
+  #   networks:
+  #     - exosnetwork
 
-  tipbot-database:
-    container_name: exos-tipbot-db
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    mem_limit: 2048m
-    cpus: 0.500
-    env_file:
-      - tipbot.env
-    environment:
-      ACCEPT_EULA: "Y"
-    restart: unless-stopped
-    volumes:
-      - tipbot-database:/var/opt/mssql
-    networks:
-      - exosnetwork
+  # tipbot-database:
+  #   container_name: exos-tipbot-db
+  #   image: mcr.microsoft.com/mssql/server:2019-latest
+  #   mem_limit: 2048m
+  #   cpus: 0.500
+  #   env_file:
+  #     - tipbot.env
+  #   environment:
+  #     ACCEPT_EULA: "Y"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - tipbot-database:/var/opt/mssql
+  #   networks:
+  #     - exosnetwork
 
 networks:
   exosnetwork:
