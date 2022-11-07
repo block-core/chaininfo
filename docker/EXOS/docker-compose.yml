@@ -77,6 +77,14 @@ services:
     networks:
       - exosnetwork
 
+networks:
+  exosnetwork:
+    external: false
+    name: exosnetwork
+  proxy:
+    external: true
+    name: proxy
+
   # tipbot:
   #   container_name: exos-tipbot
   #   image: blockcore/tipbot:0.1.8
@@ -127,11 +135,3 @@ services:
   #     - tipbot-database:/var/opt/mssql
   #   networks:
   #     - exosnetwork
-
-networks:
-  exosnetwork:
-    external: false
-    name: exosnetwork
-  proxy:
-    external: true
-    name: proxy
