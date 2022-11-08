@@ -15,7 +15,7 @@ services:
   indexer:
     container_name: strax-indexer
     image: blockcore/indexer:0.2.39
-    mem_limit: 2048m
+    mem_limit: 4096m
     cpus: 2.50
     environment:
       VIRTUAL_HOST: strax.indexer.blockcore.net
@@ -61,7 +61,7 @@ services:
   mongo:
     container_name: strax-mongo
     image: mongo:5.0.12
-    mem_limit: 2048m
+    mem_limit: 4096m
     cpus: 2.00
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
