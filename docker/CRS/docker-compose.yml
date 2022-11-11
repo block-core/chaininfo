@@ -10,7 +10,7 @@ services:
 
   indexer:
     container_name: crs-indexer
-    image: blockcore/indexer-crs:0.2.39
+    image: blockcore/indexer-crs:0.2.40
     mem_limit: 2048m
     cpus: 2.50
     environment:
