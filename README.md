@@ -375,7 +375,7 @@ Modify the file ```docker\<CHAIN>\docker-compose.yml``` and include the ```loggi
  chain:
     container_name: btc-chain
     mem_limit: 6000m
-    image: blockcore/node-multi:1.1.50
+    image: blockcore/node-multi:1.1.52
     logging:
         driver: "json-file"
         options:

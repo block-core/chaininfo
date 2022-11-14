@@ -38,7 +38,7 @@ services:
       - proxy
   chain:
     container_name: ruta-chain
-    image: blockcore/node-multi:1.1.50
+    image: blockcore/node-multi:1.1.52
     mem_limit: 3072m
     cpus: 0.200
     healthcheck:
@@ -95,7 +95,7 @@ services:
 
   tipbot-chain:
     container_name: ruta-tipbot-chain
-    image: blockcore/node-multi:1.1.50
+    image: blockcore/node-multi:1.1.52
     mem_limit: 3072m
     cpus: 0.200
     healthcheck:

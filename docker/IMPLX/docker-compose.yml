@@ -39,7 +39,7 @@ services:
 
   chain:
     container_name: implx-chain
-    image: blockcore/node-multi:1.1.50
+    image: blockcore/node-multi:1.1.52
     mem_limit: 4096m
     cpus: 2.000
     healthcheck:
