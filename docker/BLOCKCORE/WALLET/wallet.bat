@@ -1,4 +1,4 @@
-set INSTANCE=coinvault
+set INSTANCE=blockcore
 set VERSION=%1
 
 echo "Blockcore Wallet // Hosting instance type: \"%INSTANCE%\" and version \"%VERSION%\"";
@@ -17,5 +17,5 @@ powershell Expand-Archive %INSTANCE%-%VERSION%.zip -DestinationPath www
 
 echo "Unpack completed, starting docker container to serve..."
 
-call docker-compose -p "COINVAULTWALLET" up -d
-call docker restart coinvault-wallet
+call docker-compose -p "BLOCKCOREWALLET" up -d
+call docker restart blockcore-wallet
