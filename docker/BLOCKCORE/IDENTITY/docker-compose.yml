@@ -1,0 +1,22 @@
+version: "2.4"
+
+services:
+  wallet:
+    container_name: blockcore-did-server
+    image: blockcore/blockcore-did-server:0.0.7
+    mem_limit: 1024m
+    cpus: 0.500
+    environment:
+      VIRTUAL_HOST: id.blockcore.net
+      VIRTUAL_PORT: 4250
+      VIRTUAL_NETWORK: proxy
+      VIRTUAL_PROTO: http
+      LETSENCRYPT_HOST: id.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    restart: unless-stopped
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
+    name: proxy
