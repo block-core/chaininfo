@@ -1,5 +1,9 @@
 version: "2.4"
 
+volumes:
+  database:
+    name: did-db
+
 services:
   wallet:
     container_name: blockcore-did-server
@@ -14,6 +18,8 @@ services:
       LETSENCRYPT_HOST: id.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
     restart: unless-stopped
+    volumes:
+      - database:/host/blockcore-did-database
     networks:
       - proxy
 networks:
