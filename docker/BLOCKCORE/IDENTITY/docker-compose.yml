@@ -3,7 +3,7 @@ version: "2.4"
 services:
   wallet:
     container_name: blockcore-did-server
-    image: blockcore/blockcore-did-server:0.0.7
+    image: blockcore/blockcore-did-server:0.0.8
     mem_limit: 1024m
     cpus: 0.500
     environment:
