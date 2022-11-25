@@ -20,6 +20,8 @@ services:
     restart: unless-stopped
     volumes:
       - database:/host/blockcore-did-database
+    env_file:
+      - .env
     networks:
       - proxy
 networks:
