@@ -7,7 +7,7 @@ volumes:
 services:
   wallet:
     container_name: blockcore-did-server
-    image: blockcore/blockcore-did-server:0.0.9
+    image: blockcore/blockcore-did-server:0.0.10
     mem_limit: 1024m
     cpus: 0.500
     environment:
