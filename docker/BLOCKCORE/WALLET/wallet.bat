@@ -10,7 +10,7 @@ echo "Blockcore Wallet // Hosting instance type: \"%INSTANCE%\" and version \"%V
 
 powershell Invoke-WebRequest -Uri https://github.com/block-core/blockcore-extension/releases/download/%VERSION%/%INSTANCE%-%VERSION%.zip -OutFile ./%INSTANCE%-%VERSION%.zip
 
-del www -Recurse -Force
+powershell Remove-Item ".\www" -Recurse -Force
 mkdir www
 
 powershell Expand-Archive %INSTANCE%-%VERSION%.zip -DestinationPath www
