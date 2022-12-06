@@ -1,0 +1,27 @@
+version: "2.4"
+
+services:
+  
+  blockcore-dns:
+    container_name: blockcore-atomicswaps
+    image: blockcore/atomicswaps:0.0.2
+    mem_limit: 1024m
+    cpus: 0.200
+    environment:
+      VIRTUAL_HOST: swaps.blockcore.net
+      VIRTUAL_PORT: 5500
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: swaps.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: https://+:5500
+      Logging__LogLevel__Default: Debug
+    restart: unless-stopped
+    ports:
+      #- "5500:5500"
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
+    name: proxy
