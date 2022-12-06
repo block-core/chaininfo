@@ -2,7 +2,7 @@ version: "2.4"
 
 services:
   
-  blockcore-dns:
+  blockcore-swaps:
     container_name: blockcore-atomicswaps
     image: blockcore/atomicswaps:0.0.2
     mem_limit: 1024m
@@ -17,7 +17,7 @@ services:
       ASPNETCORE_URLS: https://+:5500
       Logging__LogLevel__Default: Debug
     restart: unless-stopped
-    ports:
+    #ports:
       #- "5500:5500"
     networks:
       - proxy
