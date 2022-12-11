@@ -1,0 +1,30 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: vault-db
+
+services:
+  wallet:
+    container_name: blockcore-vault
+    image: blockcore/vault:0.0.2
+    mem_limit: 1024m
+    cpus: 0.500
+    environment:
+      VIRTUAL_HOST: vault.blockcore.net
+      VIRTUAL_PORT: 4350
+      VIRTUAL_NETWORK: proxy
+      VIRTUAL_PROTO: http
+      LETSENCRYPT_HOST: vault.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    restart: unless-stopped
+    volumes:
+      - database:/host/blockcore-vault-database
+    env_file:
+      - .env
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
+    name: proxy
