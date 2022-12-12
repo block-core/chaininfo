@@ -14,9 +14,9 @@ services:
 
   indexer:
     container_name: rsc-indexer
-    image: blockcore/indexer:0.2.39
-    mem_limit: 1024m
-    cpus: 0.200
+    image: blockcore/indexer:0.2.43
+    mem_limit: 2048m
+    cpus: 1.000
     environment:
       VIRTUAL_HOST: rsc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -41,7 +41,7 @@ services:
     container_name: rsc-chain
     image: blockcore/node-multi:1.1.52
     mem_limit: 3072m
-    cpus: 0.200
+    cpus: 1.000
     healthcheck:
       test: curl --fail http://localhost:14003/api/Node/status || exit 1
       interval: 10s
@@ -62,7 +62,7 @@ services:
     container_name: rsc-mongo
     image: mongo:5.0.12
     mem_limit: 2048m
-    cpus: 0.200
+    cpus: 1.000
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
