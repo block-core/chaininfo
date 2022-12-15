@@ -1,0 +1,24 @@
+version: "2.4"
+
+services:
+  wallet:
+    container_name: blockcore-nostrweb
+    image: blockcore/nostrweb:0.0.1
+    mem_limit: 256m
+    cpus: 0.500
+    environment:
+      VIRTUAL_HOST: nostr.blockcore.net
+      VIRTUAL_PORT: 4360
+      VIRTUAL_NETWORK: proxy
+      VIRTUAL_PROTO: http
+      LETSENCRYPT_HOST: nostr.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
+    name: proxy
