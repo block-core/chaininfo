@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: xrc-indexer
-    image: blockcore/indexer:0.2.39
+    image: blockcore/indexer:0.2.44
     mem_limit: 1024m
     cpus: 0.200
     environment:

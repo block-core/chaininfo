@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: implx-indexer
-    image: blockcore/indexer:0.2.39
+    image: blockcore/indexer:0.2.44
     mem_limit: 2048m
     cpus: 1.500
     environment:
