@@ -1,0 +1,20 @@
+[
+    {
+        "name": "City Chain",
+        "description": "Blockchain for Smart Cities",
+        "explorer": [
+            "https://explorer.blockcore.net/city/explorer"
+        ],
+        "fromSymbol": "CITY",
+        "toSymbol": "ALL",
+        "type": "COIN",
+        "proof_type": "POS",
+        "social": [
+            "https://twitter.com/citychaincoin",
+            "https://discord.gg/CD8CTJt"
+        ],
+        "source_code": "",
+        "website": "https://www.city-chain.org",
+        "icon": "https://chains.blockcore.net/assets/CITY/icon.png"
+    }
+]
