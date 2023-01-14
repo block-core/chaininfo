@@ -16,5 +16,56 @@
         "source_code": "",
         "website": "https://www.city-chain.org",
         "icon": "https://chains.blockcore.net/assets/CITY/icon.png"
+    },
+    {
+        "name": "Stratis",
+        "description": "Decentralize the enterprise",
+        "explorer": [
+            "https://explorer.blockcore.net/strax/explorer"
+        ],
+        "fromSymbol": "STRAX",
+        "toSymbol": "ALL",
+        "type": "COIN",
+        "proof_type": "POS",
+        "social": [
+            "https://discordapp.com/invite/9tDyfZs"
+        ],
+        "source_code": "",
+        "website": "https://www.stratisplatform.com",
+        "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
+    },
+    {
+        "name": "Senior Blockchain",
+        "description": "Senior Blockchain is a powerful and flexible Blockchain Development Platform designed for the needs of real world financial services and businesses.",
+        "explorer": [
+            "https://explorer.blockcore.net/sbc/explorer"
+        ],
+        "fromSymbol": "SBC",
+        "toSymbol": "ALL",
+        "type": "COIN",
+        "proof_type": "POS",
+        "social": [
+            "https://discord.com/invite/uWRPpfgzyh"
+        ],
+        "source_code": "",
+        "website": "https://seniorblockchain.io",
+        "icon": "https://chains.blockcore.net/assets/SBC/icon.png"
+    },
+    {
+        "name": "Royal Sports City",
+        "description": "Blockchain for Royal Sports City",
+        "explorer": [
+            "https://explorer.blockcore.net/sbc/explorer"
+        ],
+        "fromSymbol": "RSC",
+        "toSymbol": "ALL",
+        "type": "COIN",
+        "proof_type": "POS",
+        "social": [
+            "https://discord.com/invite/uWRPpfgzyh"
+        ],
+        "source_code": "",
+        "website": "https://royalsportscity.com/",
+        "icon": "https://chains.blockcore.net/assets/RSC/icon.png"
     }
 ]
