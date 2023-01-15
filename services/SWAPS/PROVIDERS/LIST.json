@@ -2,19 +2,19 @@
     {
         "Name": "Blockcore",
         "Url": "https://swaps.blockcore.net",
-        "Logo": "https://chains.blockcore.net/SWAPS/PROVIDERS/LOGOS/BLOCKCORE.png",
+        "Logo": "https://chains.blockcore.net/services/SWAPS/PROVIDERS/LOGOS/BLOCKCORE.png",
         "Contact": "post@blockcore.net"
     },
     {
         "Name": "Coinvault",
         "Url": "https://swaps.coinvault.io",
-        "Logo": "https://chains.blockcore.net/SWAPS/PROVIDERS/LOGOS/COINVAULT.png",
+        "Logo": "https://chains.blockcore.net/services/SWAPS/PROVIDERS/LOGOS/COINVAULT.png",
         "Contact": "post@coinvault.io"
     },
     {
         "Name": "Seniorblockchain",
         "Url": "https://swaps.seniorblockchain.io",
-        "Logo": "https://chains.blockcore.net/SWAPS/PROVIDERS/LOGOS/SENIORBLOCKCHAIN.png",
+        "Logo": "https://chains.blockcore.net/services/SWAPS/PROVIDERS/LOGOS/SENIORBLOCKCHAIN.png",
         "Contact": "post@seniorblockchain.io"
     }
 ]
