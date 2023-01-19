@@ -16,7 +16,7 @@ services:
     container_name: exos-indexer
     image: blockcore/indexer:0.2.44
     mem_limit: 3072m
-    cpus: 1.000
+    cpus: 2.000
     environment:
       VIRTUAL_HOST: exos.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -41,7 +41,7 @@ services:
     container_name: exos-chain
     image: blockcore/node-multi:1.1.52
     mem_limit: 6144m
-    cpus: 1.000
+    cpus: 2.000
     healthcheck:
       test: curl --fail http://localhost:39120/api/Node/status || exit 1
       interval: 10s
@@ -62,7 +62,7 @@ services:
     container_name: exos-mongo
     image: mongo:5.0.12
     mem_limit: 3072m
-    cpus: 1.000
+    cpus: 2.000
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
       interval: 10s
