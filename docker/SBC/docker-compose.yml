@@ -15,8 +15,8 @@ services:
   indexer:
     container_name: sbc-indexer
     image: blockcore/indexer:0.2.44
-    mem_limit: 1024m
-    cpus: 0.200
+    mem_limit: 2048m
+    cpus: 1.000
     environment:
       VIRTUAL_HOST: sbc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
@@ -41,7 +41,7 @@ services:
     container_name: sbc-chain
     image: blockcore/node-multi:1.1.52
     mem_limit: 2048m
-    cpus: 0.200
+    cpus: 1.000
     healthcheck:
       test: curl --fail http://localhost:15008/api/Node/status || exit 1
       interval: 10s
@@ -63,7 +63,7 @@ services:
     container_name: sbc-mongo
     image: mongo:5.0.12
     mem_limit: 2048m
-    cpus: 0.200
+    cpus: 1.000
 
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
