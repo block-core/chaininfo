@@ -40,7 +40,7 @@ services:
 
   chain:
     container_name: home-chain
-    image: blockcore/node-multi:1.1.52
+    image: blockcore/node-multi:1.1.53
     mem_limit: 2048m
     cpus: 0.200
     healthcheck:
@@ -97,7 +97,7 @@ services:
 
   tipbot-chain:
     container_name: home-tipbot-chain
-    image: blockcore/node-multi:1.1.52
+    image: blockcore/node-multi:1.1.53
     mem_limit: 2048m
     cpus: 0.200
     healthcheck:

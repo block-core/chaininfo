@@ -35,7 +35,7 @@ services:
 
   chain:
     container_name: crs-chain
-    image: blockcore/node-crs:1.1.52
+    image: blockcore/node-crs:1.1.53
     mem_limit: 9216m
     cpus: 2.50
     healthcheck:
