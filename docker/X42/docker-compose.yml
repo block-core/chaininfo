@@ -15,7 +15,7 @@ services:
   indexer:
     container_name: x42-indexer
     image: blockcore/indexer:0.2.44
-    mem_limit: 2048m
+    mem_limit: 3072m
     cpus: 1.500
     environment:
       VIRTUAL_HOST: x42.indexer.blockcore.net
