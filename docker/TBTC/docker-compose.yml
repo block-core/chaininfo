@@ -24,7 +24,7 @@ services:
       LETSENCRYPT_HOST: btc.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:9910
-    command: ["--chain=TBTC"]
+    command: ["--chain=TBTC","--Network:RPCPort=38332"] # override rpcport in signet its 38332
     restart: unless-stopped
     depends_on:
       mongo:
