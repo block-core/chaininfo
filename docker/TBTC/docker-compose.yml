@@ -1,0 +1,119 @@
+version: "2.4"
+
+# Note: this is an exact copy of the docker-compose.yml file of the repo where the custom signet was created.
+# https://github.com/dangershony/bitcoin_signet_blockcore/blob/main/docker-compose.yml 
+# If updating this file also consider updating the other.
+
+volumes:
+  database:
+    name: btc-db
+  blockchain:
+    name: btc-data
+
+services:
+  indexer:
+    container_name: btc-indexer
+    image: blockcore/indexer:0.2.49
+    mem_limit: 1024m
+    cpus: 0.200
+    environment:
+      VIRTUAL_HOST: btc.indexer.blockcore.net
+      VIRTUAL_PORT: 9910
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: btc.indexer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: http://+:9910
+    command: ["--chain=TBTC"]
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+      chain:
+        condition: service_healthy
+    ports:
+      - 9910:9910 # Make this a public node.
+    networks:
+      - btcnetwork
+      - proxy
+
+  chain:
+    container_name: btc-chain
+    image: blockcore/bitcoin-signet:custom
+    mem_limit: 10240m
+    cpus: 0.200
+    healthcheck:
+      test: ["CMD", "bitcoin-cli", "ping"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
+    restart: unless-stopped
+    stop_grace_period: 15m
+    volumes:
+      - blockchain:/root/.bitcoin
+    environment:
+      UACOMMENT: $UACOMMENT
+      BLOCKPRODUCTIONDELAY: ${BLOCKPRODUCTIONDELAY:-60}
+      MINERENABLED: ${MINERENABLED:-0} # change this to 1 if this node needs to mine (however for simplicity there should only be one mining node per challenge)
+      NBITS: $NBITS
+      MINETO: ${MINETO:-tb1qk4pq0rh75qtph47wlufhyss43flhvhvwe4zt8a}
+      PRIVKEY: ${PRIVKEY:-cRz3Ci2aUNmdP4pViSM8LafwKHZmvn4X6gjeCXzVkBYBLhzA3uFC} # private key path is m/84'/1'/0'/0/0 of test wallet mnemonic "margin radio diamond leg loud street announce guitar video shiver speed eyebrow"
+      SIGNETCHALLENGE: ${SIGNETCHALLENGE:-512102b57c4413a0354bcc360a37e035f26670deda14bab613c28fbd30fe52b2deccc151ae}
+      EXTERNAL_IP: $EXTERNAL_IP
+      RPCUSER: ${RPCUSER:-rpcuser}
+      RPCPASSWORD: ${RPCPASSWORD:-rpcpassword}
+    ports:
+      - 18333:18333 # Make this a public node.
+    networks:
+      - btcnetwork
+
+  mongo:
+    container_name: btc-mongo
+    image: mongo:5.0.12
+    mem_limit: 2048m
+    cpus: 0.200
+
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+    restart: unless-stopped
+    stop_grace_period: 5m
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+    networks:
+      - btcnetwork
+      
+  explorer:
+    container_name: explorer
+    image: blockcore/explorer:0.2.28
+    mem_limit: 256m
+    cpus: 0.200
+    environment:
+      VIRTUAL_HOST: explorer.coinvault.io
+      VIRTUAL_PORT: 9911
+      VIRTUAL_NETWORK: proxy
+      VIRTUAL_PROTO: http
+      LETSENCRYPT_HOST: explorer.coinvault.io
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ASPNETCORE_URLS: http://+:9910
+    command: ["--chain=BTC"]
+    restart: unless-stopped
+    ports:
+      - 9911:9911 # Make this a public node.
+    networks:
+      - proxy
+      - btcnetwork
+
+networks:
+  btcnetwork:
+    external: false
+    name: btcnetwork
+  proxy:
+    external: true
+    name: proxy
