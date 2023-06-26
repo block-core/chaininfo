@@ -4,7 +4,7 @@ services:
   
   blockcore-swaps:
     container_name: blockcore-atomicswaps
-    image: blockcore/atomicswaps:0.0.15
+    image: blockcore/atomicswaps:0.0.18
     mem_limit: 1024m
     cpus: 0.200
     environment:
