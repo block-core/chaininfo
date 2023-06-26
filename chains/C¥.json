@@ -1,0 +1,73 @@
+{
+  "Chain": {
+    "Name": "Cyberyen",
+    "Symbol": "CY",
+    "Description": "Cyberyen: A Peer-to-Peer Decentralized Digital Payment System",
+    "Url": "https://github.com/cyberyen/cyberyen",
+    "Logo": "https://chains.blockcore.net/assets/C¥/logo.png",
+    "Icon": "https://chains.blockcore.net/assets/C¥/icon.png",
+    "Color": "#000000"
+  },
+  "Network": {
+    "NetworkConsensusFactoryType": "Blockcore.Consensus.ConsensusFactory, Blockcore",
+    "NetworkPubkeyAddressPrefix": 28,
+    "NetworkScriptAddressPrefix": 156,
+    "NetworkWitnessPrefix": "cy",
+    "P2PPort": 58383,
+    "RPCPort": 58382,
+    "APIPort": 58320
+  },
+  "Indexer": {
+    "StoreRawTransactions": true,
+    "MaxItemsInQueue": 1000,
+    "SyncInterval": 2
+  },
+  "Insight": {
+    "Rewards": [
+
+    ],
+    "Wallets": [
+       {
+	  "Name": "Burnt",
+	  "Type": "Burn",
+	  "Address": []
+       }
+    ]
+ },
+  "Explorer": {
+    "Indexer": {
+      "ApiUrl": "https://explorer.cyberyen.org/api",
+      "DocUrl": "https://explorer.cyberyen.org/info"
+    },
+    "Currency": {
+      "ApiUrl": "",
+      "AutoConvert": false
+    },
+    "Ticker": {
+      "WebUrl": "https://coinpaprika.com/coin/cy-cyberyen/",
+      "ApiUrl": "https://api.coinpaprika.com/v1/tickers/cy-cyberyen",
+      "PricePath": "quotes.CY.price",
+      "PricePathBTC": "quotes.CY.price",
+      "PricePathUSD": "quotes.USD.price",
+      "PercentagePath": "quotes.CY.percent_change_1h",
+      "IsBitcoinPrice": true
+    },
+    "Setup": {
+      "Title": "Cyberyen Explorer",
+      "Footer": "Cyberyen: A Peer-to-Peer Decentralized Digital Payment System",
+      "Links": [
+	{
+	  "icon": "fab fa-github",
+	  "url": "https://github.com/cyberyen/cyberyen"
+	},
+	{
+	  "icon": "fas fa-link",
+	  "url": "https://cyberyen.org/"
+	}
+      ]
+    },
+    "Features": {
+      "POSWeight": false
+    }
+  }
+}
