@@ -14,7 +14,7 @@ services:
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: swaps.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
-      ASPNETCORE_URLS: https://+:5500
+      ASPNETCORE_URLS: http://+:5500
       Logging__LogLevel__Default: Debug
     restart: unless-stopped
     #ports:
