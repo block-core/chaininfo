@@ -1,7 +1,10 @@
 version: "2.4"
 
-services:
-  
+volumes:
+  database:
+    name: swap-db
+
+services:  
   blockcore-swaps:
     container_name: blockcore-atomicswaps
     image: blockcore/atomicswaps:0.0.18
@@ -16,9 +19,12 @@ services:
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:5500
       Logging__LogLevel__Default: Debug
+      DataConfig__UseDefaultPath: "true"
     restart: unless-stopped
     #ports:
       #- "5500:5500"
+    volumes:
+      - database:/root/.atomicswaps
     networks:
       - proxy
 networks:
