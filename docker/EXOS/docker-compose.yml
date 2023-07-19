@@ -15,7 +15,7 @@ services:
   indexer:
     container_name: exos-indexer
     image: blockcore/indexer:0.2.44
-    mem_limit: 3072m
+    mem_limit: 4096m
     cpus: 2.000
     environment:
       VIRTUAL_HOST: exos.indexer.blockcore.net
@@ -61,7 +61,7 @@ services:
   mongo:
     container_name: exos-mongo
     image: mongo:5.0.12
-    mem_limit: 3072m
+    mem_limit: 4096m
     cpus: 2.000
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
