@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: rsc-indexer
-    image: blockcore/indexer:0.2.43
+    image: blockcore/indexer:0.2.50
     mem_limit: 2048m
     cpus: 1.000
     environment:
