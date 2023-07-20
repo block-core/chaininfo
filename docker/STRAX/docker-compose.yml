@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: strax-indexer
-    image: blockcore/indexer:0.2.44
+    image: blockcore/indexer:0.2.50
     mem_limit: 4096m
     cpus: 2.50
     environment:

@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: mol-indexer
-    image: blockcore/indexer:0.2.40
+    image: blockcore/indexer:0.2.50
     mem_limit: 2048m
     cpus: 1.500
     environment:

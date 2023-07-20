@@ -13,7 +13,7 @@ volumes:
 services:
   indexer:
     container_name: tbtc-indexer
-    image: blockcore/indexer:0.2.49
+    image: blockcore/indexer:0.2.50
     mem_limit: 1024m
     cpus: 0.200
     environment:

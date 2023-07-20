@@ -14,7 +14,7 @@ services:
 
   indexer:
     container_name: ruta-indexer
-    image: blockcore/indexer:0.2.44
+    image: blockcore/indexer:0.2.50
     mem_limit: 1024m
     cpus: 0.200
     environment:
