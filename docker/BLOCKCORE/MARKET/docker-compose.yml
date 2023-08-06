@@ -1,0 +1,53 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: market-db
+
+services:
+  market:
+    container_name: blockcore-market
+    image: blockcore/market:latest
+    mem_limit: 256m
+    cpus: 0.500
+    environment:
+      VIRTUAL_HOST: market.blockcore.net,market.city-chain.org
+      VIRTUAL_PORT: 5050
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: market.blockcore.net,market.city-chain.org
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    restart: unless-stopped
+    depends_on:
+      market-db:
+        condition: service_healthy
+    networks:
+      - marketnetwork
+      - proxy
+
+  market-db:
+    container_name: blockcore-market-db
+    image: mongo:5.0.12
+    mem_limit: 1024m
+    cpus: 1.000
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo market-db:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
+    stop_grace_period: 5m
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+    networks:
+      - marketnetwork
+
+networks:
+  marketnetwork:
+    external: false
+    name: marketnetwork
+  proxy:
+    external: true
+    name: proxy
