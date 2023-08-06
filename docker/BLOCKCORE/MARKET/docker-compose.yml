@@ -17,6 +17,8 @@ services:
       VIRTUAL_NETWORK: proxy
       LETSENCRYPT_HOST: market.blockcore.net,market.city-chain.org
       LETSENCRYPT_EMAIL: admin@blockcore.net
+      MARKET_DATABASE: mongodb://market-db:27017
+      PORT: 5050
     restart: unless-stopped
     depends_on:
       market-db:
