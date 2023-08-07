@@ -7,7 +7,7 @@ volumes:
 services:
   market:
     container_name: blockcore-market
-    image: blockcore/market:0.0.5
+    image: blockcore/market:0.0.6
     mem_limit: 256m
     cpus: 0.500
     environment:
