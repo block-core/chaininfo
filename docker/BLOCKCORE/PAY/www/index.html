@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Payment</title>
+    <script src="https://unpkg.com/@blockcore/widget/blockcore-widget.mjs"></script>
+    <style>
+      body {
+        background-color: silver;
+        color: rgb(32, 32, 32);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      blockcore-widget {
+        background-color: white;
+        display: inline-block;
+        border-radius: 5px;
+        padding: 1em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <blockcore-widget
+      color="#DFAB3C"
+      network="CITY"
+      amount=" "
+      address=" "
+      message=" "
+      label=" "
+      data=" "
+      id=" "
+    ></blockcore-widget>
+
+    <script>
+      const widget = document.querySelector("blockcore-widget");
+
+      if (widget) {
+        const urlParams = new URLSearchParams(window.location.search);
+        widget.amount = urlParams.get("amount") ?? " ";
+        widget.color = urlParams.get("color") ?? " ";
+        widget.network = urlParams.get("network") ?? " ";
+        widget.address = urlParams.get("address") ?? " ";
+        widget.message = urlParams.get("message") ?? " ";
+        widget.label = urlParams.get("label") ?? " ";
+        widget.data = urlParams.get("data") ?? " ";
+        widget.id = urlParams.get("id") ?? " ";
+      }
+    </script>
+  </body>
+</html>
