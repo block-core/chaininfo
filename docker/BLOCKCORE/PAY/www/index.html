@@ -19,22 +19,14 @@
   </head>
 
   <body>
-    <blockcore-widget
-      color="#DFAB3C"
-      network="CITY"
-      amount=" "
-      address=" "
-      message=" "
-      label=" "
-      data=" "
-      id=" "
-    ></blockcore-widget>
+    <blockcore-widget></blockcore-widget>
 
     <script>
       const widget = document.querySelector("blockcore-widget");
 
       if (widget) {
         const urlParams = new URLSearchParams(window.location.search);
+
         widget.amount = urlParams.get("amount") ?? " ";
         widget.color = urlParams.get("color") ?? " ";
         widget.network = urlParams.get("network") ?? " ";
