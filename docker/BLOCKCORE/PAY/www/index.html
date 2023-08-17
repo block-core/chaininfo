@@ -1,40 +1,66 @@
 <html>
   <head>
     <title>Payment</title>
-    <script src="https://unpkg.com/@blockcore/widget/blockcore-widget.mjs"></script>
+    <script type="module" src="https://unpkg.com/@blockcore/widget/blockcore-widget.mjs"></script>
     <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
         background-color: silver;
         color: rgb(32, 32, 32);
         font-family: Arial, Helvetica, sans-serif;
       }
 
+      .widget-container {
+        display: grid;
+        place-items: center; /* Shortcut for two below */
+        /* align-items: center;
+        justify-content: center; */
+        height: 100%;
+      }
+
+      html {
+        /* --foreground: black;
+        --background: white;
+        --accent: #dfab3c;
+
+        --radius: 20px;
+        --depth: 15px; */
+      }
+
       blockcore-widget {
-        background-color: white;
+        /* background-color: white;
         display: inline-block;
         border-radius: 5px;
         padding: 1em;
+        margin-bottom: 2em; */
       }
     </style>
   </head>
 
   <body>
-    <blockcore-widget></blockcore-widget>
-
+    <div class="widget-container">
+      <blockcore-widget></blockcore-widget>
+    </div>
     <script>
       const widget = document.querySelector("blockcore-widget");
 
       if (widget) {
         const urlParams = new URLSearchParams(window.location.search);
 
-        widget.amount = urlParams.get("amount") ?? " ";
-        widget.color = urlParams.get("color") ?? " ";
-        widget.network = urlParams.get("network") ?? " ";
-        widget.address = urlParams.get("address") ?? " ";
-        widget.message = urlParams.get("message") ?? " ";
-        widget.label = urlParams.get("label") ?? " ";
-        widget.data = urlParams.get("data") ?? " ";
-        widget.id = urlParams.get("id") ?? " ";
+        widget.amount = urlParams.get("amount") ?? "";
+        widget.color = urlParams.get("color") ?? "";
+        widget.network = urlParams.get("network") ?? "";
+        widget.address = urlParams.get("address") ?? "";
+        widget.message = urlParams.get("message") ?? "";
+        widget.label = urlParams.get("label") ?? "";
+        widget.data = urlParams.get("data") ?? "";
+        widget.reference = urlParams.get("reference") ?? "";
       }
     </script>
   </body>
