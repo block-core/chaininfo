@@ -1,0 +1,31 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: dwn-db
+
+services:
+  dwn:
+    container_name: blockcore-dwn
+    image: ghcr.io/tbd54566975/dwn-server:dwn-sdk-0.2.1
+    mem_limit: 256m
+    cpus: 0.500
+    environment:
+      VIRTUAL_HOST: dwn.blockcore.net
+      VIRTUAL_PORT: 3000
+      VIRTUAL_NETWORK: proxy
+      VIRTUAL_PROTO: http
+      LETSENCRYPT_HOST: dwn.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    restart: unless-stopped
+    volumes:
+      - database:/dwn-server/data
+    env_file:
+      - .env
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+    name: proxy
