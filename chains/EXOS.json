@@ -66,8 +66,8 @@
  },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://exos.indexer.blockcore.net/api",
-      "DocUrl": "https://exos.indexer.blockcore.net/docs"
+      "ApiUrl": "https://exosindexer.openexo.com//api",
+      "DocUrl": "https://exosindexer.openexo.com//docs"
     },
     "Currency": {
       "ApiUrl": "",
