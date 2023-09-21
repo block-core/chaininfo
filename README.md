@@ -23,7 +23,7 @@ Feel free to go ahead and duplicate one of the existing configurations for a cha
 To deploy and run the indexer and explorer, you need a computer with Docker. As long as Docker (Linux/Windows) is supported, you should be able to run your own Blockcore Infrastructure Server (BIS).
 
 
-### Ubuntu 19.10
+### Ubuntu 22.04
 
 ```sh
 sudo apt update
@@ -47,8 +47,11 @@ Then apply executable permissoins:
 ```sh
 sudo chmod +x /usr/local/bin/docker-compose
 ```
-
-
+To create a cgroup directory with systemd, copy and paste the following two commands:
+```sh
+sudo mkdir /sys/fs/cgroup/systemd
+sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
+```
 ### Reverse Proxy (route DNS to containers)
 
 Next step is to navigate to the docker/SERVER folder.
