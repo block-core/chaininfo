@@ -1,0 +1,57 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: hub-db
+
+services:
+  hub:
+    container_name: free-city-hub
+    image: blockcore/free-city-hub:latest
+    mem_limit: 256m
+    cpus: 0.500
+    environment:
+      VIRTUAL_HOST: hub.freeplatform.city
+      VIRTUAL_PORT: 5050
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: hub.freeplatform.city
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      HUB_DATABASE: mongodb://hub-db:27017
+      PORT: 5050
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      hub-db:
+        condition: service_healthy
+    networks:
+      - hubnetwork
+      - proxy
+
+  hub-db:
+    container_name: free-city-hub-db
+    image: mongo:5.0.12
+    mem_limit: 1024m
+    cpus: 1.000
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo hub-db:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
+    stop_grace_period: 5m
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+    networks:
+      - hubnetwork
+
+networks:
+  hubnetwork:
+    external: false
+    name: hubnetwork
+  proxy:
+    external: true
+    name: proxy
