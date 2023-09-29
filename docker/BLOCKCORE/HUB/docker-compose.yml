@@ -6,8 +6,8 @@ volumes:
 
 services:
   hub:
-    container_name: free-city-hub
-    image: blockcore/free-city-hub:latest
+    container_name: blockcore-hub
+    image: blockcore/blockcore-hub:latest
     mem_limit: 256m
     cpus: 0.500
     environment:
@@ -30,7 +30,7 @@ services:
       - proxy
 
   hub-db:
-    container_name: free-city-hub-db
+    container_name: blockcore-hub-db
     image: mongo:5.0.12
     mem_limit: 1024m
     cpus: 1.000
