@@ -60,7 +60,7 @@ services:
         "-rpcbind=0.0.0.0",
         "-rpcuser=rpcuser",
         "-rpcpassword=rpcpassword",
-        "-assumedvalid=00000000000000000004bac129769598d1fad2b42859e625729661a32b9c3e71",
+        "-assumevalid=000000000000000000039f849372dbe650f8b9a17e7aba7a8e022aaf41280b8d",
       ]
     restart: on-failure
     stop_grace_period: 15m30s
