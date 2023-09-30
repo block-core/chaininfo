@@ -7,7 +7,7 @@ volumes:
 services:
   hub:
     container_name: blockcore-hub
-    image: blockcore/blockcore-hub:0.0.2
+    image: blockcore/blockcore-hub:0.0.3
     mem_limit: 256m
     cpus: 0.500
     environment:
