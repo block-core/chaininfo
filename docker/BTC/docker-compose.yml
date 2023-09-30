@@ -40,7 +40,7 @@ services:
     mem_limit: 8192m
     cpus: 2.000
     healthcheck:
-      test: curl --fail http://localhost:37220/api/Node/status || exit 1
+      test: "curl --fail --user rpcuser:rpcpassword --data-binary '{\"jsonrpc\": \"1.0\", \"id\": \"curltest\", \"method\": \"getblockchaininfo\", \"params\": []}' -H 'content-type: text/plain;' http://localhost:8332/ || exit 1"
       interval: 10s
       retries: 5
       start_period: 5s
