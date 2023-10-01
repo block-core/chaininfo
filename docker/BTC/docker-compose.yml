@@ -42,7 +42,7 @@ services:
     healthcheck:
       test: curl --fail http://localhost:8332/rest/chaininfo.json || exit 1
       interval: 10s
-      retries: 20
+      retries: 10
       start_period: 5s
       timeout: 10s
     command:
