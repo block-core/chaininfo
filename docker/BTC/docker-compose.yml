@@ -27,8 +27,8 @@ services:
     depends_on:
       mongo:
         condition: service_healthy
-      chain:
-        condition: service_healthy
+      # chain:
+      #   condition: service_healthy
     networks:
       - btcnetwork
       - proxy
