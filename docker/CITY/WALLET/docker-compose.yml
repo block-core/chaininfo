@@ -7,11 +7,11 @@ services:
     mem_limit: 256m
     cpus: 0.200
     environment:
-      VIRTUAL_HOST: wallet.city-chain.org,wallet.liberstad.com
+      VIRTUAL_HOST: wallet.city-chain.org,wallet.liberstad.com,wallet.freeplatform.city
       VIRTUAL_PORT: 80
       VIRTUAL_NETWORK: proxy
       VIRTUAL_PROTO: http
-      LETSENCRYPT_HOST: wallet.city-chain.org,wallet.liberstad.com
+      LETSENCRYPT_HOST: wallet.city-chain.org,wallet.liberstad.com,wallet.freeplatform.city
       LETSENCRYPT_EMAIL: admin@blockcore.net
     restart: unless-stopped
     volumes:
