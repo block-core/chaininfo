@@ -1,4 +1,4 @@
-INSTANCE="smartcityplatform"
+INSTANCE="freecity"
 VERSION=$1
 
 echo "Blockcore Wallet // Hosting instance type: \"$INSTANCE\" and version \"$VERSION\"";
