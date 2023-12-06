@@ -15,7 +15,7 @@ services:
   indexer:
     container_name: x42-indexer
     image: blockcore/indexer:0.2.50
-    mem_limit: 3072m
+    mem_limit: 4096m
     cpus: 1.500
     environment:
       VIRTUAL_HOST: x42.indexer.blockcore.net
@@ -61,7 +61,7 @@ services:
   mongo:
     container_name: x42-mongo
     image: mongo:5.0.12
-    mem_limit: 3072m
+    mem_limit: 4096m
     cpus: 1.500
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
