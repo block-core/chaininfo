@@ -1,0 +1,57 @@
+version: "2.4"
+
+volumes:
+  database:
+    name: issuer-db
+
+services:
+  issuer:
+    container_name: blockcore-issuer-service
+    image: blockcore/blockcore-issuer-service:0.0.1
+    mem_limit: 256m
+    cpus: 0.500
+    environment:
+      VIRTUAL_HOST: issuer.blockcore.net
+      VIRTUAL_PORT: 5050
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: issuer.blockcore.net
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+      ISSUER_DATABASE: mongodb://issuer-db:27017
+      PORT: 5050
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      issuer-db:
+        condition: service_healthy
+    networks:
+      - issuernetwork
+      - proxy
+
+  issuer-db:
+    container_name: blockcore-issuer-db
+    image: mongo:5.0.12
+    mem_limit: 1024m
+    cpus: 1.000
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo issuer-db:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
+    stop_grace_period: 5m
+    volumes:
+      - database:/data/db
+      - database:/data/configdb
+    networks:
+      - issuernetwork
+
+networks:
+  issuernetwork:
+    external: false
+    name: issuernetwork
+  proxy:
+    external: true
+    name: proxy
