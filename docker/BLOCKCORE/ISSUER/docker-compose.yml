@@ -7,7 +7,7 @@ volumes:
 services:
   issuer:
     container_name: blockcore-issuer-service
-    image: blockcore/blockcore-issuer-service:0.0.1
+    image: blockcore/blockcore-issuer-service:0.0.2
     mem_limit: 256m
     cpus: 0.500
     environment:
