@@ -36,8 +36,8 @@
  },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://tbtc.indexer.coinvault.io/api",
-      "DocUrl": "https://tbtc.indexer.coinvault.io/docs"
+      "ApiUrl": "https://tbtc.indexer.angor.io/api",
+      "DocUrl": "https://tbtc.indexer.angor.io/docs"
     },
     "Currency": {
       "ApiUrl": "",
