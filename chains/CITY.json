@@ -103,8 +103,8 @@
  },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://city.indexer.blockcore.net/api",
-      "DocUrl": "https://city.indexer.blockcore.net/docs"
+      "ApiUrl": "https://city.indexer.seniorblockchain.io/api",
+      "DocUrl": "https://city.indexer.seniorblockchain.io/docs"
     },
     "Currency": {
       "ApiUrl": "https://api.coincap.io/v2/rates",
