@@ -6,17 +6,6 @@
       "coin": "bitcoin"
    },
    {
-      "name": "Cirrus",
-      "symbol": "CRS",
-      "icon": "https://chains.blockcore.net/assets/CRS/icon.png",
-      "coin": "cirrus"
-   },
-   {
-      "name": "CirrusTest",
-      "symbol": "TCRS",
-      "icon": "https://chains.blockcore.net/assets/CRS/icon.png"
-   },
-   {
       "name": "City Chain",
       "symbol": "CITY",
       "icon": "https://chains.blockcore.net/assets/CITY/icon.png",
@@ -63,17 +52,6 @@
       "name": "SERF",
       "symbol": "SERF",
       "icon": "https://chains.blockcore.net/assets/SERF/icon.png"
-   },
-   {
-      "name": "Stratis",
-      "symbol": "STRAX",
-      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png",
-      "coin": "stratis"
-   },
-   {
-      "name": "StratisTest",
-      "symbol": "TSTRAX",
-      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
    },
    {
       "name": "X42",
