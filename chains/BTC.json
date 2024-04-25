@@ -36,8 +36,8 @@
  },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://btc.indexer.blockcore.net/api",
-      "DocUrl": "https://btc.indexer.blockcore.net/docs"
+      "ApiUrl": "https://btc.indexer.angor.io/api",
+      "DocUrl": "https://btc.indexer.angor.io/docs"
     },
     "Currency": {
       "ApiUrl": "https://api.coincap.io/v2/rates",
