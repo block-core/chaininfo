@@ -103,8 +103,8 @@
  },
   "Explorer": {
     "Indexer": {
-      "ApiUrl": "https://city.indexer.seniorblockchain.io/api",
-      "DocUrl": "https://city.indexer.seniorblockchain.io/docs"
+      "ApiUrl": "https://indexer.city.kyllian.dev/api",
+      "DocUrl": "https://indexer.city.kyllian.dev/docs"
     },
     "Currency": {
       "ApiUrl": "https://api.coincap.io/v2/rates",
