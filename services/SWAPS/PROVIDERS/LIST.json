@@ -10,11 +10,5 @@
         "Url": "https://swaps.coinvault.io",
         "Logo": "https://chains.blockcore.net/services/SWAPS/PROVIDERS/LOGOS/COINVAULT.png",
         "Contact": "post@coinvault.io"
-    },
-    {
-        "Name": "Seniorblockchain",
-        "Url": "https://swaps.seniorblockchain.io",
-        "Logo": "https://chains.blockcore.net/services/SWAPS/PROVIDERS/LOGOS/SENIORBLOCKCHAIN.png",
-        "Contact": "post@seniorblockchain.io"
     }
 ]
