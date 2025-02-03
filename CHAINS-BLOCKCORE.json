@@ -6,43 +6,10 @@
       "coin": "bitcoin"
    },
    {
-      "name": "Cirrus",
-      "symbol": "CRS",
-      "icon": "https://chains.blockcore.net/assets/CRS/icon.png",
-      "coin": "cirrus"
-   },
-   {
-      "name": "CirrusTest",
-      "symbol": "TCRS",
-      "icon": "https://chains.blockcore.net/assets/CRS/icon.png"
-   },
-   {
       "name": "City Chain",
       "symbol": "CITY",
       "icon": "https://chains.blockcore.net/assets/CITY/icon.png",
       "coin": "city-coin"
-   },
-   {
-      "name": "Cybits",
-      "symbol": "CY",
-      "icon": "https://chains.blockcore.net/assets/CY/icon.png"
-   },
-   {
-      "name": "Impleum",
-      "symbol": "IMPLX",
-      "icon": "https://chains.blockcore.net/assets/IMPLX/icon.png",
-      "coin": "impleum"
-   },
-   {
-      "name": "Molie",
-      "symbol": "MOL",
-      "icon": "https://chains.blockcore.net/assets/MOL/icon.png",
-      "coin": "molie"
-   },
-   {
-      "name": "OpenExO",
-      "symbol": "EXOS",
-      "icon": "https://chains.blockcore.net/assets/EXOS/icon.png"
    },
    {
       "name": "Royal",
@@ -50,42 +17,8 @@
       "icon": "https://chains.blockcore.net/assets/RSC/icon.png"
    },
    {
-      "name": "Rutanio",
-      "symbol": "RUTA",
-      "icon": "https://chains.blockcore.net/assets/RUTA/icon.png"
-   },
-   {
       "name": "Senior",
       "symbol": "SBC",
       "icon": "https://chains.blockcore.net/assets/SBC/icon.png"
-   },
-   {
-      "name": "SERF",
-      "symbol": "SERF",
-      "icon": "https://chains.blockcore.net/assets/SERF/icon.png"
-   },
-   {
-      "name": "Stratis",
-      "symbol": "STRAX",
-      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png",
-      "coin": "stratis"
-   },
-   {
-      "name": "StratisTest",
-      "symbol": "TSTRAX",
-      "icon": "https://chains.blockcore.net/assets/STRAX/icon.png"
-   },
-   {
-      "name": "X42",
-      "symbol": "X42",
-      "icon": "https://chains.blockcore.net/assets/X42/icon.png",
-      "filter": true,
-      "coin": "x42-protocol"
-   },
-   {
-      "name": "xRhodium",
-      "symbol": "XRC",
-      "icon": "https://chains.blockcore.net/assets/XRC/icon.png",
-      "coin": "bitcoin-rhodium"
    }
 ]
