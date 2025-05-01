@@ -39,7 +39,7 @@ services:
 
   chain:
     container_name: exos-chain
-    image: blockcore/node-multi:1.1.53
+    image: blockcore/node-multi:1.2.61
     mem_limit: 6144m
     cpus: 2.000
     healthcheck:
@@ -104,7 +104,7 @@ networks:
 
   # tipbot-chain:
   #   container_name: exos-tipbot-chain
-  #   image: blockcore/node-multi:1.1.53
+  #   image: blockcore/node-multi:1.2.61
   #   mem_limit: 6144m
   #   cpus: 0.200
   #   healthcheck:
