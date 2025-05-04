@@ -175,7 +175,7 @@ services:
 
   chain:
     container_name: city-chain
-    image: blockcore/node-multi:1.2.61
+    image: blockcore/node-multi:1.2.62
     mem_limit: 6144m
     cpus: 1.500
     healthcheck:
@@ -233,7 +233,7 @@ services:
 
   tipbot-chain:
     container_name: city-tipbot-chain
-    image: blockcore/node-multi:1.2.61
+    image: blockcore/node-multi:1.2.62
     mem_limit: 6144m
     cpus: 0.200
     healthcheck:
